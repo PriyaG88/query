@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} class="session-form-class">
+      <form onSubmit={this.handleSubmit} className="session-form-class">
         Welcome to Query!
         {this.navLink()}
         {this.renderErrors()}
