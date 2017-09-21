@@ -24825,15 +24825,6 @@ var App = function App() {
     _react2.default.createElement(
       'header',
       null,
-      _react2.default.createElement(
-        _reactRouterDom.Link,
-        { to: '/' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Query'
-        )
-      ),
       _react2.default.createElement(_greeting_container2.default, null)
     ),
     _react2.default.createElement(_route_util.AuthRoute, { path: '/login', component: _session_form_container2.default }),
@@ -32575,15 +32566,6 @@ var SessionForm = function (_React$Component) {
       }
     }
   }, {
-    key: 'navLink',
-    value: function navLink() {
-      if (this.props.formType === 'login') {
-        return _react2.default.createElement(_reactRouterDom.Link, { to: '/signup' });
-      } else {
-        return _react2.default.createElement(_reactRouterDom.Link, { to: '/login' });
-      }
-    }
-  }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -32600,48 +32582,46 @@ var SessionForm = function (_React$Component) {
       };
     }
   }, {
-    key: 'renderErrors',
-    value: function renderErrors() {
-      return _react2.default.createElement(
-        'ul',
-        null,
-        this.props.errors.map(function (err) {
-          return _react2.default.createElement(
-            'li',
-            null,
-            err
-          );
-        })
-      );
-    }
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { onSubmit: this.handleSubmit, className: 'session-form-class' },
-        'Welcome to Query!',
-        this.navLink(),
-        this.renderErrors(),
+        'div',
+        { className: 'session-form-container' },
         _react2.default.createElement(
-          'label',
-          null,
-          'Username:',
-          _react2.default.createElement('input', { type: 'text',
-            value: this.state.username,
-            onChange: this.update('username')
-          })
-        ),
-        _react2.default.createElement(
-          'label',
-          null,
-          'Password:',
-          _react2.default.createElement('input', { type: 'password',
-            value: this.state.password,
-            onChange: this.update('password')
-          })
-        ),
-        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+          'form',
+          { onSubmit: this.handleSubmit, className: 'session-form' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'main-logo' },
+            'Query'
+          ),
+          _react2.default.createElement(
+            'h5',
+            { className: 'tagline' },
+            'A place to find an answer for those burning questions'
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Username:',
+            _react2.default.createElement('input', {
+              type: 'text',
+              value: this.state.username,
+              onChange: this.update('username') })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Password:',
+            _react2.default.createElement('input', {
+              type: 'password',
+              value: this.state.password,
+              onChange: this.update('password') })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+        )
       );
     }
   }]);

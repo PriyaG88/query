@@ -33,6 +33,29 @@
      background-image: url('quora.png');
    }
 
-   form {
-     justify-content: center;
+   .session-form-container {
+     text-align: center;
+     padding-top: 60px;
+   }
+
+   .session-form {
+     display: inline-block;
+     padding: 50px;
+     background-color: white;
+
+   }
+
+   .main-logo {
+     color: #c40d26;
+     font-family: 'Libre Baskerville', serif;
+     font-size: 70px;
+   }
+
+   .tagline {
+     color:#778899;
+     font-family: 'Libre Baskerville', serif;
+   }
+
+   .form-submit {
+
    }

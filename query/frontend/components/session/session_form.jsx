@@ -17,14 +17,6 @@ class SessionForm extends React.Component {
     }
   }
 
-  navLink() {
-    if (this.props.formType === 'login') {
-      return <Link to="/signup"></Link>;
-    } else {
-      return <Link to="/login"></Link>;
-    }
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
@@ -37,38 +29,31 @@ class SessionForm extends React.Component {
     };
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        { this.props.errors.map(err => (
-          <li>{err}</li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="session-form-class">
-        Welcome to Query!
-        {this.navLink()}
-        {this.renderErrors()}
-        <label>Username:
-          <input type="text"
-            value={this.state.username}
-            onChange={this.update('username')}
-          >
-          </input>
-        </label>
-        <label>Password:
-          <input type="password"
-            value={this.state.password}
-            onChange={this.update('password')}
-          >
-          </input>
-        </label>
-        <input type="submit" value="Submit"></input>
-      </form>
+      <div className="session-form-container">
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <h1 className='main-logo'>Query</h1>
+          <h5 className='tagline'>A place to find an answer for those burning questions</h5>
+          <label>
+            Username:
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.update('username')} />
+          </label>
+          <br/>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update('password')}/>
+          </label>
+          <br/>
+          <input type="submit" value="Submit"></input>
+        </form>
+      </div>
     );
   }
 }

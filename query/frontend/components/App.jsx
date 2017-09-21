@@ -9,9 +9,6 @@ import SessionFormContainer from './session/session_form_container';
 const App = () => (
   <div>
     <header>
-      <Link to="/">
-        <h1>Query</h1>
-      </Link>
       <GreetingContainer />
     </header>
     <AuthRoute path="/login" component={SessionFormContainer} />
