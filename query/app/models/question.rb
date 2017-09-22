@@ -14,6 +14,7 @@ class Question < ApplicationRecord
   validates :body, :user_id, :topic, presence: true
   validates :body, length: { minimum: 3 }
 
-  has_many :topics
+  has_many :topics,
+  through: :followed_topic
 
 end

@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(username: "sillysally1", password: "password")
+User.create(username: "hp4lyfe", password: "gillywater")
+
+Question.create(body: "Why can't people just get along?", user_id: 2, topic: "behavior")
+Question.create(body: "What would have happened if Neville Longbottom was decided to be the 'chosen one'?", user_id: 3, topic: "Harry Potter")
+Question.create(body: "Coke or pepsi?", user_id: 2, topic: "Survey")

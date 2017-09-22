@@ -10,4 +10,5 @@
 #
 
 class FollowedTopic < ApplicationRecord
+  validates :user_id, topic_id, presence: true
 end
