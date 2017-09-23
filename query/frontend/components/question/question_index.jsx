@@ -1,8 +1,7 @@
 import React from 'react';
 import QuestionIndexItem from './question_index_item';
 
-class QuestonIndex extends React.Component {
-
+class QuestionIndex extends React.Component {
   componentDidMount() {
     this.props.fetchQuestions();
   }
@@ -10,10 +9,16 @@ class QuestonIndex extends React.Component {
   render() {
     return (
       <div>
-        {this.props.questions.map(question => (
-          <QuestionIndexItem question={question} />
-        ))}
+        <ul>
+          {this.props.questions.map(question => (
+            <QuestionIndexItem
+              key={question.id}
+              question={question} />
+          ))}
+        </ul>
       </div>
     );
   }
 }
+
+export default QuestionIndex;

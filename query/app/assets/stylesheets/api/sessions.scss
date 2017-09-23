@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  font-family: 'sans-serif';
+.background-container {
   background-image: url('quora.png');
+  height: 966px;
+  width: 1400px;
 }
 
 .session-form-container {
@@ -98,4 +99,12 @@ body {
   color: #fff;
   border: 1px solid #3a66ad;
   margin-bottom: 20px;
+}
+
+.login-errors, .signup-errors {
+  float: right;
+  color: red;
+  // border: 1px solid #b92b27;
+  // border-radius: 4px;
+  // padding: 8px;
 }

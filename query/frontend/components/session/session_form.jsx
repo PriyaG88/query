@@ -16,14 +16,20 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form-container">
-        <h1 className='main-logo'>Query</h1>
-        <h5 className='tagline'>A place to find an answer for those burning questions</h5>
-        <div className="login-form-container">
-          <LoginForm login={this.props.login}/>
-        </div>
-        <div className="signup-form-container">
-          <SignupForm signup={this.props.signup}/>
+      <div className="background-container">
+        <div className="session-form-container">
+          <h1 className='main-logo'>Query</h1>
+          <h5 className='tagline'>A place to find an answer for those burning questions</h5>
+          <div className="login-form-container">
+            <LoginForm
+              login={this.props.login}
+              errors={this.props.errors}/>
+          </div>
+          <div className="signup-form-container">
+            <SignupForm
+              signup={this.props.signup}
+              errors={this.props.errors}/>
+          </div>
         </div>
       </div>
     );

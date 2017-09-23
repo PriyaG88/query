@@ -22,10 +22,23 @@ class SignupForm extends React.Component {
     };
   }
 
+  displayErrors() {
+    return(
+      <ul className="signup-errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className="signup-form-box">
         <form onSubmit={this.handleSubmit}>
+          {this.displayErrors()}
           <h6 id="signup-header">Sign Up</h6>
           <label>
             <input
@@ -46,6 +59,7 @@ class SignupForm extends React.Component {
           </label>
           <br/>
           <input id="signup-button" type="submit" value="Sign Up" />
+
         </form>
       </div>
     );

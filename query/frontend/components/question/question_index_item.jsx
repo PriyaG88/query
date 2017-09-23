@@ -1,19 +1,16 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-class Question {
-  constructor(props) {
-    super(props);
-    this.question = this.props.question;
-  }
+const QuestionIndexItem = ({ question }) => {
 
-  render() {
-    return (
-      <div>
-        <Link to={`/questions/${this.question.id}`}>
-          {this.question.body}
-        </Link>
+  return (
+    <li>
+      <Link to={`/questions/${question.id}`}>
+        {question.body}
+      </Link>
+    </li>
+  );
+};
 
-      </div>
-    );
-  }
-}
+
+export default QuestionIndexItem;

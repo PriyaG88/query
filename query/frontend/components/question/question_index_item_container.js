@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import QuestionIndexItem from './question_inde_item';
+import QuestionIndexItem from './question_index_item';
 import { updateQuestion, deleteQuestion } from '../../actions/question_actions';
 
 const mapStateToProps = state => ({

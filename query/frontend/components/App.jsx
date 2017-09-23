@@ -4,14 +4,16 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './session/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
-
+import QuestionIndexContainer from './question/question_index_container';
 
 const App = () => (
   <div>
     <Switch>
       <AuthRoute path="/" component={SessionFormContainer} />
     </Switch>
+    <ProtectedRoute path="/questions" component={QuestionIndexContainer} />
     <ProtectedRoute path="/" component={NavBarContainer} />
+
 
   </div>
 );

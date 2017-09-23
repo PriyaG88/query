@@ -1,4 +1,6 @@
-json.array! @questions do |question|
-  json.user_id question.user_id
-  json.question question.body
-end
+
+  @questions.each do |question|
+    json.set! question.id do
+      json.extract! question, :id, :body, :user_id
+    end
+  end
