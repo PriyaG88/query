@@ -1,9 +1,19 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import QuestionFormContainer from '../question/question_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.state = {
+    modalIsOpen: false };
+  }
+
+  toggleModal() {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen
+    });
   }
 
   handleLogout(e) {
@@ -57,9 +67,11 @@ class NavBar extends React.Component {
           <span>Notifications</span>
         </a>
 
-      <textarea className="search-input" placeholder="Search Query"></textarea>
-
+        <textarea className="search-input" placeholder="Search Query"></textarea>
+        <button onClick={this.toggleModal.bind(this)}>Ask Question</button>
+        {this.state.modalIsOpen && <QuestionFormContainer />}
         <button onClick={this.handleLogout}>Logout</button>
+
       </div>
     );
   }

@@ -10,7 +10,7 @@ class Api::QuestionsController < ApplicationController
     if @question.save
       render :show
     else
-      render json: @question.errors.full_messages
+      render json: @question.errors.full_messages, status: 422
     end
   end
 
@@ -42,6 +42,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :user_id, :topic)
   end
 end
