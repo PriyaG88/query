@@ -69,7 +69,7 @@ class NavBar extends React.Component {
 
         <textarea className="search-input" placeholder="Search Query"></textarea>
         <button onClick={this.toggleModal.bind(this)}>Ask Question</button>
-        {this.state.modalIsOpen && <QuestionFormContainer />}
+        {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
         <button onClick={this.handleLogout}>Logout</button>
 
       </div>

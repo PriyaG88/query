@@ -3,11 +3,11 @@ import { Link, withRouter } from 'react-router-dom';
 
 const QuestionIndexItem = ({ question }) => {
   return (
-    <li>
-      <Link to={`/questions/${question.id}`}>
+    <div className="question-item">
+      <Link className="question-item-link" to={`/questions/${question.id}`}>
         {question.body}
       </Link>
-    </li>
+    </div>
   );
 };
 

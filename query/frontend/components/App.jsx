@@ -9,8 +9,7 @@ import QuestionIndexContainer from './question/question_index_container';
 const App = () => (
   <div>
 
-    <ProtectedRoute exact path="/questions" component={QuestionIndexContainer} />
-    <ProtectedRoute path="/" component={NavBarContainer} />
+    <ProtectedRoute path="/" component={QuestionIndexContainer} />
     <AuthRoute path="/" component={SessionFormContainer} />
 
 

@@ -30107,8 +30107,7 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_route_util.ProtectedRoute, { exact: true, path: '/questions', component: _question_index_container2.default }),
-    _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _navbar_container2.default }),
+    _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _question_index_container2.default }),
     _react2.default.createElement(_route_util.AuthRoute, { path: '/', component: _session_form_container2.default })
   );
 };
@@ -30766,7 +30765,7 @@ var NavBar = function (_React$Component) {
           { onClick: this.toggleModal.bind(this) },
           'Ask Question'
         ),
-        this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, null),
+        this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) }),
         _react2.default.createElement(
           'button',
           { onClick: this.handleLogout },
@@ -30802,9 +30801,10 @@ var _question_form2 = _interopRequireDefault(_question_form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    toggleModal: ownProps.toggleModal
   };
 };
 
@@ -30902,6 +30902,7 @@ var QuestionForm = function (_React$Component) {
 
     console.log(props);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     _this.state = {
       body: "",
       user_id: _this.props.currentUser.id,
@@ -30916,6 +30917,13 @@ var QuestionForm = function (_React$Component) {
       e.preventDefault();
       var question = this.state;
       this.props.createQuestion(question);
+      this.props.toggleModal();
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      this.props.toggleModal();
     }
   }, {
     key: "update",
@@ -30929,7 +30937,6 @@ var QuestionForm = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       return _react2.default.createElement(
         "div",
         { id: "question-form-modal" },
@@ -30938,17 +30945,22 @@ var QuestionForm = function (_React$Component) {
           { className: "modal-content" },
           _react2.default.createElement(
             "span",
-            { className: "close" },
+            { onClick: this.handleClick, className: "close" },
             "\xD7"
           ),
           _react2.default.createElement(
             "form",
             { onSubmit: this.handleSubmit },
-            _react2.default.createElement("input", {
+            _react2.default.createElement("textarea", {
               type: "text",
               value: this.state.body,
               onChange: this.update('body'),
               placeholder: "What is your question?" }),
+            _react2.default.createElement(
+              "button",
+              { onClick: this.handleClick },
+              "Cancel"
+            ),
             _react2.default.createElement("input", { type: "submit", value: "Ask Question" })
           )
         )
@@ -31021,6 +31033,10 @@ var _question_index_item = __webpack_require__(314);
 
 var _question_index_item2 = _interopRequireDefault(_question_index_item);
 
+var _navbar_container = __webpack_require__(307);
+
+var _navbar_container2 = _interopRequireDefault(_navbar_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31048,10 +31064,11 @@ var QuestionIndex = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'question-index-container' },
+        _react2.default.createElement(_navbar_container2.default, null),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: 'question-index' },
           this.props.questions.map(function (question) {
             return _react2.default.createElement(_question_index_item2.default, {
               key: question.id,
@@ -31090,11 +31107,11 @@ var QuestionIndexItem = function QuestionIndexItem(_ref) {
   var question = _ref.question;
 
   return _react2.default.createElement(
-    'li',
-    null,
+    'div',
+    { className: 'question-item' },
     _react2.default.createElement(
       _reactRouterDom.Link,
-      { to: '/questions/' + question.id },
+      { className: 'question-item-link', to: '/questions/' + question.id },
       question.body
     )
   );

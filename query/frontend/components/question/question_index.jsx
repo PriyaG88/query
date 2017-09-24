@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionIndexItem from './question_index_item';
+import NavBarContainer from '../navbar/navbar_container';
 
 class QuestionIndex extends React.Component {
   componentDidMount() {
@@ -8,8 +9,9 @@ class QuestionIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <div className="question-index-container">
+        <NavBarContainer />
+        <ul className="question-index">
           {this.props.questions.map(question => (
             <QuestionIndexItem
               key={question.id}
