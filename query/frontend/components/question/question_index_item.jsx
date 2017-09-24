@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const QuestionIndexItem = ({ question }) => {
-
   return (
     <li>
       <Link to={`/questions/${question.id}`}>
@@ -13,4 +12,4 @@ const QuestionIndexItem = ({ question }) => {
 };
 
 
-export default QuestionIndexItem;
+export default withRouter(QuestionIndexItem);

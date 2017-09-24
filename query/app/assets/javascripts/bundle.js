@@ -30076,7 +30076,7 @@ var withRouter = function withRouter(Component) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react = __webpack_require__(4);
@@ -30104,17 +30104,13 @@ var _question_index_container2 = _interopRequireDefault(_question_index_containe
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      _reactRouterDom.Switch,
-      null,
-      _react2.default.createElement(_route_util.AuthRoute, { path: '/', component: _session_form_container2.default })
-    ),
-    _react2.default.createElement(_route_util.ProtectedRoute, { path: '/questions', component: _question_index_container2.default }),
-    _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _navbar_container2.default })
-  );
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_route_util.ProtectedRoute, { exact: true, path: '/questions', component: _question_index_container2.default }),
+        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _navbar_container2.default }),
+        _react2.default.createElement(_route_util.AuthRoute, { path: '/', component: _session_form_container2.default })
+    );
 };
 
 exports.default = App;
@@ -30932,7 +30928,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var QuestionIndexItem = function QuestionIndexItem(_ref) {
   var question = _ref.question;
 
-
   return _react2.default.createElement(
     'li',
     null,
@@ -30944,7 +30939,7 @@ var QuestionIndexItem = function QuestionIndexItem(_ref) {
   );
 };
 
-exports.default = QuestionIndexItem;
+exports.default = (0, _reactRouterDom.withRouter)(QuestionIndexItem);
 
 /***/ }),
 /* 313 */
