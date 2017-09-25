@@ -25,21 +25,21 @@ class LoginForm extends React.Component {
   }
 
   displayErrors() {
-    return(
-      <ul className="login-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.formType === this.props.errors.type) {
+      return(
+        <ul className="signup-errors">
+          {this.props.errors.errors.map((error, i) => (
+            <div>{error}</div>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
     return (
       <div className="login-form-box">
         <form onSubmit={this.handleSubmit}>
-          {this.displayErrors()}
           <h6 id="login-header">Log In</h6>
             <label>
               <input
@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
             </label>
             <br/>
             <input id="login-button" type="submit" value="Log In" />
-
+            {this.displayErrors()}
         </form>
       </div>
     );

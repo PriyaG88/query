@@ -1,11 +1,16 @@
-#header {
+.header {
+  display: flex;
   background: #fff;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 50px;
   box-sizing: border-box;
+  z-index: 800;
+  font-size: 14px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   word-wrap: break-word;
@@ -19,6 +24,70 @@
   font-size: 20px;
 }
 
-.home-icon, .answer-icon, .notification-icon, .header-logo {
-  justify-content: space-between;
+.icon-name {
+  display: table-cell;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-icon {
+  vertical-align: -webkit-baseline-middle;
+}
+
+.nav-item-link {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 50px;
+  padding: 0 14px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.header-nav-item {
+  text-decoration: none;
+  position: relative;
+  float: left;
+
+}
+
+.header-nav-item:hover {
+  background-color: #f5f5f5;
+}
+
+.ask-question-btn {
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
+  display: inline-block;
+  font-weight: 500;
+  outline: 0;
+  padding: 3px 7px 4px 7px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #962520;
+  background: #b92b27;
+  color: #fff;
+  margin-left: 26px;
+  margin-right: 26px;
+}
+
+.search-input {
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  padding-left: 26px;
+  background: url(//qsf.ec.quoracdn.net/-3-images.new_grid.QuoraSearch.png-26-cadc30f3f88e3504.png) no-repeat 8px center;
+  background-size: 13px;
+}
+
+.search-input.text {
+  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3);
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 1.4;
 }

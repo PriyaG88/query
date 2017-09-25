@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import LoginForm from './login_form';
-import SignupForm from './signup_form';
+import LoginFormContainer from './login_form_container';
+import SignupFormContainer from './signup_form_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -19,16 +19,12 @@ class SessionForm extends React.Component {
       <div className="background-container">
         <div className="session-form-container">
           <h1 className='main-logo'>Query</h1>
-          <h5 className='tagline'>A place to find an answer for those burning questions</h5>
+          <h5 className='tagline'>A place to find answers for those burning questions</h5>
           <div className="login-form-container">
-            <LoginForm
-              login={this.props.login}
-              errors={this.props.errors}/>
+            <LoginFormContainer/>
           </div>
           <div className="signup-form-container">
-            <SignupForm
-              signup={this.props.signup}
-              errors={this.props.errors}/>
+            <SignupFormContainer/>
           </div>
         </div>
       </div>

@@ -16,8 +16,10 @@ class QuestionIndex extends React.Component {
             <QuestionIndexItem
               key={question.id}
               question={question}
+              currentUser={this.props.currentUser}
               updateQuestion={this.props.updateQuestion}
-              deleteQuestion={this.props.deleteQuestion} />
+              deleteQuestion={this.props.deleteQuestion}
+              createAnswer={this.props.createAnswer} />
           ))}
         </ul>
       </div>

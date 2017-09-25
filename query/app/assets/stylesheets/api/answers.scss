@@ -1,3 +1,16 @@
 // Place all the styles related to the api/answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.editor {
+  stroke: #e2e2e2;
+  background-color: white;
+  white-space: pre-wrap;
+  tab-size: 4;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 44px 0 0;
+  transition: border-color .2s ease-in-out 0s;
+
+}
