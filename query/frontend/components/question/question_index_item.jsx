@@ -6,6 +6,7 @@ class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.question = this.props.question;
+    this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
       editorIsOpen: false };
   }
@@ -14,8 +15,8 @@ class QuestionIndexItem extends React.Component {
     this.setState({editorIsOpen: true});
   }
 
-  closeEditor() {
-    this.setState({editorIsOpen: false});
+  toggleEditor() {
+    this.setState({editorIsOpen: !this.state.editorIsOpen});
   }
 
   render() {
@@ -25,13 +26,13 @@ class QuestionIndexItem extends React.Component {
           <Link className="question-item-link" to={`/questions/${this.question.id}`}>
             {this.question.body}
           </Link>
-          <a className="answer-btn" onClick={this.openEditor.bind(this)}>
-            <span className="answer-button-text">Answer</span>
+          <a className="answer-btn" >
+            <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
             {this.state.editorIsOpen && <AnswerEditor
             question={this.question}
             createAnswer={this.props.createAnswer}
             currentUser={this.props.currentUser}
-            closeEditor={this.closeEditor.bind(this)}/>}
+            toggleEditor={this.toggleEditor}/>}
           </a>
         </div>
       </div>

@@ -11,6 +11,7 @@ class AnswerEditor extends React.Component {
     this.state = { editorHtml: '', theme: 'snow' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.props.toggleEditor);
 
     this.modules = {
       toolbar: [
@@ -40,14 +41,15 @@ class AnswerEditor extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+
+    console.log(this.props.closeEditor);
     const answer = {
       body: this.state.editorHtml,
       question_id: this.props.question.id,
       user_id: this.props.currentUser.id
     };
     this.props.createAnswer(answer);
-    this.props.closeEditor();
+    this.props.toggleEditor();
   }
 
   render() {

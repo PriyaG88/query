@@ -31181,6 +31181,7 @@ var QuestionIndexItem = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (QuestionIndexItem.__proto__ || Object.getPrototypeOf(QuestionIndexItem)).call(this, props));
 
     _this.question = _this.props.question;
+    _this.toggleEditor = _this.toggleEditor.bind(_this);
     _this.state = {
       editorIsOpen: false };
     return _this;
@@ -31192,9 +31193,9 @@ var QuestionIndexItem = function (_React$Component) {
       this.setState({ editorIsOpen: true });
     }
   }, {
-    key: 'closeEditor',
-    value: function closeEditor() {
-      this.setState({ editorIsOpen: false });
+    key: 'toggleEditor',
+    value: function toggleEditor() {
+      this.setState({ editorIsOpen: !this.state.editorIsOpen });
     }
   }, {
     key: 'render',
@@ -31212,17 +31213,17 @@ var QuestionIndexItem = function (_React$Component) {
           ),
           _react2.default.createElement(
             'a',
-            { className: 'answer-btn', onClick: this.openEditor.bind(this) },
+            { className: 'answer-btn' },
             _react2.default.createElement(
               'span',
-              { className: 'answer-button-text' },
+              { onClick: this.toggleEditor, className: 'answer-button-text' },
               'Answer'
             ),
             this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
               question: this.question,
               createAnswer: this.props.createAnswer,
               currentUser: this.props.currentUser,
-              closeEditor: this.closeEditor.bind(this) })
+              toggleEditor: this.toggleEditor })
           )
         )
       );
@@ -33879,6 +33880,7 @@ var AnswerEditor = function (_React$Component) {
     _this.state = { editorHtml: '', theme: 'snow' };
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    console.log(_this.props.toggleEditor);
 
     _this.modules = {
       toolbar: [['bold', 'italic', 'underline', 'strike', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], ['link', 'image', 'video'], ['clean']]
@@ -33902,14 +33904,15 @@ var AnswerEditor = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
-      e.preventDefault();
+
+      console.log(this.props.closeEditor);
       var answer = {
         body: this.state.editorHtml,
         question_id: this.props.question.id,
         user_id: this.props.currentUser.id
       };
       this.props.createAnswer(answer);
-      this.props.closeEditor();
+      this.props.toggleEditor();
     }
   }, {
     key: 'render',
