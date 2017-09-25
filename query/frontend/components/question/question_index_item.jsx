@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const QuestionIndexItem = ({ question }) => {
+const QuestionIndexItem = ({ question, deleteQuestion, updateQuestion }) => {
   return (
     <div className="question-item">
       <Link className="question-item-link" to={`/questions/${question.id}`}>

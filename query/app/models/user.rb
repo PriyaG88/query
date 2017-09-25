@@ -3,17 +3,18 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username        :string           not null
 #  image_url       :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  email           :string
+#  name            :string
 #
 
 class User < ApplicationRecord
-  validates :username, :password_digest, :session_token, presence: true
-  validates :username, :session_token, uniqueness: true
+  validates :email, :name, :password_digest, :session_token, presence: true
+  validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
   attr_reader :password
@@ -22,8 +23,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :comments
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return user if user && user.is_password?(password)
   end
 

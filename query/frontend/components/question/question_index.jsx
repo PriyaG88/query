@@ -15,7 +15,9 @@ class QuestionIndex extends React.Component {
           {this.props.questions.map(question => (
             <QuestionIndexItem
               key={question.id}
-              question={question} />
+              question={question}
+              updateQuestion={this.props.updateQuestion}
+              deleteQuestion={this.props.deleteQuestion} />
           ))}
         </ul>
       </div>

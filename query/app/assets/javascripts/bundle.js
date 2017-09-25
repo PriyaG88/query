@@ -30366,7 +30366,7 @@ var LoginForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
     _this.state = {
-      username: "",
+      email: "",
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -30422,9 +30422,9 @@ var LoginForm = function (_React$Component) {
             _react2.default.createElement("input", {
               className: "login-input-field",
               type: "text",
-              value: this.state.username,
-              placeholder: "Username",
-              onChange: this.update('username') })
+              value: this.state.email,
+              placeholder: "Email",
+              onChange: this.update('email') })
           ),
           _react2.default.createElement("br", null),
           _react2.default.createElement(
@@ -30485,7 +30485,8 @@ var SignupForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SignupForm.__proto__ || Object.getPrototypeOf(SignupForm)).call(this, props));
 
     _this.state = {
-      username: "",
+      email: "",
+      name: "",
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -30543,10 +30544,21 @@ var SignupForm = function (_React$Component) {
             null,
             _react2.default.createElement("input", {
               className: "signup-input-field",
+              type: "email",
+              value: this.state.email,
+              placeholder: "Email",
+              onChange: this.update('email') })
+          ),
+          _react2.default.createElement("br", null),
+          _react2.default.createElement(
+            "label",
+            null,
+            _react2.default.createElement("input", {
+              className: "signup-input-field",
               type: "text",
-              value: this.state.username,
-              placeholder: "Username",
-              onChange: this.update('username') })
+              value: this.state.name,
+              placeholder: "Name",
+              onChange: this.update('name') })
           ),
           _react2.default.createElement("br", null),
           _react2.default.createElement(
@@ -31006,6 +31018,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchQuestions: function fetchQuestions() {
       return dispatch((0, _question_actions.fetchQuestions)());
+    },
+    updateQuestion: function updateQuestion(question) {
+      return dispatch((0, _question_actions.updateQuestion)(question));
+    },
+    deleteQuestion: function deleteQuestion(question) {
+      return dispatch((0, _question_actions.deleteQuestion)(question));
     }
   };
 };
@@ -31062,6 +31080,8 @@ var QuestionIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'question-index-container' },
@@ -31072,7 +31092,9 @@ var QuestionIndex = function (_React$Component) {
           this.props.questions.map(function (question) {
             return _react2.default.createElement(_question_index_item2.default, {
               key: question.id,
-              question: question });
+              question: question,
+              updateQuestion: _this2.props.updateQuestion,
+              deleteQuestion: _this2.props.deleteQuestion });
           })
         )
       );
@@ -31104,7 +31126,9 @@ var _reactRouterDom = __webpack_require__(32);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var QuestionIndexItem = function QuestionIndexItem(_ref) {
-  var question = _ref.question;
+  var question = _ref.question,
+      deleteQuestion = _ref.deleteQuestion,
+      updateQuestion = _ref.updateQuestion;
 
   return _react2.default.createElement(
     'div',
