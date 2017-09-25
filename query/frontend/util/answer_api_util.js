@@ -1,6 +1,6 @@
 export const createAnswer = answer => {
   return $.ajax({
-    method: 'GET',
+    method: 'POST',
     url: `api/questions/${answer.question_id}/answers`,
     data: { answer }
   });

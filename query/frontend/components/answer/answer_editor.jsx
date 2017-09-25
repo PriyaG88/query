@@ -11,7 +11,6 @@ class AnswerEditor extends React.Component {
     this.state = { editorHtml: '', theme: 'snow' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props.toggleEditor);
 
     this.modules = {
       toolbar: [

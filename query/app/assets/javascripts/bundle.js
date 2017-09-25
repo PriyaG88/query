@@ -30141,13 +30141,13 @@ var _session_form_container = __webpack_require__(303);
 
 var _session_form_container2 = _interopRequireDefault(_session_form_container);
 
-var _navbar_container = __webpack_require__(135);
-
-var _navbar_container2 = _interopRequireDefault(_navbar_container);
-
 var _question_index_container = __webpack_require__(312);
 
 var _question_index_container2 = _interopRequireDefault(_question_index_container);
+
+var _question_view_container = __webpack_require__(614);
+
+var _question_view_container2 = _interopRequireDefault(_question_view_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30155,12 +30155,17 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _question_index_container2.default }),
+    _react2.default.createElement(
+      _reactRouterDom.Switch,
+      null,
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/questions/:questionId', component: _question_view_container2.default }),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _question_index_container2.default })
+    ),
     _react2.default.createElement(_route_util.AuthRoute, { path: '/', component: _session_form_container2.default })
   );
 };
 
-exports.default = App;
+exports.default = (0, _reactRouterDom.withRouter)(App);
 
 /***/ }),
 /* 302 */
@@ -31224,7 +31229,8 @@ var QuestionIndexItem = function (_React$Component) {
               createAnswer: this.props.createAnswer,
               currentUser: this.props.currentUser,
               toggleEditor: this.toggleEditor })
-          )
+          ),
+          _react2.default.createElement('i', { className: 'fa fa-facebook-official', 'aria-hidden': 'true' })
         )
       );
     }
@@ -31260,14 +31266,12 @@ var _reduxLogger = __webpack_require__(391);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxDevtoolsExtension = __webpack_require__(392);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-  return (0, _redux.createStore)(_root_reducer2.default, preloadedState, (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_reduxThunk2.default, _reduxLogger2.default)));
+  return (0, _redux.createStore)(_root_reducer2.default, preloadedState, (0, _redux.applyMiddleware)(_reduxThunk2.default, _reduxLogger2.default));
 };
 
 exports.default = configureStore;
@@ -33697,7 +33701,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var createAnswer = exports.createAnswer = function createAnswer(answer) {
   return $.ajax({
-    method: 'GET',
+    method: 'POST',
     url: 'api/questions/' + answer.question_id + '/answers',
     data: { answer: answer }
   });
@@ -33756,33 +33760,7 @@ exports['default'] = thunk;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
 /***/ }),
-/* 392 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var compose = __webpack_require__(31).compose;
-
-exports.__esModule = true;
-exports.composeWithDevTools = (
-  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
-    function() {
-      if (arguments.length === 0) return undefined;
-      if (typeof arguments[0] === 'object') return compose;
-      return compose.apply(null, arguments);
-    }
-);
-
-exports.devToolsEnhancer = (
-  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION__ :
-    function() { return function(noop) { return noop; } }
-);
-
-
-/***/ }),
+/* 392 */,
 /* 393 */,
 /* 394 */,
 /* 395 */,
@@ -33880,7 +33858,6 @@ var AnswerEditor = function (_React$Component) {
     _this.state = { editorHtml: '', theme: 'snow' };
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
-    console.log(_this.props.toggleEditor);
 
     _this.modules = {
       toolbar: [['bold', 'italic', 'underline', 'strike', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], ['link', 'image', 'video'], ['clean']]
@@ -50999,6 +50976,160 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_signup_form2.default);
+
+/***/ }),
+/* 614 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(20);
+
+var _question_view = __webpack_require__(615);
+
+var _question_view2 = _interopRequireDefault(_question_view);
+
+var _question_actions = __webpack_require__(48);
+
+var _answer_actions = __webpack_require__(388);
+
+var _reactRouterDom = __webpack_require__(32);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    currentUser: state.session.currentUser,
+    questions: state.entities.questions
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchQuestions: function fetchQuestions() {
+      return dispatch((0, _question_actions.fetchQuestions)());
+    },
+    updateQuestion: function updateQuestion(question) {
+      return dispatch((0, _question_actions.updateQuestion)(question));
+    },
+    createAnswer: function createAnswer(answer) {
+      return dispatch((0, _answer_actions.createAnswer)(answer));
+    }
+  };
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_question_view2.default));
+
+/***/ }),
+/* 615 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _merge = __webpack_require__(49);
+
+var _merge2 = _interopRequireDefault(_merge);
+
+var _navbar_container = __webpack_require__(135);
+
+var _navbar_container2 = _interopRequireDefault(_navbar_container);
+
+var _answer_editor = __webpack_require__(447);
+
+var _answer_editor2 = _interopRequireDefault(_answer_editor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var QuestionView = function (_React$Component) {
+  _inherits(QuestionView, _React$Component);
+
+  function QuestionView(props) {
+    _classCallCheck(this, QuestionView);
+
+    var _this = _possibleConstructorReturn(this, (QuestionView.__proto__ || Object.getPrototypeOf(QuestionView)).call(this, props));
+
+    _this.questionId = parseInt(_this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
+    _this.toggleEditor = _this.toggleEditor.bind(_this);
+    _this.state = {
+      editorIsOpen: false };
+    return _this;
+  }
+
+  _createClass(QuestionView, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.fetchQuestions();
+    }
+  }, {
+    key: 'openEditor',
+    value: function openEditor() {
+      this.setState({ editorIsOpen: true });
+    }
+  }, {
+    key: 'toggleEditor',
+    value: function toggleEditor() {
+      this.setState({ editorIsOpen: !this.state.editorIsOpen });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_navbar_container2.default, null),
+        _react2.default.createElement(
+          'div',
+          { className: 'question-show-box' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'question-text' },
+            this.props.questions[this.questionId].body
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'answer-btn', id: 'question-show-answer-btn' },
+            _react2.default.createElement(
+              'span',
+              { onClick: this.toggleEditor, className: 'answer-button-text' },
+              'Answer'
+            ),
+            this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
+              question: this.props.questions[this.questionId],
+              createAnswer: this.props.createAnswer,
+              currentUser: this.props.currentUser,
+              toggleEditor: this.toggleEditor })
+          )
+        )
+      );
+    }
+  }]);
+
+  return QuestionView;
+}(_react2.default.Component);
+
+exports.default = QuestionView;
 
 /***/ })
 /******/ ]);

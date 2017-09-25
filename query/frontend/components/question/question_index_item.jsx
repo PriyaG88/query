@@ -26,6 +26,7 @@ class QuestionIndexItem extends React.Component {
           <Link className="question-item-link" to={`/questions/${this.question.id}`}>
             {this.question.body}
           </Link>
+
           <a className="answer-btn" >
             <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
             {this.state.editorIsOpen && <AnswerEditor
@@ -34,6 +35,7 @@ class QuestionIndexItem extends React.Component {
             currentUser={this.props.currentUser}
             toggleEditor={this.toggleEditor}/>}
           </a>
+          <i className="fa fa-facebook-official" aria-hidden="true"></i>
         </div>
       </div>
     );
