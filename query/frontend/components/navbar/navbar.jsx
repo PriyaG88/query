@@ -27,7 +27,7 @@ class NavBar extends React.Component {
     return (
       <div className="header">
 
-        <div className="header-logo">Query</div>
+        <NavLink to="/" className="header-logo">Query</NavLink>
         <div className="header-nav-item">
           <NavLink to="/" className="nav-item-link">
             <span className="home-icon" className="header-icon">

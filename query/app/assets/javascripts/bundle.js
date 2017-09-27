@@ -43645,25 +43645,33 @@ var QuestionIndexItem = function (_React$Component) {
           'div',
           { className: 'question-item' },
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { className: 'question-item-link', to: '/questions/' + this.question.id },
-            this.question.body
+            'div',
+            { className: 'question-text-container' },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { className: 'question-item-link', to: '/questions/' + this.question.id },
+              this.question.body
+            )
           ),
           _react2.default.createElement(
-            'a',
-            { className: 'answer-btn' },
+            'div',
+            { className: 'answer-btn-container' },
             _react2.default.createElement(
-              'span',
-              { onClick: this.toggleEditor, className: 'answer-button-text' },
-              'Answer'
-            ),
-            this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
-              question: this.question,
-              createAnswer: this.props.createAnswer,
-              currentUser: this.props.currentUser,
-              toggleEditor: this.toggleEditor })
+              'a',
+              { className: 'answer-btn' },
+              _react2.default.createElement(
+                'span',
+                { onClick: this.toggleEditor, className: 'answer-button-text' },
+                'Answer'
+              )
+            )
           )
-        )
+        ),
+        this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
+          question: this.question,
+          createAnswer: this.props.createAnswer,
+          currentUser: this.props.currentUser,
+          toggleEditor: this.toggleEditor })
       );
     }
   }]);
@@ -49436,8 +49444,8 @@ var NavBar = function (_React$Component) {
         'div',
         { className: 'header' },
         _react2.default.createElement(
-          'div',
-          { className: 'header-logo' },
+          _reactRouterDom.NavLink,
+          { to: '/', className: 'header-logo' },
           'Query'
         ),
         _react2.default.createElement(
@@ -49843,30 +49851,38 @@ var QuestionView = function (_React$Component) {
           'div',
           { className: 'question-show-box' },
           _react2.default.createElement(
-            'h1',
-            { className: 'question-text' },
-            this.question.body
-          ),
-          _react2.default.createElement(
-            'a',
-            { className: 'answer-btn', id: 'question-show-answer-btn' },
+            'div',
+            { className: 'question-text-container' },
             _react2.default.createElement(
-              'span',
-              { onClick: this.toggleEditor, className: 'answer-button-text' },
-              'Answer'
-            ),
-            this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
-              question: this.question,
-              createAnswer: this.props.createAnswer,
-              currentUser: this.props.currentUser,
-              toggleEditor: this.toggleEditor })
+              'h1',
+              { className: 'question-text' },
+              this.question.body
+            )
           ),
           _react2.default.createElement(
+            'div',
+            { className: 'answer-btn-container' },
+            _react2.default.createElement(
+              'a',
+              { className: 'answer-btn', id: 'question-show-answer-btn' },
+              _react2.default.createElement(
+                'span',
+                { onClick: this.toggleEditor, className: 'answer-button-text' },
+                'Answer'
+              )
+            )
+          ),
+          this.question.user_id === this.props.currentUser.id ? _react2.default.createElement(
             'button',
             { onClick: this.handleDelete },
             'Delete Question'
-          )
-        )
+          ) : ""
+        ),
+        this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
+          question: this.question,
+          createAnswer: this.props.createAnswer,
+          currentUser: this.props.currentUser,
+          toggleEditor: this.toggleEditor })
       );
     }
   }]);

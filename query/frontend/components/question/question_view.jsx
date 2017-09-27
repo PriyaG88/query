@@ -36,17 +36,27 @@ class QuestionView extends React.Component {
       <div>
         <NavBarContainer />
           <div className="question-show-box">
-            <h1 className="question-text">{this.question.body}</h1>
-            <a className="answer-btn" id="question-show-answer-btn">
-              <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
-              {this.state.editorIsOpen && <AnswerEditor
-              question={this.question}
-              createAnswer={this.props.createAnswer}
-              currentUser={this.props.currentUser}
-              toggleEditor={this.toggleEditor}/>}
-            </a>
-            <button onClick={this.handleDelete}>Delete Question</button>
+            <div className="question-text-container">
+              <h1 className="question-text">{this.question.body}</h1>
+            </div>
+            <div className="answer-btn-container">
+              <a className="answer-btn" id="question-show-answer-btn">
+                <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
+              </a>
+            </div>
+            {this.question.user_id === this.props.currentUser.id ? (
+              <button onClick={this.handleDelete}>Delete Question</button>
+            ) : (
+              ""
+            )}
+            
+
           </div>
+          {this.state.editorIsOpen && <AnswerEditor
+          question={this.question}
+          createAnswer={this.props.createAnswer}
+          currentUser={this.props.currentUser}
+          toggleEditor={this.toggleEditor}/>}
       </div>
     );
   }

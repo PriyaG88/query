@@ -23,19 +23,22 @@ class QuestionIndexItem extends React.Component {
     return (
       <div className="question-item-box">
         <div className="question-item">
-          <Link className="question-item-link" to={`/questions/${this.question.id}`}>
-            {this.question.body}
-          </Link>
-
-          <a className="answer-btn" >
-            <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
-            {this.state.editorIsOpen && <AnswerEditor
-            question={this.question}
-            createAnswer={this.props.createAnswer}
-            currentUser={this.props.currentUser}
-            toggleEditor={this.toggleEditor}/>}
-          </a>
+          <div className="question-text-container">
+            <Link className="question-item-link" to={`/questions/${this.question.id}`}>
+              {this.question.body}
+            </Link>
+          </div>
+          <div className="answer-btn-container">
+            <a className="answer-btn" >
+              <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
+            </a>
+          </div>
         </div>
+          {this.state.editorIsOpen && <AnswerEditor
+          question={this.question}
+          createAnswer={this.props.createAnswer}
+          currentUser={this.props.currentUser}
+          toggleEditor={this.toggleEditor}/>}
       </div>
     );
   }
