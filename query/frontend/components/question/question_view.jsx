@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import merge from 'lodash/merge';
 import NavBarContainer from '../navbar/navbar_container';
 import AnswerEditor from '../answer/answer_editor';
+import EditQuestionForm from './edit_question_form';
 
 class QuestionView extends React.Component {
   constructor(props) {
@@ -10,17 +11,25 @@ class QuestionView extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.questionId = parseInt(this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
     this.toggleEditor = this.toggleEditor.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
     this.question = this.props.questions[this.questionId];
     this.state = {
-      editorIsOpen: false };
+      editorIsOpen: false,
+      modalIsOpen: false,
+      question: this.question
+    };
   }
-
+  
   openEditor() {
     this.setState({editorIsOpen: true});
   }
 
   toggleEditor() {
     this.setState({editorIsOpen: !this.state.editorIsOpen});
+  }
+
+  toggleModal() {
+    this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
   handleDelete(e) {
@@ -49,14 +58,20 @@ class QuestionView extends React.Component {
             ) : (
               ""
             )}
-            
-
+            <a className="edit-btn">
+              <span onClick={this.toggleModal}>Edit</span>
+            </a>
           </div>
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
+
+          {this.state.modalIsOpen && <EditQuestionForm
+            question={this.question}
+            updateQuestion={this.props.updateQuestion}
+            toggleModal={this.toggleModal} />}
       </div>
     );
   }

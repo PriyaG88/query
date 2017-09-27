@@ -49462,7 +49462,7 @@ var NavBar = function (_React$Component) {
                 { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
-                  { id: 'Icons', stroke: 'none', 'stroke-width': '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
+                  { id: 'Icons', stroke: 'none', strokeWidth: '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
                   _react2.default.createElement('path', { d: 'M4,7.99448227 C4,5.23610588 6.24325385,3 9.00365614,3 L46,3 L46,42.1055177 C46,44.8638941 43.7567461,47.1 40.9963439,47.1 L4,47.1 L4,7.99448227 M11,12 L25,12 L25,14 L11,14 M11,20 L25,20 L25,22 L11,22 M11,28 L39,28 L39,30 L11,30 M11,36 L39,36 L39,38 L11,38 M29,12 L39,12 L39,22 L29,22 Z' })
                 )
               )
@@ -49488,7 +49488,7 @@ var NavBar = function (_React$Component) {
                 { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
-                  { id: 'answer', stroke: 'none', 'stroke-width': '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
+                  { id: 'answer', stroke: 'none', strokeWidth: '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
                   _react2.default.createElement('path', { d: 'M25,24.907293 L25,45.3 C25,45.5761424 24.7761424,45.8 24.5,45.8 L23.42,45.8 C23.1438576,45.8 22.92,45.5761424 22.92,45.3 L22.92,45.3 L22.92,24.907293 L25,24.907293 Z M23.96,22.92 L44.2873495,22.92 C44.5634919,22.92 44.7873495,23.1438576 44.7873495,23.42 L44.7873495,23.42 L44.7873495,24.407293 C44.7873495,24.6834354 44.5634919,24.907293 44.2873495,24.907293 L23.96,24.907293 L22.92,24.907293 L22.92,23.96 C22.92,23.3856239 23.3856239,22.92 23.96,22.92 Z', id: 'Combined-Shape', transform: 'translate(33.853675, 34.360000) rotate(-180.000000) translate(-33.853675, -34.360000)' }),
                   _react2.default.createElement('path', { d: 'M7.32,6.187293 L7.32,26.58 C7.32,26.8561424 7.09614237,27.08 6.82,27.08 L5.74,27.08 C5.46385763,27.08 5.24,26.8561424 5.24,26.58 L5.24,26.58 L5.24,6.187293 L7.32,6.187293 Z M6.28,4.2 L26.6073495,4.2 C26.8834919,4.2 27.1073495,4.42385763 27.1073495,4.7 L27.1073495,4.7 L27.1073495,5.687293 C27.1073495,5.96343537 26.8834919,6.187293 26.6073495,6.187293 L6.28,6.187293 L5.24,6.187293 L5.24,5.24 C5.24,4.66562386 5.70562386,4.2 6.28,4.2 Z' }),
                   _react2.default.createElement(
@@ -49520,9 +49520,9 @@ var NavBar = function (_React$Component) {
                 { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
-                  { id: 'notif', stroke: 'var(--icon_color, #555)', 'stroke-width': '1', fill: 'none', 'fill-rule': 'evenodd' },
-                  _react2.default.createElement('circle', { id: 'Oval-2', 'stroke-width': '2', cx: '25', cy: '6', r: '4' }),
-                  _react2.default.createElement('path', { d: 'M44.3677416,38.7603695 C44.7558518,39.1065 45,39.6095035 45,40.171277 L45,42.0557374 C45,42.5772392 44.5778459,43 44.0506834,43 L5.94931662,43 C5.42502353,43 5,42.5809343 5,42.0557374 L5,40.171277 C5,39.6151146 5.24153801,39.114956 5.62540672,38.7685392 C5.6491992,38.7398562 5.67509747,38.7119483 5.70315955,38.6849553 C5.74283541,38.646791 5.82071637,38.5705726 5.93130097,38.4602319 C6.11756644,38.2743773 6.32562152,38.0621858 6.54994662,37.8276204 C7.19094603,37.1573596 7.83183795,36.4442733 8.42800806,35.7210339 C8.94816428,35.0900101 9.40934188,34.4807785 9.7953965,33.9063569 C10.248826,33.2316862 10.5871027,32.6216318 10.792064,32.0989806 C11.13741,31.2183483 11.384584,29.7331115 11.5292656,27.8459477 C11.661919,26.1156745 11.6966328,24.2899605 11.6753126,22.7028739 C11.6696562,22.545891 11.6667593,22.3882109 11.6666689,22.22988 C11.6665698,22.2211647 11.6665738,22.2125021 11.6666792,22.2038926 C11.6766586,14.909887 17.6423655,9 25,9 C32.3576345,9 38.3233414,14.909887 38.3333208,22.2038926 C38.3334262,22.2125021 38.3334302,22.2211647 38.3333311,22.22988 C38.3332407,22.3882109 38.3303438,22.545891 38.3246874,22.7028739 C38.3033672,24.2899605 38.338081,26.1156745 38.4707344,27.8459477 C38.615416,29.7331115 38.86259,31.2183483 39.207936,32.0989806 C39.4128973,32.6216318 39.751174,33.2316862 40.2046035,33.9063569 C40.5906581,34.4807785 41.0518357,35.0900101 41.5719919,35.7210339 C42.168162,36.4442733 42.809054,37.1573596 43.4500534,37.8276204 C43.6743785,38.0621858 43.8824336,38.2743773 44.068699,38.4602319 C44.1792836,38.5705726 44.2571646,38.646791 44.2968405,38.6849553 C44.3222313,38.7093788 44.3458507,38.7345514 44.3677416,38.7603695 Z', 'stroke-width': '2', fill: 'var(--icon_color, #555)', 'fill-rule': 'nonzero' }),
+                  { id: 'notif', stroke: 'var(--icon_color, #555)', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
+                  _react2.default.createElement('circle', { id: 'Oval-2', strokeWidth: '2', cx: '25', cy: '6', r: '4' }),
+                  _react2.default.createElement('path', { d: 'M44.3677416,38.7603695 C44.7558518,39.1065 45,39.6095035 45,40.171277 L45,42.0557374 C45,42.5772392 44.5778459,43 44.0506834,43 L5.94931662,43 C5.42502353,43 5,42.5809343 5,42.0557374 L5,40.171277 C5,39.6151146 5.24153801,39.114956 5.62540672,38.7685392 C5.6491992,38.7398562 5.67509747,38.7119483 5.70315955,38.6849553 C5.74283541,38.646791 5.82071637,38.5705726 5.93130097,38.4602319 C6.11756644,38.2743773 6.32562152,38.0621858 6.54994662,37.8276204 C7.19094603,37.1573596 7.83183795,36.4442733 8.42800806,35.7210339 C8.94816428,35.0900101 9.40934188,34.4807785 9.7953965,33.9063569 C10.248826,33.2316862 10.5871027,32.6216318 10.792064,32.0989806 C11.13741,31.2183483 11.384584,29.7331115 11.5292656,27.8459477 C11.661919,26.1156745 11.6966328,24.2899605 11.6753126,22.7028739 C11.6696562,22.545891 11.6667593,22.3882109 11.6666689,22.22988 C11.6665698,22.2211647 11.6665738,22.2125021 11.6666792,22.2038926 C11.6766586,14.909887 17.6423655,9 25,9 C32.3576345,9 38.3233414,14.909887 38.3333208,22.2038926 C38.3334262,22.2125021 38.3334302,22.2211647 38.3333311,22.22988 C38.3332407,22.3882109 38.3303438,22.545891 38.3246874,22.7028739 C38.3033672,24.2899605 38.338081,26.1156745 38.4707344,27.8459477 C38.615416,29.7331115 38.86259,31.2183483 39.207936,32.0989806 C39.4128973,32.6216318 39.751174,33.2316862 40.2046035,33.9063569 C40.5906581,34.4807785 41.0518357,35.0900101 41.5719919,35.7210339 C42.168162,36.4442733 42.809054,37.1573596 43.4500534,37.8276204 C43.6743785,38.0621858 43.8824336,38.2743773 44.068699,38.4602319 C44.1792836,38.5705726 44.2571646,38.646791 44.2968405,38.6849553 C44.3222313,38.7093788 44.3458507,38.7345514 44.3677416,38.7603695 Z', strokeWidth: '2', fill: 'var(--icon_color, #555)', fillRule: 'nonzero' }),
                   _react2.default.createElement('path', { d: 'M20,43 C20,45.7614237 22.2385763,48 25,48 C27.7614237,48 30,45.7614237 30,43 L20,43 Z' })
                 )
               )
@@ -49797,6 +49797,10 @@ var _answer_editor = __webpack_require__(167);
 
 var _answer_editor2 = _interopRequireDefault(_answer_editor);
 
+var _edit_question_form = __webpack_require__(478);
+
+var _edit_question_form2 = _interopRequireDefault(_edit_question_form);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49816,9 +49820,13 @@ var QuestionView = function (_React$Component) {
     _this.handleDelete = _this.handleDelete.bind(_this);
     _this.questionId = parseInt(_this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
     _this.toggleEditor = _this.toggleEditor.bind(_this);
+    _this.toggleModal = _this.toggleModal.bind(_this);
     _this.question = _this.props.questions[_this.questionId];
     _this.state = {
-      editorIsOpen: false };
+      editorIsOpen: false,
+      modalIsOpen: false,
+      question: _this.question
+    };
     return _this;
   }
 
@@ -49831,6 +49839,11 @@ var QuestionView = function (_React$Component) {
     key: 'toggleEditor',
     value: function toggleEditor() {
       this.setState({ editorIsOpen: !this.state.editorIsOpen });
+    }
+  }, {
+    key: 'toggleModal',
+    value: function toggleModal() {
+      this.setState({ modalIsOpen: !this.state.modalIsOpen });
     }
   }, {
     key: 'handleDelete',
@@ -49876,13 +49889,26 @@ var QuestionView = function (_React$Component) {
             'button',
             { onClick: this.handleDelete },
             'Delete Question'
-          ) : ""
+          ) : "",
+          _react2.default.createElement(
+            'a',
+            { className: 'edit-btn' },
+            _react2.default.createElement(
+              'span',
+              { onClick: this.toggleModal },
+              'Edit'
+            )
+          )
         ),
         this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
           question: this.question,
           createAnswer: this.props.createAnswer,
           currentUser: this.props.currentUser,
-          toggleEditor: this.toggleEditor })
+          toggleEditor: this.toggleEditor }),
+        this.state.modalIsOpen && _react2.default.createElement(_edit_question_form2.default, {
+          question: this.question,
+          updateQuestion: this.props.updateQuestion,
+          toggleModal: this.toggleModal })
       );
     }
   }]);
@@ -51138,6 +51164,117 @@ exports.devToolsEnhancer = (
     function() { return function(noop) { return noop; } }
 );
 
+
+/***/ }),
+/* 478 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EditQuestionForm = function (_React$Component) {
+  _inherits(EditQuestionForm, _React$Component);
+
+  function EditQuestionForm(props) {
+    _classCallCheck(this, EditQuestionForm);
+
+    var _this = _possibleConstructorReturn(this, (EditQuestionForm.__proto__ || Object.getPrototypeOf(EditQuestionForm)).call(this, props));
+
+    _this.state = _this.props.question;
+    _this.handleClick = _this.handleClick.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(EditQuestionForm, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      e.preventDefault();
+      this.props.toggleModal();
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.updateQuestion(this.state);
+      this.props.toggleModal();
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { id: "question-form-modal" },
+        _react2.default.createElement(
+          "div",
+          { className: "modal-content" },
+          _react2.default.createElement(
+            "span",
+            { onClick: this.handleClick, className: "close" },
+            "\xD7"
+          ),
+          _react2.default.createElement(
+            "form",
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "textarea",
+              { type: "text", value: this.state.body,
+                onChange: this.update('body') },
+              this.state.body
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              _react2.default.createElement(
+                "span",
+                null,
+                _react2.default.createElement(
+                  "a",
+                  { onClick: this.handleClick },
+                  "Cancel"
+                )
+              ),
+              _react2.default.createElement("input", { type: "submit", value: "Update" })
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return EditQuestionForm;
+}(_react2.default.Component);
+
+exports.default = EditQuestionForm;
 
 /***/ })
 /******/ ]);
