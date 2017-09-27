@@ -35,7 +35,6 @@ class QuestionIndexItem extends React.Component {
             currentUser={this.props.currentUser}
             toggleEditor={this.toggleEditor}/>}
           </a>
-          <i className="fa fa-facebook-official" aria-hidden="true"></i>
         </div>
       </div>
     );

@@ -10,7 +10,7 @@
   font-size: 14px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   word-wrap: break-word;
@@ -78,6 +78,8 @@
 }
 
 .search-input {
+  width: 337px;
+  height: 20px;
   border: 1px solid #e2e2e2;
   border-radius: 4px;
   padding-left: 26px;

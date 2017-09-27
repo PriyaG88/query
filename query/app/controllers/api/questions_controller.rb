@@ -31,11 +31,10 @@ class Api::QuestionsController < ApplicationController
 
   def destroy
     @question = current_user.questions.find(params[:id])
-
     if @question.destroy!
       render :show
     else
-      render json: @question.errors.full_messages, status: 422
+      render json: @question.errors.full_messages, status: 404
     end
   end
 

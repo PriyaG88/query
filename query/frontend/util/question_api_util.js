@@ -30,7 +30,7 @@ export const updateQuestion = question => {
 
 export const deleteQuestion = id => {
   return $.ajax({
-    method: `DELETE`,
+    method: 'DELETE',
     url: `api/questions/${id}`
   });
 };

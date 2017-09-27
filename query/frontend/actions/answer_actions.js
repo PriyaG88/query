@@ -1,5 +1,4 @@
 import * as AnswerAPIUtil from '../util/answer_api_util';
-import { receiveErrors } from './session_actions';
 export const RECEIVE_ANSWER = 'RECEIVE_ANSWER';
 export const REMOVE_ANSWER = 'REMOVE_ANSWER';
 
