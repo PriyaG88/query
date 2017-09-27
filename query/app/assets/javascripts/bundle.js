@@ -8677,7 +8677,7 @@ var createTransitionManager = function createTransitionManager() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteAnswer = exports.updateAnswer = exports.createAnswer = exports.REMOVE_ANSWER = exports.RECEIVE_ANSWER = undefined;
+exports.deleteAnswer = exports.updateAnswer = exports.createAnswer = exports.fetchAnswers = exports.RECEIVE_ALL_ANSWERS = exports.REMOVE_ANSWER = exports.RECEIVE_ANSWER = undefined;
 
 var _answer_api_util = __webpack_require__(340);
 
@@ -8687,13 +8687,20 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_ANSWER = exports.RECEIVE_ANSWER = 'RECEIVE_ANSWER';
 var REMOVE_ANSWER = exports.REMOVE_ANSWER = 'REMOVE_ANSWER';
+var RECEIVE_ALL_ANSWERS = exports.RECEIVE_ALL_ANSWERS = 'RECEIVE_ALL_ANSWERS';
+
+var fetchAnswers = exports.fetchAnswers = function fetchAnswers(question) {
+  return function (dispatch) {
+    return AnswerAPIUtil.fetchAnswers(question).then(function (answers) {
+      return dispatch(receiveAllAnwers(answers));
+    });
+  };
+};
 
 var createAnswer = exports.createAnswer = function createAnswer(answer) {
   return function (dispatch) {
     return AnswerAPIUtil.createAnswer(answer).then(function (answer) {
       return dispatch(receiveAnswer(answer));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -8702,8 +8709,6 @@ var updateAnswer = exports.updateAnswer = function updateAnswer(answer) {
   return function (dispatch) {
     return AnswerAPIUtil.updateAnswer(answer).then(function (answer) {
       return dispatch(receiveAnswer(answer));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
@@ -8712,9 +8717,14 @@ var deleteAnswer = exports.deleteAnswer = function deleteAnswer(answer) {
   return function (dispatch) {
     return AnswerAPIUtil.deleteAnswer(answer).then(function (answer) {
       return dispatch(removeAnswer(answer));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
     });
+  };
+};
+
+var receiveAllAnwers = function receiveAllAnwers(answers) {
+  return {
+    type: RECEIVE_ALL_ANSWERS,
+    answers: answers
   };
 };
 
@@ -15895,10 +15905,9 @@ var AnswerEditor = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
-
-      console.log(this.props.closeEditor);
+      var edited = this.state.editorHtml.replace(/<p>/, "").replace(/<\/p>/, "");
       var answer = {
-        body: this.state.editorHtml,
+        body: edited,
         question_id: this.props.question.id,
         user_id: this.props.currentUser.id
       };
@@ -43444,6 +43453,13 @@ var deleteQuestion = exports.deleteQuestion = function deleteQuestion(id) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var fetchAnswers = exports.fetchAnswers = function fetchAnswers(question) {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/questions/' + question.id + '/answers'
+  });
+};
+
 var createAnswer = exports.createAnswer = function createAnswer(answer) {
   return $.ajax({
     method: 'POST',
@@ -43455,7 +43471,7 @@ var createAnswer = exports.createAnswer = function createAnswer(answer) {
 var updateAnswer = exports.updateAnswer = function updateAnswer(answer) {
   return $.ajax({
     method: 'PATCH',
-    url: 'api/questions/' + answer.question_id + '/answers/' + answer.id,
+    url: 'api/answers/' + answer.id,
     data: { answer: answer }
   });
 };
@@ -43463,7 +43479,7 @@ var updateAnswer = exports.updateAnswer = function updateAnswer(answer) {
 var deleteAnswer = exports.deleteAnswer = function deleteAnswer(answer) {
   return $.ajax({
     method: 'DELETE',
-    url: 'api/questions/' + answer.question_id + '/answers/' + answer.id
+    url: 'api/answers/' + answer.id
   });
 };
 
@@ -49801,6 +49817,10 @@ var _edit_question_form = __webpack_require__(478);
 
 var _edit_question_form2 = _interopRequireDefault(_edit_question_form);
 
+var _answer_index_container = __webpack_require__(479);
+
+var _answer_index_container2 = _interopRequireDefault(_answer_index_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49900,6 +49920,7 @@ var QuestionView = function (_React$Component) {
             )
           )
         ),
+        _react2.default.createElement(_answer_index_container2.default, { question: this.question }),
         this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
           question: this.question,
           createAnswer: this.props.createAnswer,
@@ -51088,6 +51109,8 @@ var AnswersReducer = function AnswersReducer() {
   Object.freeze(state);
 
   switch (action.type) {
+    case _answer_actions.RECEIVE_ALL_ANSWERS:
+      return (0, _merge3.default)({}, action.answers);
     case _answer_actions.RECEIVE_ANSWER:
       return (0, _merge3.default)({}, state, _defineProperty({}, action.answer.id, action.answer));
     case _answer_actions.REMOVE_ANSWER:
@@ -51275,6 +51298,176 @@ var EditQuestionForm = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = EditQuestionForm;
+
+/***/ }),
+/* 479 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _answer_actions = __webpack_require__(92);
+
+var _reactRedux = __webpack_require__(16);
+
+var _answer_index = __webpack_require__(480);
+
+var _answer_index2 = _interopRequireDefault(_answer_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var question = ownProps.question;
+  var answers = Object.keys(state.entities.answers).map(function (id) {
+    return state.entities.answers[id];
+  });
+
+  return {
+    question: question,
+    answers: answers
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchAnswers: function fetchAnswers(question) {
+      return dispatch((0, _answer_actions.fetchAnswers)(question));
+    },
+    deleteAnswer: function deleteAnswer(answer) {
+      return dispatch((0, _answer_actions.deleteAnswer)(answer));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_answer_index2.default);
+
+/***/ }),
+/* 480 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _answer_index_item = __webpack_require__(481);
+
+var _answer_index_item2 = _interopRequireDefault(_answer_index_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnswerIndex = function (_React$Component) {
+  _inherits(AnswerIndex, _React$Component);
+
+  function AnswerIndex(props) {
+    _classCallCheck(this, AnswerIndex);
+
+    return _possibleConstructorReturn(this, (AnswerIndex.__proto__ || Object.getPrototypeOf(AnswerIndex)).call(this, props));
+  }
+
+  _createClass(AnswerIndex, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.fetchAnswers(this.props.question);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          this.props.answers.map(function (answer) {
+            return _react2.default.createElement(_answer_index_item2.default, {
+              key: answer.id,
+              answer: answer,
+              question: _this2.props.question,
+              deleteAnswer: _this2.props.deleteAnswer });
+          })
+        )
+      );
+    }
+  }]);
+
+  return AnswerIndex;
+}(_react2.default.Component);
+
+exports.default = AnswerIndex;
+
+/***/ }),
+/* 481 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AnswerIndexItem = function (_React$Component) {
+  _inherits(AnswerIndexItem, _React$Component);
+
+  function AnswerIndexItem(props) {
+    _classCallCheck(this, AnswerIndexItem);
+
+    var _this = _possibleConstructorReturn(this, (AnswerIndexItem.__proto__ || Object.getPrototypeOf(AnswerIndexItem)).call(this, props));
+
+    _this.answer = _this.props.answer;
+    return _this;
+  }
+
+  _createClass(AnswerIndexItem, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.answer.body
+      );
+    }
+  }]);
+
+  return AnswerIndexItem;
+}(_react2.default.Component);
+
+exports.default = AnswerIndexItem;
 
 /***/ })
 /******/ ]);

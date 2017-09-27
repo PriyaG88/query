@@ -6,6 +6,10 @@ class AnswerIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchAnswers(this.props.question);
+  }
+
   render() {
     return (
       <div>
@@ -14,6 +18,7 @@ class AnswerIndex extends React.Component {
             <AnswerIndexItem
               key={answer.id}
               answer={answer}
+              question={this.props.question}
               deleteAnswer={this.props.deleteAnswer}/>
           ))}
         </ul>

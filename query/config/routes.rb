@@ -5,8 +5,13 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :questions, only: [:index, :create, :show, :update, :destroy] do
-      resources :answers, only: [:index, :create, :show, :update, :destroy]
+      resources :answers, only: [:index, :create]
     end
+
+    resources :answers, only: [:show, :update, :destroy] do
+      resources :comments, only: [:index, :destroy]
+    end
+
     # resources :comments, only: [:create, :update, :destroy]
     # resources :topics, only: [:create, :show]
   end

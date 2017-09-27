@@ -4,6 +4,7 @@ import merge from 'lodash/merge';
 import NavBarContainer from '../navbar/navbar_container';
 import AnswerEditor from '../answer/answer_editor';
 import EditQuestionForm from './edit_question_form';
+import AnswerIndexContainer from '../answer/answer_index_container';
 
 class QuestionView extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class QuestionView extends React.Component {
       question: this.question
     };
   }
-  
+
   openEditor() {
     this.setState({editorIsOpen: true});
   }
@@ -62,16 +63,18 @@ class QuestionView extends React.Component {
               <span onClick={this.toggleModal}>Edit</span>
             </a>
           </div>
+
+          <AnswerIndexContainer question={this.question}/>
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
 
-          {this.state.modalIsOpen && <EditQuestionForm
-            question={this.question}
-            updateQuestion={this.props.updateQuestion}
-            toggleModal={this.toggleModal} />}
+        {this.state.modalIsOpen && <EditQuestionForm
+          question={this.question}
+          updateQuestion={this.props.updateQuestion}
+          toggleModal={this.toggleModal} />}
       </div>
     );
   }
