@@ -13,12 +13,14 @@ class AnswerIndex extends React.Component {
   render() {
     return (
       <div>
-        <ul>
+        <div className="answers-count">{this.props.answers.length} Answers</div>
+        <ul className="answer-index">
           {this.props.answers.map(answer => (
             <AnswerIndexItem
               key={answer.id}
               answer={answer}
               question={this.props.question}
+              currentUser={this.props.currentUser}
               deleteAnswer={this.props.deleteAnswer}/>
           ))}
         </ul>

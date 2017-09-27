@@ -8,9 +8,41 @@
   tab-size: 4;
   position: relative;
   box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
+  width: 600px;
+  margin-left: 180px;
   padding: 44px 0 0;
   transition: border-color .2s ease-in-out 0s;
 
+}
+
+.answers-count {
+  margin-left: 180px;
+  font-weight: 500;
+  position: relative;
+  border-bottom: 1px solid #e2e2e2;
+  width: 600px;
+  font-size: 18px;
+  padding-bottom: 7px;
+}
+
+.answer-index {
+  display: block;
+  width: 600px;
+  margin-left: 180px;
+}
+
+.answer-item {
+  font-family: 'q_serif',Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.asker-name {
+  display: block;
+  font-family: 'q_serif',Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+  font-size: 15px;
+  line-height: 1.2em;
+  margin-bottom: 2px;
 }

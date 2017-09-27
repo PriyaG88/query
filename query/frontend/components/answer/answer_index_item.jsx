@@ -8,7 +8,8 @@ class AnswerIndexItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="answer-item">
+        <div className="asker-name">{this.props.currentUser.name}</div>
         {this.answer.body}
       </div>
     );

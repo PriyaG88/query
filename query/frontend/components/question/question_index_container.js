@@ -1,10 +1,12 @@
-  import { fetchQuestions, updateQuestion, deleteQuestion } from '../../actions/question_actions';
+import { fetchQuestions, updateQuestion, deleteQuestion } from '../../actions/question_actions';
+import { fetchAnswers } from '../../actions/answer_actions';
 import { createAnswer } from '../../actions/answer_actions';
 import { connect } from 'react-redux';
 import QuestionIndex from './question_index';
 
 const mapStateToProps = state => ({
   questions: Object.keys(state.entities.questions).map(id => state.entities.questions[id]),
+  answers: Object.keys(state.entities.answers).map(id => state.entities.answers[id]),
   currentUser: state.session.currentUser
 });
 
@@ -12,7 +14,8 @@ const mapDispatchToProps = dispatch => ({
   fetchQuestions: () => dispatch(fetchQuestions()),
   updateQuestion: (question) => dispatch(updateQuestion(question)),
   deleteQuestion: (question) => dispatch(deleteQuestion(question)),
-  createAnswer: answer => dispatch(createAnswer(answer))
+  createAnswer: answer => dispatch(createAnswer(answer)),
+  fetchAnswers: (question) => dispatch(fetchAnswers(question))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndex);

@@ -37,11 +37,10 @@ class QuestionView extends React.Component {
     e.preventDefault();
     console.log(this.questionId);
     this.props.deleteQuestion(this.questionId);
-
+    
   }
 
   render() {
-    console.log('rendering');
     return (
       <div>
         <NavBarContainer />
@@ -64,17 +63,17 @@ class QuestionView extends React.Component {
             </a>
           </div>
 
+          {this.state.modalIsOpen && <EditQuestionForm
+          question={this.question}
+          updateQuestion={this.props.updateQuestion}
+          toggleModal={this.toggleModal} />}
+
           <AnswerIndexContainer question={this.question}/>
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
-
-        {this.state.modalIsOpen && <EditQuestionForm
-          question={this.question}
-          updateQuestion={this.props.updateQuestion}
-          toggleModal={this.toggleModal} />}
       </div>
     );
   }

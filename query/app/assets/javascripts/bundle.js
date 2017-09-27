@@ -43373,6 +43373,9 @@ var mapStateToProps = function mapStateToProps(state) {
     questions: Object.keys(state.entities.questions).map(function (id) {
       return state.entities.questions[id];
     }),
+    answers: Object.keys(state.entities.answers).map(function (id) {
+      return state.entities.answers[id];
+    }),
     currentUser: state.session.currentUser
   };
 };
@@ -43390,6 +43393,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     createAnswer: function createAnswer(answer) {
       return dispatch((0, _answer_actions.createAnswer)(answer));
+    },
+    fetchAnswers: function fetchAnswers(question) {
+      return dispatch((0, _answer_actions.fetchAnswers)(question));
     }
   };
 };
@@ -49875,7 +49881,6 @@ var QuestionView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log('rendering');
       return _react2.default.createElement(
         'div',
         null,
@@ -49920,16 +49925,16 @@ var QuestionView = function (_React$Component) {
             )
           )
         ),
+        this.state.modalIsOpen && _react2.default.createElement(_edit_question_form2.default, {
+          question: this.question,
+          updateQuestion: this.props.updateQuestion,
+          toggleModal: this.toggleModal }),
         _react2.default.createElement(_answer_index_container2.default, { question: this.question }),
         this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
           question: this.question,
           createAnswer: this.props.createAnswer,
           currentUser: this.props.currentUser,
-          toggleEditor: this.toggleEditor }),
-        this.state.modalIsOpen && _react2.default.createElement(_edit_question_form2.default, {
-          question: this.question,
-          updateQuestion: this.props.updateQuestion,
-          toggleModal: this.toggleModal })
+          toggleEditor: this.toggleEditor })
       );
     }
   }]);
@@ -51327,6 +51332,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   });
 
   return {
+    currentUser: state.session.currentUser,
     question: question,
     answers: answers
   };
@@ -51397,13 +51403,20 @@ var AnswerIndex = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
+          'div',
+          { className: 'answers-count' },
+          this.props.answers.length,
+          ' Answers'
+        ),
+        _react2.default.createElement(
           'ul',
-          null,
+          { className: 'answer-index' },
           this.props.answers.map(function (answer) {
             return _react2.default.createElement(_answer_index_item2.default, {
               key: answer.id,
               answer: answer,
               question: _this2.props.question,
+              currentUser: _this2.props.currentUser,
               deleteAnswer: _this2.props.deleteAnswer });
           })
         )
@@ -51454,11 +51467,16 @@ var AnswerIndexItem = function (_React$Component) {
   }
 
   _createClass(AnswerIndexItem, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
+        "div",
+        { className: "answer-item" },
+        _react2.default.createElement(
+          "div",
+          { className: "asker-name" },
+          this.props.currentUser.name
+        ),
         this.answer.body
       );
     }

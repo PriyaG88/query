@@ -34,6 +34,7 @@ class QuestionIndexItem extends React.Component {
             </a>
           </div>
         </div>
+
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
