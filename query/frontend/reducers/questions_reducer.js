@@ -1,11 +1,11 @@
-import { RECEIVE_ALL_QUESTIONS, RECEIVE_QUESTION, REMOVE_QUESTION } from '../actions/question_actions';
+import { RECEIVE_QUESTIONS, RECEIVE_QUESTION, REMOVE_QUESTION } from '../actions/question_actions';
 import merge from 'lodash/merge';
 
 const QuestionsReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch(action.type) {
-    case RECEIVE_ALL_QUESTIONS:
+    case RECEIVE_QUESTIONS:
       return merge({}, action.questions);
     case RECEIVE_QUESTION:
       return merge({}, state, {[action.question.id]: action.question});

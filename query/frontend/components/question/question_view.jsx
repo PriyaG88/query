@@ -37,7 +37,7 @@ class QuestionView extends React.Component {
     e.preventDefault();
     console.log(this.questionId);
     this.props.deleteQuestion(this.questionId);
-    
+
   }
 
   render() {
@@ -66,6 +66,7 @@ class QuestionView extends React.Component {
           {this.state.modalIsOpen && <EditQuestionForm
           question={this.question}
           updateQuestion={this.props.updateQuestion}
+          questionState={this.state}
           toggleModal={this.toggleModal} />}
 
           <AnswerIndexContainer question={this.question}/>

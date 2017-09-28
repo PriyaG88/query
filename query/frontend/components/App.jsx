@@ -8,11 +8,12 @@ import QuestionViewContainer from './question/question_view_container';
 
 const App = () => (
   <div>
+    <AuthRoute path="/" component={SessionFormContainer} />
     <Switch>
       <ProtectedRoute path="/questions/:questionId" component={QuestionViewContainer} />
-      <ProtectedRoute path="/" component={QuestionIndexContainer} />
+      <ProtectedRoute path="/questions" component={QuestionIndexContainer} />
     </Switch>
-    <AuthRoute path="/" component={SessionFormContainer} />
+
   </div>
 );
 

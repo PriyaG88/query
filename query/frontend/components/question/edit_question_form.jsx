@@ -16,6 +16,7 @@ class EditQuestionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateQuestion(this.state);
+
     this.props.toggleModal();
   }
 

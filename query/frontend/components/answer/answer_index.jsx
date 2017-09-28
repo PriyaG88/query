@@ -7,15 +7,16 @@ class AnswerIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAnswers(this.props.question);
+    this.props.fetchAnswers();
   }
 
   render() {
+    const filteredAnswers = this.props.answers.filter(answer => answer.question_id === this.props.question.id);
     return (
       <div>
-        <div className="answers-count">{this.props.answers.length} Answers</div>
+        <div className="answers-count">{filteredAnswers.length} Answers</div>
         <ul className="answer-index">
-          {this.props.answers.map(answer => (
+          {filteredAnswers.map(answer => (
             <AnswerIndexItem
               key={answer.id}
               answer={answer}

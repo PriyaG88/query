@@ -27,9 +27,9 @@ class NavBar extends React.Component {
     return (
       <div className="header">
 
-        <NavLink to="/" className="header-logo">Query</NavLink>
+        <NavLink to="/questions" className="header-logo">Query</NavLink>
         <div className="header-nav-item">
-          <NavLink to="/" className="nav-item-link">
+          <NavLink to="/questions" className="nav-item-link">
             <span className="home-icon" className="header-icon">
               <svg width="30px" height="30px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Icons" stroke="none" strokeWidth="1" fill="var(--icon_color, #555)" fillRule="evenodd">

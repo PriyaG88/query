@@ -12,7 +12,7 @@
 
 class Comment < ApplicationRecord
   validates :body, :user_id, :answer_id, presence: true
-  validates :body, length: { minimum: 6 }
+  validates :body, length: { minimum: 3 }
 
   belongs_to :answer
   belongs_to :user

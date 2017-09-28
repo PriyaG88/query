@@ -16,6 +16,8 @@ class QuestionIndex extends React.Component {
   }
   componentDidMount() {
     this.props.fetchQuestions();
+    this.props.fetchAnswers();
+
   }
 
   render() {
@@ -37,6 +39,7 @@ class QuestionIndex extends React.Component {
             <QuestionIndexItem
               key={question.id}
               question={question}
+              answers={this.props.answers}
               currentUser={this.props.currentUser}
               updateQuestion={this.props.updateQuestion}
               deleteQuestion={this.props.deleteQuestion}

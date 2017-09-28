@@ -1,10 +1,10 @@
 import * as QuestionAPIUtil from '../util/question_api_util';
-export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_QUESTIONS';
+export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 export const REMOVE_QUESTION = 'REMOVE_QUESTION';
 
 export const fetchQuestions = () => dispatch => (
-  QuestionAPIUtil.fetchQuestions().then(questions => dispatch(receiveAllQuestions(questions)))
+  QuestionAPIUtil.fetchQuestions().then(questions => dispatch(receiveQuestions(questions)))
 );
 
 export const fetchQuestion = id => dispatch => (
@@ -31,8 +31,8 @@ const receiveQuestion = question => ({
   question
 });
 
-const receiveAllQuestions = questions => ({
-  type: RECEIVE_ALL_QUESTIONS,
+const receiveQuestions = questions => ({
+  type: RECEIVE_QUESTIONS,
   questions
 });
 

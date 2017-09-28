@@ -1,14 +1,14 @@
-export const fetchAnswers = question => {
+export const fetchAnswers = () => {
   return $.ajax({
     method: 'GET',
-    url: `api/questions/${question.id}/answers`
+    url: "api/answers"
   });
 };
 
 export const createAnswer = answer => {
   return $.ajax({
     method: 'POST',
-    url: `api/questions/${answer.question_id}/answers`,
+    url: "api/answers",
     data: { answer }
   });
 };

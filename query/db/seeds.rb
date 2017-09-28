@@ -17,3 +17,5 @@ Question.create(body: "Coke or pepsi?", user_id: 2, topic: "Survey")
 Answer.create(body: "Because of people like Lord Voldemort", user_id: 10, question_id: 1)
 # Answer.create(body:, user_id:, question_id:)
 # Answer.create(body:, user_id:, question_id:)
+
+Comment.create(body: "Agreed!", answer_id: 1, user_id: 9)

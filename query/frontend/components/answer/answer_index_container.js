@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   const question = ownProps.question;
   const answers = Object.keys(state.entities.answers).map(id => state.entities.answers[id]);
 
+
   return {
     currentUser: state.session.currentUser,
     question,
@@ -14,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAnswers: (question) => dispatch(fetchAnswers(question)),
+  fetchAnswers: () => dispatch(fetchAnswers()),
   deleteAnswer: (answer) => dispatch(deleteAnswer(answer))
 });
 

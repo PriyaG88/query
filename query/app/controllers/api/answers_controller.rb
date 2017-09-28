@@ -1,6 +1,6 @@
 class Api::AnswersController < ApplicationController
   def index
-    @answers = Answer.where("question_id =?", params[:question_id])
+    @answers = Answer.all
   end
 
   def create

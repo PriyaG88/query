@@ -1,11 +1,11 @@
-import { RECEIVE_ALL_ANSWERS, RECEIVE_ANSWER, REMOVE_ANSWER } from '../actions/answer_actions';
+import { RECEIVE_ANSWERS, RECEIVE_ANSWER, REMOVE_ANSWER } from '../actions/answer_actions';
 import merge from 'lodash/merge';
 
 const AnswersReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch(action.type) {
-    case RECEIVE_ALL_ANSWERS:
+    case RECEIVE_ANSWERS:
       return merge({}, action.answers);
     case RECEIVE_ANSWER:
       return merge({}, state, {[action.answer.id]: action.answer});
