@@ -1,7 +1,7 @@
 import * as AnswerAPIUtil from '../util/answer_api_util';
 export const RECEIVE_ANSWER = 'RECEIVE_ANSWER';
-export const REMOVE_ANSWER = 'REMOVE_ANSWER';
 export const RECEIVE_ANSWERS = 'RECEIVE_ANSWERS';
+export const REMOVE_ANSWER = 'REMOVE_ANSWER';
 
 export const fetchAnswers = () => dispatch => (
   AnswerAPIUtil.fetchAnswers().then(answers => dispatch(receiveAnswers(answers)))

@@ -4,7 +4,7 @@ import { updateQuestion, fetchQuestions, fetchQuestion, deleteQuestion } from '.
 import { createAnswer } from '../../actions/answer_actions';
 import { withRouter } from 'react-router-dom';
 //
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
   questions: state.entities.questions
 });

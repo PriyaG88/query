@@ -1,23 +1,30 @@
 import React from 'react';
-import CommentIndexItem from './comment_index_item';
+import Avatar from 'react-avatar';
 
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchComments(this.props.question);
+  comments() {
+    let comments = this.props.comments.filter(comment => comment.answer_id === this.props.answerId);
+    return comments;
   }
 
   render() {
+    const comments = this.comments();
+    if (!comments) {
+      return (
+        <div>
+        </div>
+      );
+    }
     return (
       <div>
-        {this.props.comments.map(comment => (
-          <CommentIndexItem
-            key={comment.id}
-            comment={comment}
-            currentUser={this.props.currentUser}/>
+        { comments.map(comment => (
+          <div>
+            {comment.body}
+          </div>
         ))}
       </div>
     );

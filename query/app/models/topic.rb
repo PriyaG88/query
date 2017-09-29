@@ -10,6 +10,14 @@
 
 class Topic < ApplicationRecord
   validates :name, presence: true
-  has_many :questions
+
+  has_many :followed_topics,
+    primary_key: :id,
+    foreign_key: :topic_id,
+    class_name: "FollowedTopic"
+
+  has_many :questions,
+    through: :followed_topics,
+    source: :question
 
 end

@@ -1,3 +1,43 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.comment-section {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  min-height: 27px;
+  background-color: #f7f7f7;
+  font-size: 13px;
+  padding: 16px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 2px;
+}
+
+.comment-input {
+  font-family: 'q_serif',Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+  word-break: break-word;
+  padding: 3px 5px 4px;
+  background-color: #fff;
+  font-size: 13px;
+  display: inline-block;
+  width: 350px;
+}
+
+.comment-btn {
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 3px 7px 4px 7px;
+  outline: 0;
+  text-align: center;
+  text-decoration: none;
+  background: #3e78ad;
+  color: #fff;
+  border: 1px solid #3a66ad;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
+  line-height: 1.4;
+  transition: opacity ease-in-out 100ms,color ease-in-out 100ms,background-color ease-in-out 100ms,border-color ease-in-out 100ms;
+}

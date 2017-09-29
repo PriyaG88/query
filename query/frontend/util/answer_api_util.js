@@ -1,7 +1,7 @@
 export const fetchAnswers = () => {
   return $.ajax({
     method: 'GET',
-    url: "api/answers"
+    url: "/api/answers"
   });
 };
 

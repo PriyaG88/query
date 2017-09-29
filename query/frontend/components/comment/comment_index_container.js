@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { fetchComments } from '../../actions/comment_actions';
+import { comments } from '../../reducers/selectors';
 import CommentIndex from './comment_index';
+import { fetchComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  comments: Object.keys(state.entities.comments).map(id => state.entities.comments[id]),
-  question: ownProps.question,
-  currentUser: state.session.currentUser
+  comments: comments(state),
+  answerId: ownProps.answer.id
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, {answer}) => ({
   fetchComments: answer => dispatch(fetchComments(answer))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentIndex));
+export default connect(mapStateToProps, null)(CommentIndex);

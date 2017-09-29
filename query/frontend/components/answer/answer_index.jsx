@@ -6,9 +6,9 @@ class AnswerIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchAnswers();
-  }
+  // componentDidMount() {
+  //   this.props.fetchAnswers();
+  // }
 
   render() {
     const filteredAnswers = this.props.answers.filter(answer => answer.question_id === this.props.question.id);

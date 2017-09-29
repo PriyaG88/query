@@ -1,18 +1,13 @@
 import { fetchAnswers, deleteAnswer } from '../../actions/answer_actions';
+import { answers } from '../../reducers/selectors';
 import { connect } from 'react-redux';
 import AnswerIndex from './answer_index';
 
-const mapStateToProps = (state, ownProps) => {
-  const question = ownProps.question;
-  const answers = Object.keys(state.entities.answers).map(id => state.entities.answers[id]);
-
-
-  return {
-    currentUser: state.session.currentUser,
-    question,
-    answers
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser,
+  question: ownProps.question,
+  answers: answers(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchAnswers: () => dispatch(fetchAnswers()),

@@ -6,6 +6,7 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
+    console.log('hello');
     return (
       <div>
         {this.props.comment.body}

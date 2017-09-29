@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import AnswerEditor from '../answer/answer_editor';
-import Answer from '../answer/answer';
+import Avatar from 'react-avatar';
+import CommentFormContainer from '../comment/comment_form_container';
+
 
 class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
     this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
       editorIsOpen: false,
-      answer: this.props.answers
+      answer: ""
     };
   }
 
@@ -21,40 +24,64 @@ class QuestionIndexItem extends React.Component {
     this.setState({editorIsOpen: !this.state.editorIsOpen});
   }
 
-  componentWillReceiveProps() {
-    this.answers = this.props.answers;
-    this.filteredAnswers = this.answers.filter(answer => answer.question_id === this.props.question.id);
-    this.setState({answer: this.filteredAnswers[0]})
+  answers() {
+    const id = this.props.question.id;
+    let answers = this.props.answers.filter(answer => answer.question_id === id);
+    return answers[0];
   }
 
   render() {
-    console.log('rendering...');
-    if (!this.state.answer) {
-      return (<div>'..loading'</div>);
+    const answer = this.answers();
+    const currentUser = this.props.currentUser;
+    if (!answer) {
+      return (
+        <div className="question-item-box">
+          <div className="question-item">
+            <div className="question-text-container">
+              <Link className="question-item-link"to={`/questions/${this.props.question.id}`}>
+                {this.props.question.body}
+              </Link>
+            </div>
+            <div className="answer-btn-container">
+              <a className="answer-btn" >
+                <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
+              </a>
+            </div>
+          </div>
+          {this.state.editorIsOpen && <AnswerEditor
+          question={this.question}
+          createAnswer={this.props.createAnswer}
+          currentUser={currentUser}
+          toggleEditor={this.toggleEditor}/>}
+        </div>
+      );
     }
     return (
       <div className="question-item-box">
         <div className="question-item">
           <div className="question-text-container">
             <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
-              {this.props.question.body}
+              <span className="question">{this.props.question.body}</span>
             </Link>
           </div>
-          <div className="answer-btn-container">
-            <a className="answer-btn" >
-              <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
-            </a>
-          </div>
-            <div className="answer-item">
-              {this.state.answer[0].body}
+          <div className="answer-section">
+            <div className="avatar">
+              <Avatar name={this.props.currentUser.name} size={40} round={true} textSizeRatio={2} />
             </div>
-        </div>
 
+            <div className="question-answer-item">
+              {answer.body}
+            </div>
+          </div>
+          <div className="comment-section">
+            <div className="comment-form"><CommentFormContainer id={answer.id}/></div>
+          </div>
+
+        </div>
 
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
-          currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
       </div>
     );

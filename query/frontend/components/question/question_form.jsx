@@ -8,7 +8,7 @@ class QuestionForm extends React.Component {
     this.state = {
       body: "",
       user_id: this.props.currentUser.id,
-      topic: "placeholder"
+      topic: "General"
     };
   }
 

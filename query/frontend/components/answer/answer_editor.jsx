@@ -40,6 +40,7 @@ class AnswerEditor extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const edited = this.state.editorHtml.replace(/<p>/, "").replace(/<\/p>/, "");
     const answer = {
       body: edited,

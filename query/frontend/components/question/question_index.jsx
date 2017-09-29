@@ -17,14 +17,23 @@ class QuestionIndex extends React.Component {
   componentDidMount() {
     this.props.fetchQuestions();
     this.props.fetchAnswers();
-
   }
 
   render() {
+
+    const questions = this.props.questions.reverse().map(question => (
+      <QuestionIndexItem
+        key={question.id}
+        question={question}
+        answers={this.props.answers}
+        currentUser={this.props.currentUser}
+        updateQuestion={this.props.updateQuestion}
+        deleteQuestion={this.props.deleteQuestion}
+        createAnswer={this.props.createAnswer} />
+    ));
     return (
       <div className="question-index-container">
         <NavBarContainer />
-
         <ul className="question-index">
           <div className="ask-question">
             <div className="user-prompt">
@@ -35,16 +44,7 @@ class QuestionIndex extends React.Component {
               {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
             </div>
           </div>
-          {this.props.questions.map(question => (
-            <QuestionIndexItem
-              key={question.id}
-              question={question}
-              answers={this.props.answers}
-              currentUser={this.props.currentUser}
-              updateQuestion={this.props.updateQuestion}
-              deleteQuestion={this.props.deleteQuestion}
-              createAnswer={this.props.createAnswer} />
-          ))}
+          {questions}
         </ul>
       </div>
     );

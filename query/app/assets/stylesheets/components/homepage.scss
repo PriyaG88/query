@@ -1,0 +1,40 @@
+.feeds-container {
+    margin-top: 7%;
+    width: 142px;
+    height: 328px;
+    float: left;
+    min-height: 1px;
+    margin-left: 200px;
+    clear: left;
+    font-size: 13px;
+    top: 50%;
+    position: static;
+    display: block;
+}
+
+.home-page-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: #fafafa;
+}
+
+.feeds-title {
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+
+}
+
+.feed {
+    margin-bottom: 4px;
+}

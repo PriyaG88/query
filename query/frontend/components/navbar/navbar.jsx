@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import QuestionFormContainer from '../question/question_form_container';
 import { NavLink } from 'react-router-dom';
+import SearchBarContainer from '../search/searchbar_container';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -27,9 +28,9 @@ class NavBar extends React.Component {
     return (
       <div className="header">
 
-        <NavLink to="/questions" className="header-logo">Query</NavLink>
+        <NavLink to="/" className="header-logo">Query</NavLink>
         <div className="header-nav-item">
-          <NavLink to="/questions" className="nav-item-link">
+          <NavLink to="/" className="nav-item-link">
             <span className="home-icon" className="header-icon">
               <svg width="30px" height="30px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Icons" stroke="none" strokeWidth="1" fill="var(--icon_color, #555)" fillRule="evenodd">
@@ -71,9 +72,9 @@ class NavBar extends React.Component {
             <span className="icon-name">Notifications</span>
           </a>
         </div>
-
-        <textarea className="search-input" type="text" rows="1" autoFocus="True" placeholder="Search Query"
-          style={{height: 29}}></textarea>
+        <div>
+          <SearchBarContainer />
+        </div>
         <button className="ask-question-btn" onClick={this.toggleModal.bind(this)}>Ask Question</button>
         {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
         <button onClick={this.handleLogout}>Logout</button>
