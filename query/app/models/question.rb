@@ -18,5 +18,4 @@ class Question < ApplicationRecord
   has_many :answers
   has_many :topics, through: :followed_topic
 
-
 end
