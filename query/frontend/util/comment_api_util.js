@@ -1,14 +1,14 @@
-export const fetchComments = answer => {
+export const fetchComments = () => {
   return $.ajax({
     method: 'GET',
-    url: `/api/answers/${answer.id}/comments`
+    url: "/api/comments"
   });
 };
 
 export const createComment = comment => {
   return $.ajax({
     method: 'POST',
-    url: `/api/answers/${comment.answer_id}/comments`,
+    url: "/api/comments",
     data: { comment }
   });
 };

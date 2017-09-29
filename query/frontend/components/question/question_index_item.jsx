@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import AnswerEditor from '../answer/answer_editor';
 import Avatar from 'react-avatar';
 import CommentFormContainer from '../comment/comment_form_container';
+import CommentIndexContainer from '../comment/comment_index_container';
 
 
 class QuestionIndexItem extends React.Component {
@@ -79,7 +80,9 @@ class QuestionIndexItem extends React.Component {
           <div className="comment-section">
             <div className="comment-form"><CommentFormContainer id={answer.id}/></div>
           </div>
-
+          <div className="comment-index">
+            <div className="comment-index-container"><CommentIndexContainer answer={answer}/></div>
+          </div>
         </div>
       </div>
     );

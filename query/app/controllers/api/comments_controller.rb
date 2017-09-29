@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.where("answer_id = ?", params[:answer_id])
+    @comments = Comment.all
   end
 
   def create

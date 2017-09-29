@@ -20,6 +20,9 @@ class AnswerIndexItem extends React.Component {
         <div className="comment-section">
           <div className="comment-form"><CommentFormContainer id={this.answer.id}/></div>
         </div>
+        <div>
+          <div className="comment-index"><CommentIndexContainer answer={this.answer}/></div>
+        </div>
       </div>
     );
   }

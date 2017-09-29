@@ -39,9 +39,11 @@ class TopicView extends React.Component {
                 <div className="topic-view">
                   <ul className="question-index">
                     {questions.map(question => (
-                      <Link className="question-item-link"to={`/questions/${question.id}`}>
-                        {question.body}
-                      </Link>
+                      <li>
+                        <Link className="question-item-link"to={`/questions/${question.id}`}>
+                          {question.body}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </div>

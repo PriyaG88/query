@@ -10,7 +10,7 @@ import HomePage from './home_page';
 
 const App = () => (
   <div>
-    <Route path="/" component={NavBarContainer} />
+
     <AuthRoute path="/enter" component={SessionFormContainer} />
     <Switch>
       <ProtectedRoute path="/topics/:id" component={TopicViewContainer} />

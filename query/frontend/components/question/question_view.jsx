@@ -5,6 +5,7 @@ import NavBarContainer from '../navbar/navbar_container';
 import AnswerEditor from '../answer/answer_editor';
 import EditQuestionForm from './edit_question_form';
 import AnswerIndexContainer from '../answer/answer_index_container';
+import CommentIndexContainer from '../comment/comment_index_container';
 
 class QuestionView extends React.Component {
   constructor(props) {
@@ -75,6 +76,7 @@ class QuestionView extends React.Component {
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
+          
       </div>
     );
   }

@@ -1,10 +1,23 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.comment-section {
+.comment-section, .comment-index {
   box-sizing: border-box;
   width: 100%;
   display: flex;
+  min-height: 27px;
+  background-color: #f7f7f7;
+  font-size: 13px;
+  padding: 16px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 2px;
+}
+
+.comment-index {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
   min-height: 27px;
   background-color: #f7f7f7;
   font-size: 13px;

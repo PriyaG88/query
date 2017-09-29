@@ -8,8 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
   answerId: ownProps.answer.id
 });
 
-const mapDispatchToProps = (dispatch, {answer}) => ({
-  fetchComments: answer => dispatch(fetchComments(answer))
+const mapDispatchToProps = dispatch => ({
+  fetchComments: () => dispatch(fetchComments())
 });
 
-export default connect(mapStateToProps, null)(CommentIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);

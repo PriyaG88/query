@@ -5,8 +5,8 @@ class CommentIndexItem extends React.Component {
     super(props);
   }
 
+
   render() {
-    console.log('hello');
     return (
       <div>
         {this.props.comment.body}
