@@ -30,6 +30,10 @@ class QuestionForm extends React.Component {
     });
   }
 
+  select(e) {
+    this.setState({['topic']: e.target.value});
+  }
+
   render() {
     return (
       <div id="question-form-modal">
@@ -42,6 +46,13 @@ class QuestionForm extends React.Component {
                 onChange={this.update('body')}
                 placeholder="What is your question?">
               </textarea>
+              <select value={this.state.topic} onChange={this.select}>
+                <option value="General">General</option>
+                <option value="Behavior">Behavior</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Harry Potter">Harry Potter</option>
+                <option value="Game of Thrones">Game of Thrones</option>
+              </select>
               <button onClick={this.handleClick}>Cancel</button>
               <input type="submit" value="Ask Question"></input>
             </form>

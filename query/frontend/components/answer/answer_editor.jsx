@@ -6,6 +6,8 @@ import ReactQuill from 'react-quill';
 class AnswerEditor extends React.Component {
   constructor(props) {
     super(props);
+    this.currentUser = this.props.currentUser;
+    console.log(this.currentUser);
 
     // this.state = {editorState: EditorState.createEmpty()};
     this.state = { editorHtml: '', theme: 'snow' };
@@ -33,6 +35,10 @@ class AnswerEditor extends React.Component {
 
   }
 
+  componentWillReceiveProps(props) {
+    this.currentUser = this.props.currentUser;
+  }
+
   //code inspired by https://codepen.io/alexkrolick/pen/xgyOXQ?editors=0010#0
 
   handleChange(html) {
@@ -45,7 +51,7 @@ class AnswerEditor extends React.Component {
     const answer = {
       body: edited,
       question_id: this.props.question.id,
-      user_id: this.props.currentUser.id
+      user_id: this.currentUser.id
     };
     this.props.createAnswer(answer);
     this.props.toggleEditor();

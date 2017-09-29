@@ -35,23 +35,26 @@ class QuestionIndexItem extends React.Component {
     const currentUser = this.props.currentUser;
     if (!answer) {
       return (
-        <div className="question-item-box">
-          <div className="question-item">
-            <div className="question-text-container">
-              <Link className="question-item-link"to={`/questions/${this.props.question.id}`}>
-                {this.props.question.body}
-              </Link>
-            </div>
-            <div className="answer-btn-container">
-              <a className="answer-btn" >
-                <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
-              </a>
+        <div>
+          <div className="question-item-box">
+            <div className="question-item">
+              <div className="question-text-container">
+                <Link className="question-item-link"to={`/questions/${this.props.question.id}`}>
+                  {this.props.question.body}
+                </Link>
+              </div>
+              <div className="answer-btn-container">
+                <a className="answer-btn" >
+                  <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
+                </a>
+              </div>
             </div>
           </div>
+
           {this.state.editorIsOpen && <AnswerEditor
           question={this.question}
           createAnswer={this.props.createAnswer}
-          currentUser={currentUser}
+          currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
         </div>
       );
@@ -78,14 +81,9 @@ class QuestionIndexItem extends React.Component {
           </div>
 
         </div>
-
-          {this.state.editorIsOpen && <AnswerEditor
-          question={this.question}
-          createAnswer={this.props.createAnswer}
-          toggleEditor={this.toggleEditor}/>}
       </div>
     );
   }
 }
 
-export default withRouter(QuestionIndexItem);
+export default (QuestionIndexItem);

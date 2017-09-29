@@ -16618,9 +16618,12 @@ var AnswerEditor = function (_React$Component) {
   function AnswerEditor(props) {
     _classCallCheck(this, AnswerEditor);
 
-    // this.state = {editorState: EditorState.createEmpty()};
     var _this = _possibleConstructorReturn(this, (AnswerEditor.__proto__ || Object.getPrototypeOf(AnswerEditor)).call(this, props));
 
+    _this.currentUser = _this.props.currentUser;
+    console.log(_this.currentUser);
+
+    // this.state = {editorState: EditorState.createEmpty()};
     _this.state = { editorHtml: '', theme: 'snow' };
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -16637,9 +16640,15 @@ var AnswerEditor = function (_React$Component) {
     return _this;
   }
 
-  //code inspired by https://codepen.io/alexkrolick/pen/xgyOXQ?editors=0010#0
-
   _createClass(AnswerEditor, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      this.currentUser = this.props.currentUser;
+    }
+
+    //code inspired by https://codepen.io/alexkrolick/pen/xgyOXQ?editors=0010#0
+
+  }, {
     key: 'handleChange',
     value: function handleChange(html) {
       this.setState({ editorHtml: html });
@@ -16652,7 +16661,7 @@ var AnswerEditor = function (_React$Component) {
       var answer = {
         body: edited,
         question_id: this.props.question.id,
-        user_id: this.props.currentUser.id
+        user_id: this.currentUser.id
       };
       this.props.createAnswer(answer);
       this.props.toggleEditor();
@@ -50280,6 +50289,11 @@ var QuestionForm = function (_React$Component) {
       };
     }
   }, {
+    key: "select",
+    value: function select(e) {
+      this.setState(_defineProperty({}, 'topic', e.target.value));
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -50301,6 +50315,35 @@ var QuestionForm = function (_React$Component) {
               value: this.state.body,
               onChange: this.update('body'),
               placeholder: "What is your question?" }),
+            _react2.default.createElement(
+              "select",
+              { value: this.state.topic, onChange: this.select },
+              _react2.default.createElement(
+                "option",
+                { value: "General" },
+                "General"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "Behavior" },
+                "Behavior"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "Computer Science" },
+                "Computer Science"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "Harry Potter" },
+                "Harry Potter"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "Game of Thrones" },
+                "Game of Thrones"
+              )
+            ),
             _react2.default.createElement(
               "button",
               { onClick: this.handleClick },
@@ -59318,29 +59361,33 @@ var QuestionIndexItem = function (_React$Component) {
       if (!answer) {
         return _react2.default.createElement(
           'div',
-          { className: 'question-item-box' },
+          null,
           _react2.default.createElement(
             'div',
-            { className: 'question-item' },
+            { className: 'question-item-box' },
             _react2.default.createElement(
               'div',
-              { className: 'question-text-container' },
+              { className: 'question-item' },
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { className: 'question-item-link', to: '/questions/' + this.props.question.id },
-                this.props.question.body
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'answer-btn-container' },
-              _react2.default.createElement(
-                'a',
-                { className: 'answer-btn' },
+                'div',
+                { className: 'question-text-container' },
                 _react2.default.createElement(
-                  'span',
-                  { onClick: this.toggleEditor, className: 'answer-button-text' },
-                  'Answer'
+                  _reactRouterDom.Link,
+                  { className: 'question-item-link', to: '/questions/' + this.props.question.id },
+                  this.props.question.body
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'answer-btn-container' },
+                _react2.default.createElement(
+                  'a',
+                  { className: 'answer-btn' },
+                  _react2.default.createElement(
+                    'span',
+                    { onClick: this.toggleEditor, className: 'answer-button-text' },
+                    'Answer'
+                  )
                 )
               )
             )
@@ -59348,7 +59395,7 @@ var QuestionIndexItem = function (_React$Component) {
           this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
             question: this.question,
             createAnswer: this.props.createAnswer,
-            currentUser: currentUser,
+            currentUser: this.props.currentUser,
             toggleEditor: this.toggleEditor })
         );
       }
@@ -59394,11 +59441,7 @@ var QuestionIndexItem = function (_React$Component) {
               _react2.default.createElement(_comment_form_container2.default, { id: answer.id })
             )
           )
-        ),
-        this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
-          question: this.question,
-          createAnswer: this.props.createAnswer,
-          toggleEditor: this.toggleEditor })
+        )
       );
     }
   }]);
@@ -59406,7 +59449,7 @@ var QuestionIndexItem = function (_React$Component) {
   return QuestionIndexItem;
 }(_react2.default.Component);
 
-exports.default = (0, _reactRouterDom.withRouter)(QuestionIndexItem);
+exports.default = QuestionIndexItem;
 
 /***/ }),
 /* 642 */
