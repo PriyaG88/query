@@ -36,7 +36,6 @@ class QuestionView extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    console.log(this.questionId);
     this.props.deleteQuestion(this.questionId);
 
   }
@@ -76,7 +75,7 @@ class QuestionView extends React.Component {
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor}/>}
-          
+
       </div>
     );
   }

@@ -9,7 +9,7 @@
 #
 
 class Topic < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   has_many :followed_topics,
     primary_key: :id,

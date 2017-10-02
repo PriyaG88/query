@@ -16643,6 +16643,8 @@ var _reactQuill2 = _interopRequireDefault(_reactQuill);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -16658,7 +16660,6 @@ var AnswerEditor = function (_React$Component) {
   function AnswerEditor(props) {
     _classCallCheck(this, AnswerEditor);
 
-    // this.state = {editorState: EditorState.createEmpty()};
     var _this = _possibleConstructorReturn(this, (AnswerEditor.__proto__ || Object.getPrototypeOf(AnswerEditor)).call(this, props));
 
     _this.state = { editorHtml: '', theme: 'snow' };
@@ -16713,7 +16714,7 @@ var AnswerEditor = function (_React$Component) {
       // } = richButtonsPlugin;
       return _react2.default.createElement(
         'div',
-        { className: 'editor' },
+        _defineProperty({ className: 'editor' }, 'className', 'question-editor'),
         _react2.default.createElement(_reactQuill2.default, {
           theme: this.state.theme,
           onChange: this.handleChange,
@@ -29225,11 +29226,15 @@ var QuestionIndexItem = function (_React$Component) {
               )
             )
           ),
-          this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
-            question: this.question,
-            createAnswer: this.props.createAnswer,
-            currentUser: this.props.currentUser,
-            toggleEditor: this.toggleEditor })
+          _react2.default.createElement(
+            'div',
+            { className: 'question-index-answer' },
+            this.state.editorIsOpen && _react2.default.createElement(_answer_editor2.default, {
+              question: this.question,
+              createAnswer: this.props.createAnswer,
+              currentUser: this.props.currentUser,
+              toggleEditor: this.toggleEditor })
+          )
         );
       }
       return _react2.default.createElement(
@@ -48283,7 +48288,6 @@ var QuestionView = function (_React$Component) {
     key: 'handleDelete',
     value: function handleDelete(e) {
       e.preventDefault();
-      console.log(this.questionId);
       this.props.deleteQuestion(this.questionId);
     }
   }, {
@@ -50748,6 +50752,20 @@ var Search = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      this.matchResults();
+      var results = this.resultsArr.map(function (question) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/questions/' + question.id,
+              key: question.id,
+              className: 'search-item' },
+            question.body
+          )
+        );
+      });
       return _react2.default.createElement(
         'div',
         { className: 'search-bar-container' },
@@ -50761,19 +50779,12 @@ var Search = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          null,
-          this.matchResults(),
-          this.resultsArr.map(function (question) {
-            return _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                _reactRouterDom.Link,
-                { key: question.id, to: '/questions/' + question.id },
-                question.body
-              )
-            );
-          })
+          { className: 'search-results' },
+          _react2.default.createElement(
+            'ul',
+            null,
+            results
+          )
         )
       );
     }
@@ -59124,7 +59135,7 @@ var CommentIndex = function (_React$Component) {
           comments.map(function (comment) {
             return _react2.default.createElement(
               'div',
-              null,
+              { key: comment.id },
               comment.body
             );
           })
@@ -59376,7 +59387,6 @@ var TopicIndex = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchTopics();
-      console.log(this.props.topics);
     }
   }, {
     key: 'render',

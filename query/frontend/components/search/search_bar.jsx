@@ -27,6 +27,15 @@ class Search extends React.Component {
   }
 
   render() {
+    this.matchResults();
+    const results = this.resultsArr.map(question => (
+      <div>
+       <Link to={`/questions/${question.id}`}
+         key={question.id}
+         className="search-item">{question.body}
+       </Link>
+     </div>
+    ));
     return (
       <div className="search-bar-container">
         <div>
@@ -36,11 +45,8 @@ class Search extends React.Component {
             onChange={this.update('searchTerm')}>
           </textarea>
         </div>
-        <div>
-          {this.matchResults()}
-          { this.resultsArr.map(question => (
-            <li><Link key={question.id} to={`/questions/${question.id}`} >{question.body}</Link></li>
-          )) }
+        <div className="search-results">
+          <ul>{results}</ul>
         </div>
       </div>
     );

@@ -8,7 +8,6 @@ class TopicIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchTopics();
-    console.log(this.props.topics);
   }
 
   render(){

@@ -7,7 +7,6 @@ class AnswerEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {editorState: EditorState.createEmpty()};
     this.state = { editorHtml: '', theme: 'snow' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -43,6 +42,7 @@ class AnswerEditor extends React.Component {
     this.setState({editorHtml: html});
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     const edited = this.state.editorHtml.replace(/<p>/, "").replace(/<\/p>/, "");
@@ -62,7 +62,7 @@ class AnswerEditor extends React.Component {
     //   ParagraphButton, BlockquoteButton, CodeButton, OLButton, ULButton, H1Button, H2Button, H3Button, H4Button, H5Button, H6Button
     // } = richButtonsPlugin;
     return (
-      <div className="editor">
+      <div className="editor" className="question-editor">
         <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
