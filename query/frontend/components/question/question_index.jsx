@@ -14,8 +14,8 @@ class QuestionIndex extends React.Component {
   toggleModal() {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
+
   componentDidMount() {
-    this.props.fetchQuestions();
     this.props.fetchAnswers();
   }
 

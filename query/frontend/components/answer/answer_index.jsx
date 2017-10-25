@@ -14,7 +14,7 @@ class AnswerIndex extends React.Component {
     const filteredAnswers = this.props.answers.filter(answer => answer.question_id === this.props.question.id);
     return (
       <div>
-        <div className="answers-count">{filteredAnswers.length} Answers</div>
+        <div className="answers-count">{filteredAnswers.length} Answer(s)</div>
         <ul className="answer-index">
           {filteredAnswers.map(answer => (
             <AnswerIndexItem

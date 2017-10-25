@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/Button';
 
 class QuestionForm extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class QuestionForm extends React.Component {
                 <option value="Harry Potter">Harry Potter</option>
                 <option value="Game of Thrones">Game of Thrones</option>
               </select>
-              <button onClick={this.handleClick}>Cancel</button>
+              <Button onClick={this.handleClick}>Cancel</Button>
               <input type="submit" value="Ask Question"></input>
             </form>
           </div>

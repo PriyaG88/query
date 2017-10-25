@@ -53,7 +53,7 @@ class QuestionIndexItem extends React.Component {
           </div>
           <div className="question-index-answer">
             {this.state.editorIsOpen && <AnswerEditor
-            question={this.question}
+            question={this.props.question}
             createAnswer={this.props.createAnswer}
             currentUser={this.props.currentUser}
             toggleEditor={this.toggleEditor}/>}
