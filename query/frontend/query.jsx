@@ -7,8 +7,7 @@ import { fetchQuestions } from './actions/question_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
-  window.fetchTopics = fetchTopics();
-  window.fetchQuestions = fetchQuestions();
+
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
