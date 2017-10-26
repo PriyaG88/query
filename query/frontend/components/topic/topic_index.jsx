@@ -17,13 +17,11 @@ class TopicIndex extends React.Component {
           <h4>Feeds</h4>
         </div>
         <div className="feed-list">
-          <ul>
-            { this.props.topics.map(topic => (
-            <li>
-              <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
-            </li>
-            ))}
-          </ul>
+          <NavLink exact={true} to="/topics/1" activeClassName="selected-feed">
+            <div className="feed">
+              Behavior
+            </div>
+          </NavLink>
         </div>
       </div>
     );

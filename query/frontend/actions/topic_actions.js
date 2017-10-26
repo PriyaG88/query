@@ -6,6 +6,10 @@ export const fetchTopics = () => dispatch => (
   TopicAPIUtil.fetchTopics().then(topics => dispatch(receiveTopics(topics)))
 );
 
+export const fetchTopic = id => dispatch => (
+  TopicAPIUtil.fetchTopic(id).then(topic => dispatch(receiveTopic(topic)))
+);
+
 export const createTopic = topic => dispatch => (
   TopicAPIUtil.createTopic(topic).then(topic => dispatch(receiveTopic(topic)))
 );

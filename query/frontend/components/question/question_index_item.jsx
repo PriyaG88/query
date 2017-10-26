@@ -40,7 +40,7 @@ class QuestionIndexItem extends React.Component {
           <div className="question-item-box">
             <div className="question-item">
               <div className="question-text-container">
-                <Link className="question-item-link"to={`/questions/${this.props.question.id}`}>
+                <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
                   {this.props.question.body}
                 </Link>
               </div>

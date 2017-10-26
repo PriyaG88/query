@@ -7567,7 +7567,7 @@ exports.default = function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createTopic = exports.fetchTopics = exports.RECEIVE_TOPIC = exports.RECEIVE_TOPICS = undefined;
+exports.createTopic = exports.fetchTopic = exports.fetchTopics = exports.RECEIVE_TOPIC = exports.RECEIVE_TOPICS = undefined;
 
 var _topic_api_util = __webpack_require__(747);
 
@@ -7582,6 +7582,14 @@ var fetchTopics = exports.fetchTopics = function fetchTopics() {
   return function (dispatch) {
     return TopicAPIUtil.fetchTopics().then(function (topics) {
       return dispatch(receiveTopics(topics));
+    });
+  };
+};
+
+var fetchTopic = exports.fetchTopic = function fetchTopic(id) {
+  return function (dispatch) {
+    return TopicAPIUtil.fetchTopic(id).then(function (topic) {
+      return dispatch(receiveTopic(topic));
     });
   };
 };
@@ -51446,7 +51454,7 @@ var NavBar = function (_React$Component) {
               _defineProperty({ className: 'home-icon' }, 'className', 'header-icon'),
               _react2.default.createElement(
                 'svg',
-                { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
+                { width: '25px', height: '25px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
                   { id: 'Icons', stroke: 'none', strokeWidth: '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
@@ -51472,7 +51480,7 @@ var NavBar = function (_React$Component) {
               _defineProperty({ className: 'answer-icon' }, 'className', 'header-icon'),
               _react2.default.createElement(
                 'svg',
-                { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
+                { width: '25px', height: '25px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
                   { id: 'answer', stroke: 'none', strokeWidth: '1', fill: 'var(--icon_color, #555)', fillRule: 'evenodd' },
@@ -51504,7 +51512,7 @@ var NavBar = function (_React$Component) {
               _defineProperty({ className: 'notifications-icon' }, 'className', 'header-icon'),
               _react2.default.createElement(
                 'svg',
-                { width: '30px', height: '30px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
+                { width: '25px', height: '25px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
                 _react2.default.createElement(
                   'g',
                   { id: 'notif', stroke: 'var(--icon_color, #555)', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
@@ -62806,15 +62814,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 var fetchTopics = exports.fetchTopics = function fetchTopics() {
   return $.ajax({
-    method: "GET",
-    url: "/api/topics"
+    method: 'GET',
+    url: '/api/topics'
+  });
+};
+
+var fetchTopic = exports.fetchTopic = function fetchTopic(id) {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/topics/' + id
   });
 };
 
 var createTopic = exports.createTopic = function createTopic(topic) {
   return $.ajax({
     method: 'POST',
-    url: 'api/topics',
+    url: '/api/topics',
     data: { topic: topic }
   });
 };
@@ -62879,19 +62894,13 @@ var TopicIndex = function (_React$Component) {
           'div',
           { className: 'feed-list' },
           _react2.default.createElement(
-            'ul',
-            null,
-            this.props.topics.map(function (topic) {
-              return _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/topics/' + topic.id },
-                  topic.name
-                )
-              );
-            })
+            _reactRouterDom.NavLink,
+            { exact: true, to: '/topics/1', activeClassName: 'selected-feed' },
+            _react2.default.createElement(
+              'div',
+              { className: 'feed' },
+              'Behavior'
+            )
           )
         )
       );

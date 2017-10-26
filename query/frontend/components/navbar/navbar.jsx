@@ -32,7 +32,7 @@ class NavBar extends React.Component {
         <div className="header-nav-item">
           <NavLink to="/" className="nav-item-link">
             <span className="home-icon" className="header-icon">
-              <svg width="30px" height="30px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <svg width="25px" height="25px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Icons" stroke="none" strokeWidth="1" fill="var(--icon_color, #555)" fillRule="evenodd">
                   <path d="M4,7.99448227 C4,5.23610588 6.24325385,3 9.00365614,3 L46,3 L46,42.1055177 C46,44.8638941 43.7567461,47.1 40.9963439,47.1 L4,47.1 L4,7.99448227 M11,12 L25,12 L25,14 L11,14 M11,20 L25,20 L25,22 L11,22 M11,28 L39,28 L39,30 L11,30 M11,36 L39,36 L39,38 L11,38 M29,12 L39,12 L39,22 L29,22 Z"></path>
                 </g>
@@ -44,7 +44,7 @@ class NavBar extends React.Component {
         <div className="header-nav-item">
           <a className="nav-item-link">
             <span className="answer-icon" className="header-icon">
-              <svg width="30px" height="30px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <svg width="25px" height="25px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="answer" stroke="none" strokeWidth="1" fill="var(--icon_color, #555)" fillRule="evenodd">
                   <path d="M25,24.907293 L25,45.3 C25,45.5761424 24.7761424,45.8 24.5,45.8 L23.42,45.8 C23.1438576,45.8 22.92,45.5761424 22.92,45.3 L22.92,45.3 L22.92,24.907293 L25,24.907293 Z M23.96,22.92 L44.2873495,22.92 C44.5634919,22.92 44.7873495,23.1438576 44.7873495,23.42 L44.7873495,23.42 L44.7873495,24.407293 C44.7873495,24.6834354 44.5634919,24.907293 44.2873495,24.907293 L23.96,24.907293 L22.92,24.907293 L22.92,23.96 C22.92,23.3856239 23.3856239,22.92 23.96,22.92 Z" id="Combined-Shape" transform="translate(33.853675, 34.360000) rotate(-180.000000) translate(-33.853675, -34.360000)"></path>
                   <path d="M7.32,6.187293 L7.32,26.58 C7.32,26.8561424 7.09614237,27.08 6.82,27.08 L5.74,27.08 C5.46385763,27.08 5.24,26.8561424 5.24,26.58 L5.24,26.58 L5.24,6.187293 L7.32,6.187293 Z M6.28,4.2 L26.6073495,4.2 C26.8834919,4.2 27.1073495,4.42385763 27.1073495,4.7 L27.1073495,4.7 L27.1073495,5.687293 C27.1073495,5.96343537 26.8834919,6.187293 26.6073495,6.187293 L6.28,6.187293 L5.24,6.187293 L5.24,5.24 C5.24,4.66562386 5.70562386,4.2 6.28,4.2 Z"></path>
@@ -60,7 +60,7 @@ class NavBar extends React.Component {
         <div className="header-nav-item">
           <a className="nav-item-link">
             <span className="notifications-icon" className="header-icon">
-              <svg width="30px" height="30px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <svg width="25px" height="25px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
                 <g id="notif" stroke="var(--icon_color, #555)" strokeWidth="1" fill="none" fillRule="evenodd">
                   <circle id="Oval-2" strokeWidth="2" cx="25" cy="6" r="4"></circle>
