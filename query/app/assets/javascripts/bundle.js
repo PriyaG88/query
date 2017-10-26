@@ -62874,6 +62874,7 @@ var TopicIndex = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchTopics();
+      console.log(this.props);
     }
   }, {
     key: 'render',
@@ -62894,13 +62895,19 @@ var TopicIndex = function (_React$Component) {
           'div',
           { className: 'feed-list' },
           _react2.default.createElement(
-            _reactRouterDom.NavLink,
-            { exact: true, to: '/topics/1', activeClassName: 'selected-feed' },
-            _react2.default.createElement(
-              'div',
-              { className: 'feed' },
-              'Behavior'
-            )
+            'ul',
+            { className: 'topic-index-container' },
+            this.props.topics.map(function (topic) {
+              return _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: 'topics/' + topic.id },
+                _react2.default.createElement(
+                  'div',
+                  { key: topic.id },
+                  topic.name
+                )
+              );
+            })
           )
         )
       );

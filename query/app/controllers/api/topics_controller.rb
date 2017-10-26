@@ -16,7 +16,6 @@ class Api::TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    render :show
   end
 
   private

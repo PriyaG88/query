@@ -8,20 +8,25 @@ class TopicIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchTopics();
+    console.log(this.props);
   }
 
-  render(){
+  render() {
     return (
       <div className="feeds-container">
         <div className="feeds-title">
           <h4>Feeds</h4>
         </div>
         <div className="feed-list">
-          <NavLink exact={true} to="/topics/1" activeClassName="selected-feed">
-            <div className="feed">
-              Behavior
-            </div>
-          </NavLink>
+          <ul className="topic-index-container">
+          { this.props.topics.map(topic => (
+            <Link to={`topics/${topic.id}`}>
+              <div key={topic.id}>
+                {topic.name}
+              </div>
+            </Link>
+          ))}
+          </ul>
         </div>
       </div>
     );

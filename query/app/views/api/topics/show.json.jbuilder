@@ -1,1 +1,1 @@
-json.extract! @topic, :id, :name
+json.partial! "/api/topics/topic", topic: @topic
