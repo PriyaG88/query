@@ -4,10 +4,9 @@ import Avatar from 'react-avatar';
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.fetchComments();
+    this.state = {
+      comments: []
+    };
   }
 
   answerComments() {

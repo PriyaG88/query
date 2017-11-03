@@ -17,15 +17,16 @@ class QuestionIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAnswers();
+    this.props.fetchComments();
   }
 
   render() {
-
     const questions = this.props.questions.reverse().map(question => (
       <QuestionIndexItem
         key={question.id}
         question={question}
         answers={this.props.answers}
+        comments={this.props.comments}
         currentUser={this.props.currentUser}
         updateQuestion={this.props.updateQuestion}
         deleteQuestion={this.props.deleteQuestion}
@@ -39,7 +40,8 @@ class QuestionIndex extends React.Component {
             <div className="user-prompt">
               <a className="user-name">{this.props.currentUser.name}</a>
               <br/>
-              <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>What is your question?
+              <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
+                What is your question?
               </div>
               {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
             </div>

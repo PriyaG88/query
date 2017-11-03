@@ -7,9 +7,18 @@ class AnswerIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.answer = this.props.answer;
+    this.state = {
+      user: {}
+    };
+
+  }
+
+  componentWillReceiveProps() {
+    this.props.fetchUser(this.answer.user_id).then(user => this.setState({user}));
   }
 
   render() {
+
     return (
       <div className="answer-item-index">
         <div className="avatar">

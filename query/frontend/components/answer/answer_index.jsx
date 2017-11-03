@@ -6,10 +6,6 @@ class AnswerIndex extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAnswers();
-  // }
-
   render() {
     const filteredAnswers = this.props.answers.filter(answer => answer.question_id === this.props.question.id);
     return (
@@ -21,6 +17,7 @@ class AnswerIndex extends React.Component {
               key={answer.id}
               answer={answer}
               question={this.props.question}
+              fetchUser={this.props.fetchUser}
               currentUser={this.props.currentUser}
               deleteAnswer={this.props.deleteAnswer}/>
           ))}
@@ -29,5 +26,9 @@ class AnswerIndex extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+
+};
 
 export default AnswerIndex;

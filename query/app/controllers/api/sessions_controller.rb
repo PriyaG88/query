@@ -7,6 +7,7 @@ class Api::SessionsController < ApplicationController
     else
       render json: ["No account found for this email."], status: 401
     end
+
   end
 
   def destroy
