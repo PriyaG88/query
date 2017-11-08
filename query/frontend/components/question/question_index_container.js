@@ -17,8 +17,8 @@ const mapDispatchToProps = dispatch => ({
   fetchQuestions: () => dispatch(fetchQuestions()),
   fetchAnswers: () => dispatch(fetchAnswers()),
   fetchComments: () => dispatch(fetchComments()),
-  updateQuestion: (question) => dispatch(updateQuestion(question)),
-  deleteQuestion: (question) => dispatch(deleteQuestion(question)),
+  updateQuestion: question => dispatch(updateQuestion(question)),
+  deleteQuestion: question => dispatch(deleteQuestion(question)),
   createAnswer: answer => dispatch(createAnswer(answer))
 });
 

@@ -1,4 +1,4 @@
-# query
+# Query
 
 [Query Live](https://query-webapp.herokuapp.com/#/enter)
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, NavLink, Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class TopicIndex extends Component {
   constructor(props){
@@ -10,21 +10,19 @@ class TopicIndex extends Component {
     this.props.fetchTopics();
   }
 
+  renderTopics() {
+    return this.props.topics.map(topic => (
+      <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
+    ));
+  }
+
   render() {
     return (
       <div className="feeds-container">
-        <div className="feeds-title">
-          <h4>Feeds</h4>
-        </div>
+        <h4 className="feeds-title">Feeds</h4>
         <div className="feed-list">
           <ul className="topic-index-container">
-          { this.props.topics.map(topic => (
-            <Link key={topic.id} to={`topics/${topic.id}`}>
-              <div>
-                {topic.name}
-              </div>
-            </Link>
-          ))}
+            {this.renderTopics()}
           </ul>
         </div>
       </div>
