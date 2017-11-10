@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Autosuggest from 'react-autosuggest';
 
 class Search extends React.Component {
   constructor(props) {
@@ -39,11 +40,11 @@ class Search extends React.Component {
     return (
       <div className="search-bar-container">
         <div>
-          <textarea type="text" className="search-input"
+          <input type="text" className="search-input"
             value={this.state.searchTerm}
             placeholder="Search Query"
             onChange={this.update('searchTerm')}>
-          </textarea>
+          </input>
         </div>
         <div className="search-results">
           <ul>{results}</ul>

@@ -8,6 +8,7 @@
     "babel-preset-react": "^6.24.1",
     "react": "^15.6.2",
     "react-addons-shallow-compare": "^15.6.2",
+    "react-autosuggest": "^9.3.2",
     "react-avatar": "^2.4.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.2",
