@@ -41,7 +41,7 @@ class QuestionForm extends React.Component {
         <div className="modal-content">
           <span onClick={this.handleClick} className="close">&times;</span>
             <form onSubmit={this.handleSubmit}>
-              <textarea
+              <textarea className="selector_input text" rows="1"
                 type="text"
                 value={this.state.body}
                 onChange={this.update('body')}

@@ -1,21 +1,25 @@
 import React from 'react';
 import TopicIndexContainer from './topic_index_container';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavBarContainer from '../navbar/navbar_container';
 import QuestionIndexItem from '../question/question_index_item';
-
 
 class TopicView extends React.Component {
   constructor(props) {
     super(props);
     this.topicId = parseInt(this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
-
+    this.topics = {
+      1: "Behavior",
+      2: "Harry Potter",
+      3: "Computer Science",
+      4: "Game of Thrones",
+      5: "General"
+    };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchQuestions();
     this.props.fetchTopics();
-
   }
 
   topicQuestions(id) {
@@ -31,25 +35,23 @@ class TopicView extends React.Component {
 
     return (
       <div>
-        <TopicIndexContainer />
         <div className="question-index-container">
-          <div className="question-item-box">
-            <div className="question-item">
-              <div className="question-text-container">
-                <div className="topic-view">
-                  <ul className="question-index">
-                    {questions.map(question => (
-                      <li>
-                        <Link className="question-item-link"to={`/questions/${question.id}`}>
-                          {question.body}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <ul className="question-index topic-view">
+              <div className="question-item-box topic">
+                <h1>{this.topics[this.topicId]}</h1>
               </div>
-            </div>
-          </div>
+              {questions.map(question => (
+                <QuestionIndexItem
+                  key={question.id}
+                  question={question}
+                  answers={this.props.answers}
+                  comments={this.props.comments}
+                  currentUser={this.props.currentUser}
+                  updateQuestion={this.props.updateQuestion}
+                  deleteQuestion={this.props.deleteQuestion}
+                  createAnswer={this.props.createAnswer} />
+              ))}
+            </ul>
         </div>
       </div>
     );

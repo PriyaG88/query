@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Autosuggest from 'react-autosuggest';
 
 class Search extends React.Component {
   constructor(props) {
