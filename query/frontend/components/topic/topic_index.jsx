@@ -21,9 +21,7 @@ class TopicIndex extends Component {
       <div className="feeds-container">
         <h4 className="feeds-title">Feeds</h4>
         <div className="feed-list">
-          <ul className="topic-index-container">
-            {this.renderTopics()}
-          </ul>
+          <Link to='/topics/1'>Behavior</Link>
         </div>
       </div>
     );

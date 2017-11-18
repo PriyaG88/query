@@ -8,6 +8,7 @@ class TopicView extends React.Component {
   constructor(props) {
     super(props);
     this.topicId = parseInt(this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
+    console.log(this.topicId);
     this.topics = {
       1: "Behavior",
       2: "Harry Potter",
@@ -23,7 +24,8 @@ class TopicView extends React.Component {
   }
 
   topicQuestions(id) {
-    const topic = this.props.topics[id];
+    const topic = this.props.topics[id - 1];
+    console.log(topic);
     let questions = this.props.questions.filter(question => (
       question.topic === topic.name
     ));

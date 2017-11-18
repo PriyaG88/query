@@ -1,6 +1,5 @@
 import React from 'react';
 import QuestionIndexItem from './question_index_item';
-import NavBarContainer from '../navbar/navbar_container';
 import QuestionFormContainer from './question_form_container';
 
 class QuestionIndex extends React.Component {
@@ -34,7 +33,6 @@ class QuestionIndex extends React.Component {
     ));
     return (
       <div className="question-index-container">
-        <NavBarContainer />
         <ul className="question-index">
           <div className="ask-question">
             <div className="user-prompt">
