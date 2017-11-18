@@ -32,7 +32,7 @@ class QuestionIndex extends React.Component {
         createAnswer={this.props.createAnswer} />
     ));
     return (
-      <div className="question-index-container">
+      <div>
         <ul className="question-index">
           <div className="ask-question">
             <div className="user-prompt">

@@ -9,7 +9,8 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = state => ({
   questions: questions(state),
   topics: topics(state),
-  answers: answers(state)
+  answers: answers(state),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -60369,23 +60369,11 @@ var AnswerIndexItem = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AnswerIndexItem.__proto__ || Object.getPrototypeOf(AnswerIndexItem)).call(this, props));
 
     _this.answer = _this.props.answer;
-    _this.state = {
-      user: {}
-    };
 
     return _this;
   }
 
   _createClass(AnswerIndexItem, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps() {
-      var _this2 = this;
-
-      this.props.fetchUser(this.answer.user_id).then(function (user) {
-        return _this2.setState({ user: user });
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
 
@@ -62754,7 +62742,8 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     questions: (0, _selectors.questions)(state),
     topics: (0, _selectors.topics)(state),
-    answers: (0, _selectors.answers)(state)
+    answers: (0, _selectors.answers)(state),
+    currentUser: state.session.currentUser
   };
 };
 
@@ -62974,9 +62963,13 @@ var TopicIndex = function (_Component) {
     value: function renderTopics() {
       return this.props.topics.map(function (topic) {
         return _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/topics/' + topic.id },
-          topic.name
+          'li',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/topics/' + topic.id },
+            topic.name
+          )
         );
       });
     }
@@ -62995,9 +62988,9 @@ var TopicIndex = function (_Component) {
           'div',
           { className: 'feed-list' },
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/topics/1' },
-            'Behavior'
+            'ul',
+            null,
+            this.renderTopics()
           )
         )
       );
@@ -63218,7 +63211,7 @@ var QuestionIndex = function (_React$Component) {
       });
       return _react2.default.createElement(
         'div',
-        { className: 'question-index-container' },
+        null,
         _react2.default.createElement(
           'ul',
           { className: 'question-index' },

@@ -12,7 +12,9 @@ class TopicIndex extends Component {
 
   renderTopics() {
     return this.props.topics.map(topic => (
-      <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
+      <li>
+        <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
+      </li>
     ));
   }
 
@@ -21,7 +23,9 @@ class TopicIndex extends Component {
       <div className="feeds-container">
         <h4 className="feeds-title">Feeds</h4>
         <div className="feed-list">
-          <Link to='/topics/1'>Behavior</Link>
+          <ul>
+            {this.renderTopics()}
+          </ul>
         </div>
       </div>
     );
