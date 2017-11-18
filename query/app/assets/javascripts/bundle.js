@@ -62848,6 +62848,7 @@ var TopicView = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_navbar_container2.default, null),
         _react2.default.createElement(
           'div',
           { className: 'question-index-container' },

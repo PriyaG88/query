@@ -37,6 +37,7 @@ class TopicView extends React.Component {
 
     return (
       <div>
+        <NavBarContainer />
         <div className="question-index-container">
             <ul className="question-index topic-view">
               <div className="question-item-box topic">
