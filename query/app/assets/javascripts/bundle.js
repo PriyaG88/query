@@ -62965,7 +62965,7 @@ var TopicIndex = function (_Component) {
       return this.props.topics.map(function (topic) {
         return _react2.default.createElement(
           'li',
-          null,
+          { className: 'topic-list-item' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/topics/' + topic.id },

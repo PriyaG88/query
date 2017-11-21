@@ -12,7 +12,7 @@ class TopicIndex extends Component {
 
   renderTopics() {
     return this.props.topics.map(topic => (
-      <li>
+      <li className="topic-list-item">
         <Link to={`/topics/${topic.id}`}>{topic.name}</Link>
       </li>
     ));

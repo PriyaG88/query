@@ -8,7 +8,6 @@ body, main, p, h2, h3, h4, span, div, form, label, ul, li, a {
   color: inherit;
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: transparent;
 }
 
 a:hover {
