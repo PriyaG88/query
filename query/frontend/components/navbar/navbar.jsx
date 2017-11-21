@@ -76,7 +76,8 @@ class NavBar extends React.Component {
           <SearchBarContainer />
         </div>
         <button className="ask-question-btn" onClick={this.toggleModal.bind(this)}>Ask Question</button>
-        {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
+        {this.state.modalIsOpen && <QuestionFormContainer
+        className="question-modal" toggleModal={this.toggleModal.bind(this)}/>}
         <button onClick={this.handleLogout}>Logout</button>
 
       </div>

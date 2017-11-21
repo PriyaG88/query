@@ -51589,7 +51589,8 @@ var NavBar = function (_React$Component) {
           { className: 'ask-question-btn', onClick: this.toggleModal.bind(this) },
           'Ask Question'
         ),
-        this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) }),
+        this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, {
+          className: 'question-modal', toggleModal: this.toggleModal.bind(this) }),
         _react2.default.createElement(
           'button',
           { onClick: this.handleLogout },
