@@ -12,12 +12,8 @@ class HomePage extends React.Component {
     return (
       <div className='home-page-container'>
         <NavBarContainer />
-        <div className="topics-list">
-          <TopicIndexContainer />
-        </div>
-        <div className="questions-list">
-          <QuestionIndexContainer />
-        </div>
+        <TopicIndexContainer />
+        <QuestionIndexContainer />
       </div>
     );
   }

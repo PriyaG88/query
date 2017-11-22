@@ -63057,16 +63057,8 @@ var HomePage = function (_React$Component) {
         'div',
         { className: 'home-page-container' },
         _react2.default.createElement(_navbar_container2.default, null),
-        _react2.default.createElement(
-          'div',
-          { className: 'topics-list' },
-          _react2.default.createElement(_topic_index_container2.default, null)
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'questions-list' },
-          _react2.default.createElement(_question_index_container2.default, null)
-        )
+        _react2.default.createElement(_topic_index_container2.default, null),
+        _react2.default.createElement(_question_index_container2.default, null)
       );
     }
   }]);
@@ -63212,33 +63204,29 @@ var QuestionIndex = function (_React$Component) {
           createAnswer: _this2.props.createAnswer });
       });
       return _react2.default.createElement(
-        'div',
-        null,
+        'ul',
+        { className: 'question-index' },
         _react2.default.createElement(
-          'ul',
-          { className: 'question-index' },
+          'div',
+          { className: 'ask-question' },
           _react2.default.createElement(
             'div',
-            { className: 'ask-question' },
+            { className: 'user-prompt' },
+            _react2.default.createElement(
+              'a',
+              { className: 'user-name' },
+              this.props.currentUser.name
+            ),
+            _react2.default.createElement('br', null),
             _react2.default.createElement(
               'div',
-              { className: 'user-prompt' },
-              _react2.default.createElement(
-                'a',
-                { className: 'user-name' },
-                this.props.currentUser.name
-              ),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement(
-                'div',
-                { className: 'user-prompt-text', onClick: this.toggleModal.bind(this) },
-                'What is your question?'
-              ),
-              this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) })
-            )
-          ),
-          questions
-        )
+              { className: 'user-prompt-text', onClick: this.toggleModal.bind(this) },
+              'What is your question?'
+            ),
+            this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) })
+          )
+        ),
+        questions
       );
     }
   }]);
