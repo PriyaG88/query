@@ -58,7 +58,7 @@ class AnswerEditor extends React.Component {
           bounds={'.app'}
           placeholder="Write your answer"
          />
-       <button onClick={this.handleSubmit}>Submit</button>
+       <button className="blue-btn" onClick={this.handleSubmit}>Submit</button>
       </div>
     );
   }

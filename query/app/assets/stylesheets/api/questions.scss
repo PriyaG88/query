@@ -62,12 +62,17 @@
 }
 
 .question-header {
+  margin-top: 0;
   margin-bottom: 4px;
   color: #999;
   font-size: 13px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
 
+}
+
+.user-name {
+  margin-left: 5px;
 }
 
 .question-index-container {

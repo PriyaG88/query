@@ -40,6 +40,7 @@ class QuestionIndexItem extends React.Component {
           <div className="question-item-box">
             <div className="question-item">
               <div className="question-text-container">
+                <h6 className="question-header">Question asked · {this.props.question.topic}</h6>
                 <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
                   {this.props.question.body}
                 </Link>
@@ -71,10 +72,13 @@ class QuestionIndexItem extends React.Component {
             </Link>
           </div>
           <div className="answer-section">
-            <div className="avatar">
-              <Avatar name={this.props.currentUser.name} size={40} round={true} textSizeRatio={2} />
-            </div>
+            <div className="answer-user-info">
+              <div className="avatar">
+                <Avatar name={this.props.currentUser.name} size={40} round={true} textSizeRatio={2} />
+                <span className="name">{this.props.currentUser.name}</span>
+              </div>
 
+            </div>
             <div className="question-answer-item">
               {answer.body}
             </div>

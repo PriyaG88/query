@@ -17842,7 +17842,7 @@ var AnswerEditor = function (_React$Component) {
         }),
         _react2.default.createElement(
           'button',
-          { onClick: this.handleSubmit },
+          { className: 'blue-btn', onClick: this.handleSubmit },
           'Submit'
         )
       );
@@ -30366,6 +30366,12 @@ var QuestionIndexItem = function (_React$Component) {
                 'div',
                 { className: 'question-text-container' },
                 _react2.default.createElement(
+                  'h6',
+                  { className: 'question-header' },
+                  'Question asked \xB7 ',
+                  this.props.question.topic
+                ),
+                _react2.default.createElement(
                   _reactRouterDom.Link,
                   { className: 'question-item-link', to: '/questions/' + this.props.question.id },
                   this.props.question.body
@@ -30427,8 +30433,17 @@ var QuestionIndexItem = function (_React$Component) {
             { className: 'answer-section' },
             _react2.default.createElement(
               'div',
-              { className: 'avatar' },
-              _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 40, round: true, textSizeRatio: 2 })
+              { className: 'answer-user-info' },
+              _react2.default.createElement(
+                'div',
+                { className: 'avatar' },
+                _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 40, round: true, textSizeRatio: 2 }),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'name' },
+                  this.props.currentUser.name
+                )
+              )
             ),
             _react2.default.createElement(
               'div',
@@ -63150,6 +63165,10 @@ var _question_form_container = __webpack_require__(267);
 
 var _question_form_container2 = _interopRequireDefault(_question_form_container);
 
+var _reactAvatar = __webpack_require__(107);
+
+var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63208,6 +63227,7 @@ var QuestionIndex = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'user-prompt' },
+            _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 20, round: true, textSizeRatio: 2 }),
             _react2.default.createElement(
               'a',
               { className: 'user-name' },

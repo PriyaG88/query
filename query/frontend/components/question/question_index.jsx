@@ -1,6 +1,7 @@
 import React from 'react';
 import QuestionIndexItem from './question_index_item';
 import QuestionFormContainer from './question_form_container';
+import Avatar from 'react-avatar';
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class QuestionIndex extends React.Component {
       <ul className="question-index topic-question-index">
         <div className="ask-question">
           <div className="user-prompt">
+            <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
             <a className="user-name">{this.props.currentUser.name}</a>
             <br/>
             <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
