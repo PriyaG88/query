@@ -32,21 +32,19 @@ class QuestionIndex extends React.Component {
         createAnswer={this.props.createAnswer} />
     ));
     return (
-
-        <ul className="question-index">
-          <div className="ask-question">
-            <div className="user-prompt">
-              <a className="user-name">{this.props.currentUser.name}</a>
-              <br/>
-              <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
-                What is your question?
-              </div>
-              {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
+      <ul className="question-index topic-question-index">
+        <div className="ask-question">
+          <div className="user-prompt">
+            <a className="user-name">{this.props.currentUser.name}</a>
+            <br/>
+            <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
+              What is your question?
             </div>
+            {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
           </div>
-          {questions}
-        </ul>
-      
+        </div>
+        {questions}
+      </ul>
     );
   }
 }

@@ -1,18 +1,23 @@
 export const answers = state => {
-  const allAnswers = Object.keys(state.entities.answers).map(id => state.entities.answers[id]);
-  return allAnswers;
+  return Object.values(state.entities.answers);
+
 };
 
 export const questions = state => {
-  const allQuestions = Object.keys(state.entities.questions).map(id => state.entities.questions[id]);
-  return allQuestions;
+  return Object.values(state.entities.questions);
 };
 
+// export const questionsWithoutAnswers = state => {
+//   const allQuestions = questions(state);
+//   const allAnswers = answers(state);
+//   allQuestions.filter(question => )
+//
+// };
+
 export const comments = state => {
-  return Object.keys(state.entities.comments).map(id => state.entities.comments[id]);
+  return Object.values(state.entities.comments);
 };
 
 export const topics = state => {
-  const allTopics = Object.keys(state.entities.topics).map(id => state.entities.topics[id]);
-  return allTopics;
+  return Object.values(state.entities.topics);
 };

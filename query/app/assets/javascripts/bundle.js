@@ -4091,30 +4091,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var answers = exports.answers = function answers(state) {
-  var allAnswers = Object.keys(state.entities.answers).map(function (id) {
-    return state.entities.answers[id];
-  });
-  return allAnswers;
+  return Object.values(state.entities.answers);
 };
 
 var questions = exports.questions = function questions(state) {
-  var allQuestions = Object.keys(state.entities.questions).map(function (id) {
-    return state.entities.questions[id];
-  });
-  return allQuestions;
+  return Object.values(state.entities.questions);
 };
 
+// export const questionsWithoutAnswers = state => {
+//   const allQuestions = questions(state);
+//   const allAnswers = answers(state);
+//   allQuestions.filter(question => )
+//
+// };
+
 var comments = exports.comments = function comments(state) {
-  return Object.keys(state.entities.comments).map(function (id) {
-    return state.entities.comments[id];
-  });
+  return Object.values(state.entities.comments);
 };
 
 var topics = exports.topics = function topics(state) {
-  var allTopics = Object.keys(state.entities.topics).map(function (id) {
-    return state.entities.topics[id];
-  });
-  return allTopics;
+  return Object.values(state.entities.topics);
 };
 
 /***/ }),
@@ -48742,7 +48738,7 @@ var App = function App() {
   );
 };
 
-exports.default = (0, _reactRouterDom.withRouter)(App);
+exports.default = App;
 
 /***/ }),
 /* 475 */
@@ -51747,6 +51743,7 @@ var QuestionForm = function (_React$Component) {
             'form',
             { onSubmit: this.handleSubmit },
             _react2.default.createElement('textarea', { className: 'selector_input text', rows: '1',
+              width: 556,
               type: 'text',
               value: this.state.body,
               onChange: this.update('body'),
@@ -62991,7 +62988,7 @@ var TopicIndex = function (_Component) {
           { className: 'feed-list' },
           _react2.default.createElement(
             'ul',
-            null,
+            { className: 'topics-list' },
             this.renderTopics()
           )
         )
@@ -63205,7 +63202,7 @@ var QuestionIndex = function (_React$Component) {
       });
       return _react2.default.createElement(
         'ul',
-        { className: 'question-index' },
+        { className: 'question-index topic-question-index' },
         _react2.default.createElement(
           'div',
           { className: 'ask-question' },

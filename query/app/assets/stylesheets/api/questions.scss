@@ -71,7 +71,7 @@
   background: #fafafa;
 }
 
-.question-index, {
+.question-index, .topic-question-index {
   top: 50%;
   left: 50%;
   margin-top: 6.5%;
@@ -83,6 +83,10 @@
   font-weight: 400;
   background: #fafafa;
   display: inline-block;
+
+}
+
+.topic-question-index {
 }
 
 .question-text-container {

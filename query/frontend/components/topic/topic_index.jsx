@@ -23,7 +23,7 @@ class TopicIndex extends Component {
       <div className="feeds-container">
         <h4 className="feeds-title">Feeds</h4>
         <div className="feed-list">
-          <ul>
+          <ul className="topics-list">
             {this.renderTopics()}
           </ul>
         </div>
