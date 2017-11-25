@@ -4098,13 +4098,6 @@ var questions = exports.questions = function questions(state) {
   return Object.values(state.entities.questions);
 };
 
-// export const questionsWithoutAnswers = state => {
-//   const allQuestions = questions(state);
-//   const allAnswers = answers(state);
-//   allQuestions.filter(question => )
-//
-// };
-
 var comments = exports.comments = function comments(state) {
   return Object.values(state.entities.comments);
 };
@@ -30413,6 +30406,12 @@ var QuestionIndexItem = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'question-text-container' },
+            _react2.default.createElement(
+              'h6',
+              { className: 'question-header' },
+              'Answer \xB7 ',
+              this.props.question.topic
+            ),
             _react2.default.createElement(
               _reactRouterDom.Link,
               { className: 'question-item-link', to: '/questions/' + this.props.question.id },

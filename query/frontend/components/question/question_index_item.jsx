@@ -65,6 +65,7 @@ class QuestionIndexItem extends React.Component {
       <div className="question-item-box">
         <div className="question-item">
           <div className="question-text-container">
+            <h6 className="question-header">Answer · {this.props.question.topic}</h6>
             <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
               <span className="question">{this.props.question.body}</span>
             </Link>
