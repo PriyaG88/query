@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 #question-form-modal {
     display: flex;
     position: fixed;
@@ -17,24 +16,15 @@
     background-color: rgba(0,0,0,0.6);
 }
 
-.selector_input {
-  overflow: hidden;
-  word-wrap: break-word;
-  height: 31px;
-  align-self: center;
-  width: 100%;
-  height: 23px;
-}
-
 .modal-content {
     padding: 32px 32px 24px 32px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 4px 4px;
     background-color: #fff;
     display: block;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 620px; /* Could be more or less, depending on screen size */
 }
 
 .close {
@@ -97,15 +87,10 @@
   font-weight: 400;
   background: #fafafa;
   display: inline-block;
-
 }
 
-.topic-question-index {
-}
-
-.question-text-container {
-  display: flex;
-  flex-direction: column;
+.questions-to-answer-index {
+  
 }
 
 .question {
@@ -116,7 +101,7 @@
   color: #262626;
 }
 
- .user-prompt {
+.user-prompt {
   min-height: 110px;
   margin-top: 0;
   background-color: #fff;
@@ -136,7 +121,6 @@
   margin: 0;
   border: 0;
   padding: 0;
-  font: inherit;
   text-align: inherit;
   text-decoration: inherit;
   color: inherit;
@@ -205,7 +189,6 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   padding-top: 20px;
 }
-
 
 .question-text {
   font-size: 23px;

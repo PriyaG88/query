@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/lib/Button';
 
-class QuestionForm extends React.Component {
+class QuestionForm extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,14 +35,19 @@ class QuestionForm extends React.Component {
     this.setState({['topic']: e.target.value});
   }
 
+
+
+
   render() {
     return (
       <div id="question-form-modal">
         <div className="modal-content">
           <span onClick={this.handleClick} className="close">&times;</span>
             <form onSubmit={this.handleSubmit}>
-              <textarea className="selector_input text" rows="1"
-                width={556}
+              <textarea className="modal-text"
+                autoFocus="true"
+                width="556"
+                rows="1"
                 type="text"
                 value={this.state.body}
                 onChange={this.update('body')}

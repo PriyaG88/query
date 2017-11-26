@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import QuestionIndexItem from './question_index_item';
 import QuestionFormContainer from './question_form_container';
 import Avatar from 'react-avatar';
 
-class QuestionIndex extends React.Component {
+class QuestionIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ class QuestionIndex extends React.Component {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchAnswers();
     this.props.fetchComments();
   }

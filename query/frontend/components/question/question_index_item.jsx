@@ -5,11 +5,9 @@ import Avatar from 'react-avatar';
 import CommentFormContainer from '../comment/comment_form_container';
 import CommentIndexContainer from '../comment/comment_index_container';
 
-
 class QuestionIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggleEditor = this.toggleEditor.bind(this);
     this.state = {
       editorIsOpen: false,
@@ -36,30 +34,28 @@ class QuestionIndexItem extends React.Component {
     const currentUser = this.props.currentUser;
     if (!answer) {
       return (
-        
-          <div className="question-item-box">
-            <div className="question-item">
-              <div className="question-text-container">
-                <h6 className="question-header">Question asked · {this.props.question.topic}</h6>
-                <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
-                  {this.props.question.body}
-                </Link>
-              </div>
-              <div className="answer-btn-container">
-                <a className="answer-btn" >
-                  <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
-                </a>
-              </div>
+        <div className="question-item-box">
+          <div className="question-item">
+            <div className="question-text-container">
+              <h6 className="question-header">Question asked · {this.props.question.topic}</h6>
+              <Link className="question-item-link" to={`/questions/${this.props.question.id}`}>
+                {this.props.question.body}
+              </Link>
             </div>
-            <div className="question-index-answer">
-              {this.state.editorIsOpen && <AnswerEditor
-              question={this.props.question}
-              createAnswer={this.props.createAnswer}
-              currentUser={this.props.currentUser}
-              toggleEditor={this.toggleEditor}/>}
+            <div className="answer-btn-container">
+              <a className="answer-btn" >
+                <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
+              </a>
             </div>
           </div>
-
+          <div className="question-index-answer">
+            {this.state.editorIsOpen && <AnswerEditor
+            question={this.props.question}
+            createAnswer={this.props.createAnswer}
+            currentUser={this.props.currentUser}
+            toggleEditor={this.toggleEditor}/>}
+          </div>
+        </div>
       );
     }
     return (
