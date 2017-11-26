@@ -36,7 +36,7 @@ class QuestionIndexItem extends React.Component {
     const currentUser = this.props.currentUser;
     if (!answer) {
       return (
-        <div>
+        
           <div className="question-item-box">
             <div className="question-item">
               <div className="question-text-container">
@@ -51,15 +51,15 @@ class QuestionIndexItem extends React.Component {
                 </a>
               </div>
             </div>
+            <div className="question-index-answer">
+              {this.state.editorIsOpen && <AnswerEditor
+              question={this.props.question}
+              createAnswer={this.props.createAnswer}
+              currentUser={this.props.currentUser}
+              toggleEditor={this.toggleEditor}/>}
+            </div>
           </div>
-          <div className="question-index-answer">
-            {this.state.editorIsOpen && <AnswerEditor
-            question={this.props.question}
-            createAnswer={this.props.createAnswer}
-            currentUser={this.props.currentUser}
-            toggleEditor={this.toggleEditor}/>}
-          </div>
-        </div>
+
       );
     }
     return (
