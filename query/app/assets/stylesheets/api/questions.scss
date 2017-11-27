@@ -75,7 +75,17 @@
   background: #fafafa;
 }
 
-.question-index, .topic-question-index {
+.question-index {
+  margin-top: 6.5%;
+  margin-left: 300px;
+  width: 600px;
+  font-size: 15px;
+  word-wrap: break-word;
+  font-weight: 400;
+  background: #fafafa;
+}
+
+.topic-question-index {
   top: 50%;
   left: 50%;
   margin-top: 6.5%;
@@ -260,6 +270,7 @@
 
 .star-image {
   background: url(star.png);
+  background-repeat: no-repeat;
   height: 20px;
   width: 20px
 
