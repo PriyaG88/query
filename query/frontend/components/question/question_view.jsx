@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import merge from 'lodash/merge';
-import NavBarContainer from '../navbar/navbar_container';
 import AnswerEditor from '../answer/answer_editor';
 import EditQuestionForm from './edit_question_form';
 import AnswerIndexContainer from '../answer/answer_index_container';
@@ -43,7 +42,6 @@ class QuestionView extends React.Component {
   render() {
     return (
       <div>
-        <NavBarContainer />
           <div className="question-show-box">
             <div className="question-text-container">
               <h1 className="question-text">{this.question.body}</h1>

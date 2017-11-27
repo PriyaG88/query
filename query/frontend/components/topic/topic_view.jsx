@@ -1,7 +1,6 @@
 import React from 'react';
 import TopicIndexContainer from './topic_index_container';
 import { Link } from 'react-router-dom';
-import NavBarContainer from '../navbar/navbar_container';
 import QuestionIndexItem from '../question/question_index_item';
 
 class TopicView extends React.Component {
@@ -37,7 +36,6 @@ class TopicView extends React.Component {
 
     return (
       <div>
-        <NavBarContainer />
         <div className="question-index-container">
             <ul className="question-index topic-view">
               <div className="question-item-box topic">

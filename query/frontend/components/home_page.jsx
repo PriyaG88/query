@@ -1,6 +1,5 @@
 import React from 'react';
 import QuestionIndexContainer from './question/question_index_container';
-import NavBarContainer from './navbar/navbar_container';
 import TopicIndexContainer from './topic/topic_index_container';
 
 class HomePage extends React.Component {
@@ -11,7 +10,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className='home-page-container'>
-        <NavBarContainer />
         <TopicIndexContainer />
         <QuestionIndexContainer />
       </div>

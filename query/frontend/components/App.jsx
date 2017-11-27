@@ -11,6 +11,7 @@ import QuestionsToAnswerContainer from './question/questions_to_answer_container
 const App = () => (
   <div>
     <AuthRoute path="/enter" component={SessionFormContainer} />
+    <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
       <ProtectedRoute path="/topics/:topicId" component={TopicViewContainer} />
       <ProtectedRoute path="/questions/:questionId" component={QuestionViewContainer} />

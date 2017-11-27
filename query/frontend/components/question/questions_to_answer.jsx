@@ -30,11 +30,16 @@ class QuestionsToAnswer extends Component {
     ));
 
     return (
-      <div className="questions-to-answer-container">
-        <ul className="questions-to-answer-index">
-          {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
-          {questions}
-        </ul>
+      <div>
+        <div className="questions-to-answer-container">
+          <ul className="questions-to-answer-index">
+            <div className="question-to-answer-item-box questions-for-you">
+              <span className="star-image">Questions for You  </span>
+            </div>
+            {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
+            {questions}
+          </ul>
+        </div>
       </div>
     );
   }

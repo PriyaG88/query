@@ -10,6 +10,13 @@ body, main, p, h2, h3, h4, span, div, form, label, ul, li, a {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+html {
+  height: 100%;
+}
+body {
+  height: 100%
+}
+
 a:hover {
   text-decoration: none;
   cursor: pointer;
