@@ -33,7 +33,7 @@ class QuestionIndex extends Component {
         createAnswer={this.props.createAnswer} />
     ));
     return (
-      <ul className="question-index topic-question-index">
+      <ul className="question-index">
         <div className="ask-question">
           <div className="user-prompt">
             <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
