@@ -30373,6 +30373,8 @@ var QuestionIndexItem = function (_React$Component) {
           )
         );
       }
+
+      var date = new Date(Date.parse(this.props.question.created_at));
       return _react2.default.createElement(
         'div',
         { className: 'question-item-box' },
@@ -30412,6 +30414,12 @@ var QuestionIndexItem = function (_React$Component) {
                   'span',
                   { className: 'name' },
                   this.props.currentUser.name
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'date-answered' },
+                  'Answered on ',
+                  date.toDateString()
                 )
               )
             ),
@@ -62962,7 +62970,7 @@ var TopicIndex = function (_Component) {
       return this.props.topics.map(function (topic) {
         return _react2.default.createElement(
           'li',
-          { className: 'topic-list-item' },
+          { key: topic.id, className: 'topic-list-item' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/topics/' + topic.id },
@@ -63365,11 +63373,8 @@ var QuestionsToAnswer = function (_Component) {
             _react2.default.createElement(
               'div',
               { className: 'question-to-answer-item-box questions-for-you' },
-              _react2.default.createElement(
-                'span',
-                { className: 'star-image' },
-                'Questions for You  '
-              )
+              _react2.default.createElement('span', { className: 'star-image' }),
+              '   Questions for You'
             ),
             this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) }),
             questions

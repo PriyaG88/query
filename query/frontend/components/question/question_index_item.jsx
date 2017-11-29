@@ -58,6 +58,8 @@ class QuestionIndexItem extends React.Component {
         </div>
       );
     }
+
+    let date = new Date(Date.parse(this.props.question.created_at));
     return (
       <div className="question-item-box">
         <div className="question-item">
@@ -72,6 +74,9 @@ class QuestionIndexItem extends React.Component {
               <div className="avatar">
                 <Avatar name={this.props.currentUser.name} size={40} round={true} textSizeRatio={2} />
                 <span className="name">{this.props.currentUser.name}</span>
+                <div className="date-answered">
+                  Answered on {date.toDateString()}
+                </div>
               </div>
 
             </div>

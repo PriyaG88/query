@@ -34,7 +34,7 @@ class QuestionsToAnswer extends Component {
         <div className="questions-to-answer-container">
           <ul className="questions-to-answer-index">
             <div className="question-to-answer-item-box questions-for-you">
-              <span className="star-image">Questions for You  </span>
+              <span className="star-image"></span>   Questions for You
             </div>
             {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
             {questions}
