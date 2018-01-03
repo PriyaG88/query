@@ -14,10 +14,7 @@ class Answer < ApplicationRecord
   validates :body, :user_id, :question_id, presence: true
   validates :body, length: { minimum: 3 }
 
-  belongs_to :author,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: 'User'
+  belongs_to :user
   belongs_to :question
   has_many :comments
 end
