@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import QuestionIndexItem from './question_index_item';
-import QuestionFormContainer from './question_form_container';
 import Avatar from 'react-avatar';
+import QuestionModal from './question_modal';
 
 class QuestionIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalIsOpen: false
-    };
-  }
-
-  toggleModal() {
-    this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
   componentWillMount() {
@@ -34,17 +27,7 @@ class QuestionIndex extends Component {
     ));
     return (
       <ul className="question-index">
-        <div className="ask-question">
-          <div className="user-prompt">
-            <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
-            <a className="user-name">{this.props.currentUser.name}</a>
-            <br/>
-            <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
-              What is your question?
-            </div>
-            {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
-          </div>
-        </div>
+        <QuestionModal currentUser={this.props.currentUser}/>
         {questions}
       </ul>
     );
