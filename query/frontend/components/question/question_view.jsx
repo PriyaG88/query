@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 import merge from 'lodash/merge';
 import AnswerEditor from '../answer/answer_editor';
 import EditQuestionForm from './edit_question_form';
@@ -14,6 +13,8 @@ class QuestionView extends React.Component {
       modalIsOpen: false,
       question: ''
     };
+
+    this.toggleEditor = this.toggleEditor.bind(this);
   }
 
   openEditor() {
@@ -26,11 +27,6 @@ class QuestionView extends React.Component {
 
   toggleModal() {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
-  }
-
-  handleDelete(e) {
-    e.preventDefault();
-    this.props.deleteQuestion(this.questionId);
   }
 
   componentWillMount() {
@@ -50,11 +46,6 @@ class QuestionView extends React.Component {
                 <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
               </a>
             </div>
-            {this.props.question.user_id === this.props.currentUser.id ? (
-              <button onClick={this.handleDelete.bind(this)}>Delete Question</button>
-            ) : (
-              ""
-            )}
             <a className="edit-btn">
               <span onClick={this.toggleModal}>Edit</span>
             </a>
@@ -66,13 +57,12 @@ class QuestionView extends React.Component {
           questionState={this.state}
           toggleModal={this.toggleModal.bind(this)} />}
 
-          <AnswerIndexContainer question={this.question}/>
+          <AnswerIndexContainer question={this.props.question}/>
           {this.state.editorIsOpen && <AnswerEditor
           question={this.props.question}
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor.bind(this)}/>}
-
       </div>
     );
   }

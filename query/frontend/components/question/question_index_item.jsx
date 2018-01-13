@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AnswerEditor from '../answer/answer_editor';
 import Avatar from 'react-avatar';
 import CommentFormContainer from '../comment/comment_form_container';
@@ -84,7 +84,7 @@ class QuestionIndexItem extends React.Component {
             </div>
           </div>
           <div className="comment-section">
-            <div className="comment-form"><CommentFormContainer id={answer.id}/></div>
+            <CommentFormContainer id={answer.id}/>
           </div>
           <div className="comment-index">
             <div className="comment-index-container"><CommentIndexContainer answer={answer}/></div>
@@ -95,4 +95,4 @@ class QuestionIndexItem extends React.Component {
   }
 }
 
-export default (QuestionIndexItem);
+export default QuestionIndexItem;

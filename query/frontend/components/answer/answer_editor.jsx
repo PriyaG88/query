@@ -26,7 +26,6 @@ class AnswerEditor extends React.Component {
       'link', 'image', 'video'
     ];
   }
-  //code inspired by https://codepen.io/alexkrolick/pen/xgyOXQ?editors=0010#0
 
   handleChange(html) {
     this.setState({editorHtml: html});

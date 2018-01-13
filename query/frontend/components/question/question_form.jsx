@@ -44,7 +44,7 @@ class QuestionForm extends Component {
         <div className="modal-content">
           <span onClick={this.handleClick} className="close">&times;</span>
             <form onSubmit={this.handleSubmit}>
-              <textarea className="modal-text"
+              <input className="modal-text"
                 autoFocus="true"
                 width="556"
                 rows="1"
@@ -52,7 +52,7 @@ class QuestionForm extends Component {
                 value={this.state.body}
                 onChange={this.update('body')}
                 placeholder="What is your question?">
-              </textarea>
+              </input>
               <select value={this.state.topic} onChange={this.select}>
                 <option value="General">General</option>
                 <option value="Behavior">Behavior</option>

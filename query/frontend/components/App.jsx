@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Switch } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './session/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
@@ -14,12 +14,12 @@ const App = () => (
     <AuthRoute path="/enter" component={SessionFormContainer} />
     <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
-      <ProtectedRoute path="/topics/:id" component={TopicViewContainer} />
-      <ProtectedRoute path="/questions/:id" component={QuestionViewContainer} />
-      <ProtectedRoute path="/answer" component={QuestionsToAnswerContainer} />
-      <ProtectedRoute exact path="/" component={HomePage} />
+      <Route path="/topics/:id" component={TopicViewContainer} />
+      <Route path="/questions/:id" component={QuestionViewContainer} />
+      <Route path="/answer" component={QuestionsToAnswerContainer} />
+      <Route exact path="/" component={HomePage} />
     </Switch>
   </div>
 );
 
-export default withRouter(connect()(App));
+export default App;
