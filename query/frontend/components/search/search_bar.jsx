@@ -26,16 +26,24 @@ class Search extends React.Component {
     }
   }
 
+  renderResults() {
+    return this.resultsArr.map(question => (
+     <Link to={`/questions/${question.id}`}
+       key={question.id}
+       className="search-item">{question.body}
+     </Link>
+    ));
+  }
+
+  handleSelect() {
+    this.setState({
+      searchTerm: ""
+    });
+  }
+
   render() {
     this.matchResults();
-    const results = this.resultsArr.map(question => (
-      <div>
-       <Link to={`/questions/${question.id}`}
-         key={question.id}
-         className="search-item">{question.body}
-       </Link>
-     </div>
-    ));
+
     return (
       <div className="search-bar-container">
         <div>
@@ -46,7 +54,7 @@ class Search extends React.Component {
           </input>
         </div>
         <div className="search-results">
-          <ul>{results}</ul>
+          <ul onClick={this.handleSelect.bind(this)}>{this.renderResults()}</ul>
         </div>
       </div>
     );
