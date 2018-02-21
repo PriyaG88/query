@@ -30,9 +30,7 @@ class QuestionView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestion(this.props.questionId)
-    .then(question => this.setState({ question})
-    );
+    this.props.fetchQuestion(this.props.questionId);
   }
 
   render() {
