@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchQuestions, updateQuestion, deleteQuestion } from '../../actions/question_actions';
+import {
+  fetchQuestions,
+  updateQuestion,
+  deleteQuestion
+  } from '../../actions/question_actions';
 import { fetchAnswers, createAnswer } from '../../actions/answer_actions';
 import { fetchComments } from '../../actions/comment_actions';
 import { answers, questions, comments } from '../../reducers/selectors';
 import QuestionIndex from './question_index';
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   questions: questions(state),
   answers: answers(state),
   comments: comments(state),

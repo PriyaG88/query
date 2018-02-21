@@ -8,7 +8,7 @@ import { createAnswer } from '../../actions/answer_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
-    question: singleQuestion(state, ownProps.match.params.id),
+    questions: state.entities.questions,
     questionId: parseInt(ownProps.match.params.id)
   };
 };

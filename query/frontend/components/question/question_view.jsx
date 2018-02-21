@@ -29,17 +29,20 @@ class QuestionView extends React.Component {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
-  componentWillMount() {
-    this.props.fetchQuestion(this.props.questionId);
+  componentDidMount() {
+    this.props.fetchQuestion(this.props.questionId)
+    .then(question => this.setState({ question})
+    );
   }
 
   render() {
-    console.log(this.props.question);
+    const id = this.props.questionId;
+    const question = this.props.questions[id];
     return (
       <div>
           <div className="question-show-box">
             <div className="question-text-container">
-              <h1 className="question-text">{this.props.question.body}</h1>
+              <h1 className="question-text">{question.body}</h1>
             </div>
             <div className="answer-btn-container">
               <a className="answer-btn" id="question-show-answer-btn">
@@ -57,9 +60,9 @@ class QuestionView extends React.Component {
           questionState={this.state}
           toggleModal={this.toggleModal.bind(this)} />}
 
-          <AnswerIndexContainer question={this.props.question}/>
+          <AnswerIndexContainer question={question}/>
           {this.state.editorIsOpen && <AnswerEditor
-          question={this.props.question}
+          question={question}
           createAnswer={this.props.createAnswer}
           currentUser={this.props.currentUser}
           toggleEditor={this.toggleEditor.bind(this)}/>}
