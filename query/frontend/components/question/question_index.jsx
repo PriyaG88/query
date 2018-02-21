@@ -8,7 +8,8 @@ class QuestionIndex extends Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.props.fetchQuestions();
     this.props.fetchAnswers();
     this.props.fetchComments();
   }
