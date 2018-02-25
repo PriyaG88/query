@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import QuestionView from './question_view';
 import { singleQuestion } from '../../reducers/selectors';
 import { updateQuestion, fetchQuestion }
-from '../../actions/question_actions';
+  from '../../actions/question_actions';
 import { createAnswer } from '../../actions/answer_actions';
 
 const mapStateToProps = (state, ownProps) => {

@@ -29,9 +29,11 @@ class QuestionView extends React.Component {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchQuestion(this.props.questionId)
-    .then(question => this.setState({ question: this.props.questions[this.props.questionId] }));
+    .then(question => this.setState({
+      question: this.props.questions[this.props.questionId]
+    }));
   }
 
   render() {
@@ -68,13 +70,12 @@ class QuestionView extends React.Component {
             toggleEditor={this.toggleEditor.bind(this)}/>}
         </div>
       );
-    } else {
-      return (
-        <div>
-          loading...
-        </div>
-      );
     }
+    return (
+      <div>
+        loading...
+      </div>
+    );
   }
 }
 
