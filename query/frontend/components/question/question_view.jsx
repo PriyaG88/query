@@ -17,6 +17,14 @@ class QuestionView extends React.Component {
     this.toggleEditor = this.toggleEditor.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.questionId !== nextProps.questionId) {
+      this.setState({
+        question: this.props.questions[nextProps.questionId]
+      });
+    }
+  }
+
   openEditor() {
     this.setState({editorIsOpen: true});
   }
