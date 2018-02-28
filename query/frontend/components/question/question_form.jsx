@@ -35,9 +35,6 @@ class QuestionForm extends Component {
     this.setState({['topic']: e.target.value});
   }
 
-
-
-
   render() {
     return (
       <div id="question-form-modal">
