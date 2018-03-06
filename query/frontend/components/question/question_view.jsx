@@ -61,9 +61,6 @@ class QuestionView extends React.Component {
                   <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
                 </a>
               </div>
-              <a className="edit-btn">
-                <span onClick={this.toggleModal}>Edit</span>
-              </a>
             </div>
 
             {this.state.modalIsOpen && <EditQuestionForm

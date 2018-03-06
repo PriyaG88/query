@@ -48996,15 +48996,6 @@ var QuestionView = function (_React$Component) {
                   'Answer'
                 )
               )
-            ),
-            _react2.default.createElement(
-              'a',
-              { className: 'edit-btn' },
-              _react2.default.createElement(
-                'span',
-                { onClick: this.toggleModal },
-                'Edit'
-              )
             )
           ),
           this.state.modalIsOpen && _react2.default.createElement(_edit_question_form2.default, {
