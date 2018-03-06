@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/lib/Button';
+import Avatar from 'react-avatar';
 
 class QuestionForm extends Component {
   constructor(props) {
@@ -37,14 +37,18 @@ class QuestionForm extends Component {
 
   render() {
     return (
-      <div id="question-form-modal">
+      <div className="question-form-modal">
         <div className="modal-content">
           <span onClick={this.handleClick} className="close">&times;</span>
             <form onSubmit={this.handleSubmit}>
+              <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
+              <span className="user-name">{this.props.currentUser.name} added</span>
+              <br />
               <textarea className="modal-text"
                 value={this.state.body}
                 onChange={this.update('body')}
-                placeholder="What is your question?">
+                placeholder="What is your question?"
+                required>
               </textarea>
               <select value={this.state.topic} onChange={this.select}>
                 <option value="General">General</option>
@@ -53,8 +57,8 @@ class QuestionForm extends Component {
                 <option value="Harry Potter">Harry Potter</option>
                 <option value="Game of Thrones">Game of Thrones</option>
               </select>
-              <Button onClick={this.handleClick}>Cancel</Button>
-              <input type="submit" value="Ask Question"></input>
+              <button onClick={this.handleClick}>Cancel</button>
+              <input className="blue-btn ask-btn" type="submit" value="Ask Question"></input>
             </form>
           </div>
       </div>

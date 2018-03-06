@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#question-form-modal {
-    display: flex;
+.question-form-modal {
     position: fixed;
     color: #333;
     z-index: 1;
@@ -25,6 +24,20 @@
     padding: 20px;
     border: 1px solid #888;
     width: 620px; /* Could be more or less, depending on screen size */
+}
+
+.modal-text {
+  width: 90%;
+  height: 80%;
+  border: 0;
+  border-bottom: 1px solid #e2e2e2;
+  font-weight: bold;
+  font-family: 'q_serif',Georgia,Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+  font-size: 18px;
+}
+
+.modal-text:focus {
+  outline: none;
 }
 
 .close {
@@ -76,8 +89,7 @@
 }
 
 .question-index {
-  margin-top: 100px;
-  margin-left: 300px;
+  margin: 100px auto;
   width: 600px;
   font-size: 15px;
   word-wrap: break-word;
@@ -98,8 +110,6 @@
   background: #fafafa;
   display: inline-block;
 }
-
-
 
 .question {
   font-size: 18px;
@@ -152,17 +162,12 @@
 .questions-to-answer-container {
   background: #fafafa;
   position: relative;
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
   overflow: auto;
 }
 
 .questions-to-answer-index {
-  margin-top: 100px;
+  margin: 100px auto;
   width: 600px;
-  position: absolute;
-  margin-left: 300px;
-
 }
 
 .question-item-link {
@@ -175,6 +180,10 @@
 
 .question-item-link:hover {
   text-decoration: underline;
+}
+
+.ask-btn {
+  float: right;
 }
 
 .answer-btn-container {
