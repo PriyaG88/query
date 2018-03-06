@@ -48585,12 +48585,12 @@ var QuestionForm = function (_Component) {
                 'Game of Thrones'
               )
             ),
+            _react2.default.createElement('input', { className: 'blue-btn ask-btn', type: 'submit', value: 'Ask Question' }),
             _react2.default.createElement(
-              'button',
-              { onClick: this.handleClick },
+              'a',
+              { className: 'cancel-modal-btn', onClick: this.handleClick },
               'Cancel'
-            ),
-            _react2.default.createElement('input', { className: 'blue-btn ask-btn', type: 'submit', value: 'Ask Question' })
+            )
           )
         )
       );
