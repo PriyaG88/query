@@ -57,8 +57,8 @@ class QuestionForm extends Component {
                 <option value="Harry Potter">Harry Potter</option>
                 <option value="Game of Thrones">Game of Thrones</option>
               </select>
-              <button onClick={this.handleClick}>Cancel</button>
               <input className="blue-btn ask-btn" type="submit" value="Ask Question"></input>
+              <a className="cancel-modal-btn" onClick={this.handleClick}>Cancel</a>
             </form>
           </div>
       </div>
