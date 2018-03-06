@@ -4,14 +4,11 @@ import AnswerIndexItem from './answer_index_item';
 class AnswerIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      answers: []
-    };
+  
   }
 
   componentDidMount() {
-    this.props.fetchAnswers()
-    .then(answers => this.setState({ answers }));
+    this.props.fetchAnswers();
   }
 
   render() {
