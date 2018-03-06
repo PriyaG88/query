@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SessionFormContainer from './session/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
