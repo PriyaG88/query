@@ -2,7 +2,7 @@ class Api::AnswersController < ApplicationController
   def index
     @answers = Answer.all
   end
-  
+
   def create
     @answer = Answer.new(answer_params)
     @answer.question = Question.find(answer_params[:question_id])
