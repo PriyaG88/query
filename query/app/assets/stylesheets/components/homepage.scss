@@ -1,5 +1,4 @@
 .feeds-container {
-    margin-top: 7%;
     width: 142px;
     height: 328px;
     float: left;
@@ -7,6 +6,7 @@
     margin-left: 30px;
     clear: left;
     font-size: 13px;
+    position: fixed;
 }
 
 .home-page-container {
