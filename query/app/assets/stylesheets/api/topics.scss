@@ -27,3 +27,10 @@
 .topic-list-item:hover {
   color: #2b6dad;
 }
+
+.topic-list-item:active {
+  background: #ececec;
+  color: #666;
+  border-radius: 3px;
+  padding: 4px 5px;
+}
