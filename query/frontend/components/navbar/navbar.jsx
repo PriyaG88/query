@@ -9,7 +9,8 @@ class NavBar extends React.Component {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
     this.state = {
-    modalIsOpen: false };
+      modalIsOpen: false
+    };
   }
 
   toggleModal() {
