@@ -6,8 +6,7 @@ import QuestionIndexItem from '../question/question_index_item';
 class TopicView extends React.Component {
   constructor(props) {
     super(props);
-    this.topicId = parseInt(this.props.location.pathname.replace(/[^0-9\.]/g, ''), 10);
-    console.log(this.topicId);
+
     this.topics = {
       1: "Behavior",
       2: "Harry Potter",
@@ -17,14 +16,13 @@ class TopicView extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchQuestions();
     this.props.fetchTopics();
   }
 
   topicQuestions(id) {
     const topic = this.props.topics[id - 1];
-    console.log(topic);
     let questions = this.props.questions.filter(question => (
       question.topic === topic.name
     ));
@@ -32,14 +30,14 @@ class TopicView extends React.Component {
   }
 
   render() {
-    const questions = this.topicQuestions(this.topicId);
+    const questions = this.topicQuestions(this.props.topicId);
 
     return (
       <div>
         <div className="question-index-container">
             <ul className="question-index topic-view">
               <div className="question-item-box topic">
-                <h1>{this.topics[this.topicId]}</h1>
+                <h1>{this.topics[this.props.topicId]}</h1>
               </div>
               {questions.map(question => (
                 <QuestionIndexItem
