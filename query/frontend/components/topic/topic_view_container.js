@@ -6,10 +6,11 @@ import { fetchTopics } from '../../actions/topic_actions';
 import { fetchAnswers } from '../../actions/answer_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   questions: questions(state),
   topics: topics(state),
   answers: answers(state),
+  topicId: parseInt(ownProps.match.params.id),
   currentUser: state.session.currentUser
 });
 
