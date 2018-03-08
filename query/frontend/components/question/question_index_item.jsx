@@ -72,11 +72,17 @@ class QuestionIndexItem extends React.Component {
           <div className="answer-section">
             <div className="answer-user-info">
               <div className="avatar">
-                <Avatar name={answer.author.name} size={40} round={true} textSizeRatio={2} />
-                <span className="name">{answer.author.name}</span>
-                <div className="date-answered">
-                  Answered on {date.toDateString()}
+                <Avatar className="answer-avatar"
+                  name={answer.author.name}
+                  size={40}
+                  round={true}
+                  textSizeRatio={2} />
+                <div className="answer-details">
+                  <div className="name">{answer.author.name}</div>
+                  <div className="date-answered">Answered on {date.toDateString()}
+                  </div>
                 </div>
+
               </div>
             </div>
             <div className="question-answer-item">
