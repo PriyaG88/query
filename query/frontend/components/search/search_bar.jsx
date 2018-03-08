@@ -47,11 +47,11 @@ class Search extends React.Component {
     return (
       <div className="search-bar-container">
         <div>
-          <input type="text" className="search-input"
+          <textarea type="text" className="search-input"
             value={this.state.searchTerm}
             placeholder="Search Query"
             onChange={this.update('searchTerm')}>
-          </input>
+          </textarea>
         </div>
         <div className="search-results">
           <ul onClick={this.handleSelect.bind(this)}>{this.renderResults()}</ul>
