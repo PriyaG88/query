@@ -68,23 +68,12 @@
   border: 1px solid #962520;
   background: #b92b27;
   color: #fff;
+  font-size: 14px;
   margin-left: 26px;
   margin-right: 26px;
 }
 
-.search-input {
-  width: 337px;
-  height: 20px;
-  border: 1px solid #e2e2e2;
-  border-radius: 4px;
-  padding-left: 26px;
-  background: url(//qsf.ec.quoracdn.net/-3-images.new_grid.QuoraSearch.png-26-cadc30f3f88e3504.png) no-repeat 8px center;
-  background-size: 13px;
-}
-
-.search-input.text {
-  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3);
-  box-sizing: border-box;
-  font-size: 15px;
-  line-height: 1.4;
+.navbar-avatar {
+  cursor: pointer;
+  margin-left: 26px;
 }
