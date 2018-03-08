@@ -22,9 +22,9 @@ class TopicView extends React.Component {
   }
 
   topicQuestions(id) {
-    const topic = this.props.topics[id - 1];
+    const topic = this.topics[id];
     let questions = this.props.questions.filter(question => (
-      question.topic === topic.name
+      question.topic === topic
     ));
     return questions;
   }
