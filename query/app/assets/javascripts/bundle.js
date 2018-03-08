@@ -338,7 +338,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -806,7 +806,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var _prodInvariant = __webpack_require__(44);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 
 var invariant = __webpack_require__(22);
 var warning = __webpack_require__(21);
@@ -1532,6 +1532,80 @@ module.exports = ReactUpdates;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+
+
+/**
+ * Keeps track of the current owner.
+ *
+ * The current owner is the component who should own any components that are
+ * currently being constructed.
+ */
+var ReactCurrentOwner = {
+  /**
+   * @internal
+   * @type {ReactComponent}
+   */
+  current: null
+};
+
+module.exports = ReactCurrentOwner;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+
+/***/ }),
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1588,80 +1662,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-
-
-/**
- * Keeps track of the current owner.
- *
- * The current owner is the component who should own any components that are
- * currently being constructed.
- */
-var ReactCurrentOwner = {
-  /**
-   * @internal
-   * @type {ReactComponent}
-   */
-  current: null
-};
-
-module.exports = ReactCurrentOwner;
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
 
 /***/ }),
 /* 17 */
@@ -1890,7 +1890,7 @@ var _assign = __webpack_require__(6);
 
 var PooledClass = __webpack_require__(37);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var warning = __webpack_require__(3);
 
 var didWarnForAddedNewProperty = false;
@@ -3209,7 +3209,7 @@ module.exports = React;
 
 var _assign = __webpack_require__(54);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 
 var warning = __webpack_require__(21);
 var canDefineProperty = __webpack_require__(69);
@@ -8598,7 +8598,7 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactInstanceMap = __webpack_require__(58);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactUpdates = __webpack_require__(13);
@@ -8836,7 +8836,7 @@ module.exports = ReactUpdateQueue;
 
 var _assign = __webpack_require__(6);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var warning = __webpack_require__(3);
 
 var validateDOMNesting = emptyFunction;
@@ -11250,7 +11250,7 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(9);
 var ReactElement = __webpack_require__(36);
 
@@ -12995,7 +12995,7 @@ module.exports = ReactHostComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var REACT_ELEMENT_TYPE = __webpack_require__(322);
 
 var getIteratorFn = __webpack_require__(323);
@@ -13272,7 +13272,7 @@ var _assign = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 var Transaction = __webpack_require__(71);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -13339,7 +13339,7 @@ module.exports = ReactDefaultBatchingStrategy;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -13593,7 +13593,7 @@ var DOMLazyTree = __webpack_require__(45);
 var DOMProperty = __webpack_require__(27);
 var React = __webpack_require__(35);
 var ReactBrowserEventEmitter = __webpack_require__(75);
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(194);
 var ReactDOMFeatureFlags = __webpack_require__(350);
@@ -28432,7 +28432,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _answer_editor = __webpack_require__(144);
 
@@ -29096,7 +29096,7 @@ module.exports = PooledClass;
 
 var _prodInvariant = __webpack_require__(44);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var REACT_ELEMENT_TYPE = __webpack_require__(163);
 
 var getIteratorFn = __webpack_require__(164);
@@ -33450,7 +33450,7 @@ var DOMLazyTree = __webpack_require__(45);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(294);
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var invariant = __webpack_require__(2);
 
 var Danger = {
@@ -33872,7 +33872,7 @@ var ReactInstrumentation = __webpack_require__(10);
 var ReactMultiChild = __webpack_require__(316);
 var ReactServerRenderingTransaction = __webpack_require__(188);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var escapeTextContentForBrowser = __webpack_require__(74);
 var invariant = __webpack_require__(2);
 var isEventSupported = __webpack_require__(100);
@@ -35868,7 +35868,7 @@ module.exports = function(isValidElement) {
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 var assign = __webpack_require__(6);
@@ -36782,11 +36782,11 @@ var ReactComponentEnvironment = __webpack_require__(106);
 var ReactInstanceMap = __webpack_require__(58);
 var ReactInstrumentation = __webpack_require__(10);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(38);
 var ReactChildReconciler = __webpack_require__(317);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var flattenChildren = __webpack_require__(324);
 var invariant = __webpack_require__(2);
 
@@ -37388,7 +37388,7 @@ var _prodInvariant = __webpack_require__(4),
 
 var React = __webpack_require__(35);
 var ReactComponentEnvironment = __webpack_require__(106);
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactErrorUtils = __webpack_require__(98);
 var ReactInstanceMap = __webpack_require__(58);
 var ReactInstrumentation = __webpack_require__(10);
@@ -40414,7 +40414,7 @@ var SyntheticTransitionEvent = __webpack_require__(348);
 var SyntheticUIEvent = __webpack_require__(57);
 var SyntheticWheelEvent = __webpack_require__(349);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var getEventCharCode = __webpack_require__(114);
 var invariant = __webpack_require__(2);
 
@@ -41204,7 +41204,7 @@ module.exports = adler32;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstanceMap = __webpack_require__(58);
 
@@ -41547,7 +41547,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(8);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _App = __webpack_require__(419);
 
@@ -47550,7 +47550,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _route_util = __webpack_require__(420);
 
@@ -47617,7 +47617,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(8);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48196,7 +48196,7 @@ var _reactDom = __webpack_require__(96);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _reactAvatar = __webpack_require__(30);
 
@@ -48336,13 +48336,16 @@ var NavBar = function (_React$Component) {
           null,
           _react2.default.createElement(_searchbar_container2.default, null)
         ),
-        _react2.default.createElement(_reactAvatar2.default, {
-          className: 'avatar navbar-avatar',
-          onClick: this.toggleDropDown,
-          name: this.props.currentUser.name,
-          size: 30,
-          round: true,
-          textSizeRatio: 2 }),
+        _react2.default.createElement(
+          'a',
+          { onClick: this.toggleDropDown },
+          _react2.default.createElement(_reactAvatar2.default, {
+            className: 'avatar navbar-avatar',
+            name: this.props.currentUser.name,
+            size: 30,
+            round: true,
+            textSizeRatio: 2 })
+        ),
         this.state.dropDownIsOpen && _react2.default.createElement(_UserDropDown2.default, {
           toggleDropDown: this.toggleDropDown,
           logout: this.handleLogout }),
@@ -48352,11 +48355,6 @@ var NavBar = function (_React$Component) {
             className: 'ask-question-btn',
             onClick: this.toggleModal },
           'Add Question'
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.handleLogout },
-          'Logout'
         ),
         this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, {
           className: 'question-modal',
@@ -50692,7 +50690,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50821,7 +50819,7 @@ var UserDropDown = function UserDropDown(props) {
     { className: "user-dropdown" },
     _react2.default.createElement(
       "span",
-      { onClick: props.logout },
+      { className: "user-logout", onClick: props.logout },
       "Logout"
     )
   );
@@ -58376,7 +58374,7 @@ var _topic_actions = __webpack_require__(93);
 
 var _answer_actions = __webpack_require__(53);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58427,7 +58425,7 @@ var _topic_index_container = __webpack_require__(252);
 
 var _topic_index_container2 = _interopRequireDefault(_topic_index_container);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _question_index_item = __webpack_require__(253);
 
@@ -58570,7 +58568,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58906,9 +58904,13 @@ var QuestionModal = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'user-prompt' },
-          _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 20, round: true, textSizeRatio: 2 }),
+          _react2.default.createElement(_reactAvatar2.default, {
+            name: this.props.currentUser.name,
+            size: 20,
+            round: true,
+            textSizeRatio: 2 }),
           _react2.default.createElement(
-            'a',
+            'span',
             { className: 'user-name' },
             this.props.currentUser.name
           ),
@@ -59095,7 +59097,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(16);
 
 var _answer_editor = __webpack_require__(144);
 
