@@ -1,21 +1,33 @@
- import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionFormContainer from '../question/question_form_container';
 import { NavLink, Link } from 'react-router-dom';
+import Avatar from 'react-avatar';
+import QuestionFormContainer from '../question/question_form_container';
 import SearchBarContainer from '../search/searchbar_container';
+import UserDropDown from '../ui/UserDropDown';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.toggleDropDown = this.toggleDropDown.bind(this);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      dropDownIsOpen: false
     };
   }
 
   toggleModal() {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen
+    });
+
+  }
+
+  toggleDropDown() {
+    this.setState({
+      dropDownIsOpen: !this.state.dropDownIsOpen
     });
   }
 
@@ -56,14 +68,32 @@ class NavBar extends React.Component {
             <span className="icon-name">Answer</span>
           </NavLink>
         </div>
-
         <div>
           <SearchBarContainer />
         </div>
-        <button className="ask-question-btn" onClick={this.toggleModal.bind(this)}>Ask Question</button>
+
+        <Avatar
+          className="avatar navbar-avatar"
+          onClick={this.toggleDropDown}
+          name={this.props.currentUser.name}
+          size={30}
+          round={true}
+          textSizeRatio={2} />
+
+        { this.state.dropDownIsOpen &&
+          <UserDropDown
+            toggleDropDown={this.toggleDropDown}
+            logout={this.handleLogout} />
+          }
+        <button
+          className="ask-question-btn"
+          onClick={this.toggleModal}>Add Question</button>
         <button onClick={this.handleLogout}>Logout</button>
-          {this.state.modalIsOpen && <QuestionFormContainer
-          className="question-modal" toggleModal={this.toggleModal.bind(this)}/>}
+          {this.state.modalIsOpen &&
+            <QuestionFormContainer
+              className="question-modal"
+              toggleModal={this.toggleModal}/>
+          }
       </div>
     );
   }
