@@ -13,10 +13,10 @@ const App = () => (
     <AuthRoute path="/enter" component={SessionFormContainer} />
     <ProtectedRoute path="/" component={NavBarContainer} />
     <Switch>
-      <Route path="/topics/:id" component={TopicViewContainer} />
-      <Route path="/questions/:id" component={QuestionViewContainer} />
-      <Route path="/answer" component={QuestionsToAnswerContainer} />
-      <Route exact path="/" component={HomePage} />
+      <ProtectedRoute path="/topics/:id" component={TopicViewContainer} />
+      <ProtectedRoute path="/questions/:id" component={QuestionViewContainer} />
+      <ProtectedRoute path="/answer" component={QuestionsToAnswerContainer} />
+      <ProtectedRoute exact path="/" component={HomePage} />
     </Switch>
   </div>
 );
