@@ -13,6 +13,6 @@ Questions are the foundation of Query as they stimulate conversation and user en
 
 ![](https://github.com/PriyaG88/query/blob/master/docs/screen-clippings/QuestionIndexContainer.png)
 
-Users are able to ask questions via the Ask Question button on the navigation or through the prompt right about the `QuestionIndexContainer`.  Clicking either will open up a question modal where users can type in their question and choose a topic.
+Users are able to ask questions via the Ask Question button on the navigation or through the prompt right above the `QuestionIndexContainer`.  Clicking either will open up a question modal where users can type in their question and choose a topic.
 
 ![](https://github.com/PriyaG88/query/blob/master/docs/screen-clippings/QuestionModal.png)

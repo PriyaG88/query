@@ -4,10 +4,11 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
 
   }
 
@@ -15,6 +16,14 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login(user);
+  }
+
+  handleDemoLogin() {
+    this.setState({
+      email: 'demo@example.com',
+      password: 'password'
+    });
+    this.handleSubmit();
   }
 
 
@@ -59,7 +68,10 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')} />
             </label>
             <br/>
-            <input id="login-button" type="submit" value="Log In" />
+            <input className="login-button" type="submit" value="Log In" />
+            <input
+              onClick={this.handleDemoLogin}
+              className="login-button demo-button" type="submit" value="Demo" />
             {this.displayErrors()}
         </form>
       </div>

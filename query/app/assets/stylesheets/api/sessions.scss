@@ -71,11 +71,15 @@
   border-radius: 3px;
   box-shadow: inset 0 1px 1px rgba(200,200,200,0.3);
   display: block;
+}
 
+.login-input-field:focus, .signup-input-field:focus {
+  outline: none;
+  border-color: #999;
 }
 
 
-#signup-button, #login-button {
+.signup-button, .login-button {
   float: right;
   font-size: 15px;
   line-height: 1.4;
@@ -85,6 +89,11 @@
   color: #fff;
   border: 1px solid #3a66ad;
   margin-bottom: 20px;
+}
+
+.demo-button {
+  display: block;
+  clear: both;
 }
 
 .login-errors, .signup-errors {

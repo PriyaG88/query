@@ -68,7 +68,7 @@ class SignupForm extends React.Component {
               onChange={this.update('password')} />
           </label>
           <br/>
-          <input id="signup-button" type="submit" value="Sign Up" />
+          <input className="signup-button" type="submit" value="Sign Up" />
           {this.displayErrors()}
         </form>
       </div>

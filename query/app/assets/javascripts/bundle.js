@@ -47878,23 +47878,33 @@ var LoginForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call(this, props));
 
     _this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleDemoLogin = _this.handleDemoLogin.bind(_this);
 
     return _this;
   }
 
   _createClass(LoginForm, [{
-    key: "handleSubmit",
+    key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = this.state;
       this.props.login(user);
     }
   }, {
-    key: "update",
+    key: 'handleDemoLogin',
+    value: function handleDemoLogin() {
+      this.setState({
+        email: 'demo@example.com',
+        password: 'password'
+      });
+      this.handleSubmit();
+    }
+  }, {
+    key: 'update',
     value: function update(field) {
       var _this2 = this;
 
@@ -47903,15 +47913,15 @@ var LoginForm = function (_React$Component) {
       };
     }
   }, {
-    key: "displayErrors",
+    key: 'displayErrors',
     value: function displayErrors() {
       if (this.props.formType === this.props.errors.type) {
         return _react2.default.createElement(
-          "ul",
-          { className: "signup-errors" },
+          'ul',
+          { className: 'signup-errors' },
           this.props.errors.errors.map(function (error, i) {
             return _react2.default.createElement(
-              "div",
+              'div',
               null,
               error
             );
@@ -47920,42 +47930,45 @@ var LoginForm = function (_React$Component) {
       }
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "login-form-box" },
+        'div',
+        { className: 'login-form-box' },
         _react2.default.createElement(
-          "form",
+          'form',
           { onSubmit: this.handleSubmit },
           _react2.default.createElement(
-            "h6",
-            { id: "login-header" },
-            "Log In"
+            'h6',
+            { id: 'login-header' },
+            'Log In'
           ),
           _react2.default.createElement(
-            "label",
+            'label',
             null,
-            _react2.default.createElement("input", {
-              className: "login-input-field",
-              type: "text",
+            _react2.default.createElement('input', {
+              className: 'login-input-field',
+              type: 'text',
               value: this.state.email,
-              placeholder: "Email",
+              placeholder: 'Email',
               onChange: this.update('email') })
           ),
-          _react2.default.createElement("br", null),
+          _react2.default.createElement('br', null),
           _react2.default.createElement(
-            "label",
+            'label',
             null,
-            _react2.default.createElement("input", {
-              className: "login-input-field",
-              type: "password",
+            _react2.default.createElement('input', {
+              className: 'login-input-field',
+              type: 'password',
               value: this.state.password,
-              placeholder: "Password",
+              placeholder: 'Password',
               onChange: this.update('password') })
           ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("input", { id: "login-button", type: "submit", value: "Log In" }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { className: 'login-button', type: 'submit', value: 'Log In' }),
+          _react2.default.createElement('input', {
+            onClick: this.handleDemoLogin,
+            className: 'login-button demo-button', type: 'submit', value: 'Demo' }),
           this.displayErrors()
         )
       );
@@ -48131,7 +48144,7 @@ var SignupForm = function (_React$Component) {
               onChange: this.update('password') })
           ),
           _react2.default.createElement("br", null),
-          _react2.default.createElement("input", { id: "signup-button", type: "submit", value: "Sign Up" }),
+          _react2.default.createElement("input", { className: "signup-button", type: "submit", value: "Sign Up" }),
           this.displayErrors()
         )
       );
