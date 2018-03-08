@@ -3,7 +3,7 @@ import React from 'react';
 const UserDropDown = props => {
   return (
     <div className="user-dropdown">
-      <span onClick={props.logout}>Logout</span>
+      <span className="user-logout" onClick={props.logout}>Logout</span>
     </div>
   );
 };
