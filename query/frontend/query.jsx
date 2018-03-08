@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import { fetchTopics } from './actions/topic_actions';
 import { fetchQuestions } from './actions/question_actions';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   let store;
 
   if (window.currentUser) {
