@@ -4,7 +4,7 @@ import AnswerIndexItem from './answer_index_item';
 class AnswerIndex extends React.Component {
   constructor(props) {
     super(props);
-  
+
   }
 
   componentDidMount() {
@@ -32,8 +32,5 @@ class AnswerIndex extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-
-};
 
 export default AnswerIndex;
