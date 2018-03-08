@@ -18,13 +18,18 @@ class QuestionModal extends Component {
     return (
       <div className="ask-question">
         <div className="user-prompt">
-          <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
-          <a className="user-name">{this.props.currentUser.name}</a>
+          <Avatar
+            name={this.props.currentUser.name}
+            size={20}
+            round={true}
+            textSizeRatio={2} />
+          <span className="user-name">{this.props.currentUser.name}</span>
           <br/>
           <div className="user-prompt-text" onClick={this.toggleModal.bind(this)}>
             What is your question?
           </div>
-          {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
+          {this.state.modalIsOpen &&
+            <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
         </div>
       </div>
     );
