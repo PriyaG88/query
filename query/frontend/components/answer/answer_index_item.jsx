@@ -12,13 +12,14 @@ class AnswerIndexItem extends React.Component {
 
 
   render() {
+    const author = this.props.answer.author.name;
 
     return (
       <div className="answer-item-index">
         <div className="avatar">
-          <Avatar name={this.props.currentUser.name} size={40} round={true} textSizeRatio={2} />
+          <Avatar name={author} size={40} round={true} textSizeRatio={2} />
         </div>
-        <div className="asker-name">{this.props.currentUser.name}</div>
+        <div className="asker-name">{author}</div>
         {this.answer.body}
         <div className="comment-section">
           <div className="comment-form"><CommentFormContainer id={this.answer.id}/></div>

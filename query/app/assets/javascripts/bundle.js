@@ -58044,6 +58044,7 @@ var AnswerIndexItem = function (_React$Component) {
   _createClass(AnswerIndexItem, [{
     key: 'render',
     value: function render() {
+      var author = this.props.answer.author.name;
 
       return _react2.default.createElement(
         'div',
@@ -58051,12 +58052,12 @@ var AnswerIndexItem = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'avatar' },
-          _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 40, round: true, textSizeRatio: 2 })
+          _react2.default.createElement(_reactAvatar2.default, { name: author, size: 40, round: true, textSizeRatio: 2 })
         ),
         _react2.default.createElement(
           'div',
           { className: 'asker-name' },
-          this.props.currentUser.name
+          author
         ),
         this.answer.body,
         _react2.default.createElement(
