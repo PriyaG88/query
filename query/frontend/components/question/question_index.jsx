@@ -14,6 +14,14 @@ class QuestionIndex extends Component {
     this.props.fetchComments();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.questions.length !== nextProps.questions.length ) {
+      this.props.fetchQuestions();
+    } else if (this.props.answers.length !== nextProps.answers.length ) {
+      this.props.fetchAnswers();
+    }
+  }
+
   render() {
     const questions = this.props.questions.reverse().map(question => (
       <QuestionIndexItem

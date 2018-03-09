@@ -58806,6 +58806,15 @@ var QuestionIndex = function (_Component) {
       this.props.fetchComments();
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.questions.length !== nextProps.questions.length) {
+        this.props.fetchQuestions();
+      } else if (this.props.answers.length !== nextProps.answers.length) {
+        this.props.fetchAnswers();
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
