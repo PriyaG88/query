@@ -47,7 +47,7 @@ class AnswerEditor extends React.Component {
   render() {
 
     return (
-      <div className="editor" className="question-editor">
+      <div className="editor question-editor">
         <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
