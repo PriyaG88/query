@@ -72,20 +72,21 @@ class NavBar extends React.Component {
           <SearchBarContainer />
         </div>
 
-        <a onClick={this.toggleDropDown}>
-          <Avatar
-            className="avatar navbar-avatar"
-            name={this.props.currentUser.name}
-            size={30}
-            round={true}
-            textSizeRatio={2} />
-        </a>
-
-        { this.state.dropDownIsOpen &&
-          <UserDropDown
-            toggleDropDown={this.toggleDropDown}
-            logout={this.handleLogout} />
-          }
+        <div className="header-nav-item nav-avatar">
+          <a onClick={this.toggleDropDown}>
+            <Avatar
+              className="avatar navbar-avatar"
+              name={this.props.currentUser.name}
+              size={30}
+              round={true}
+              textSizeRatio={2} />
+          </a>
+          { this.state.dropDownIsOpen &&
+            <UserDropDown
+              toggleDropDown={this.toggleDropDown}
+              logout={this.handleLogout} />
+            }
+        </div>
         <button
           className="ask-question-btn"
           onClick={this.toggleModal}>Add Question</button>
