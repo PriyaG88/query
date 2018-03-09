@@ -4,13 +4,9 @@
 .editor {
   stroke: #e2e2e2;
   background-color: white;
-  white-space: pre-wrap;
-  tab-size: 4;
-  position: relative;
   box-sizing: border-box;
-  width: 600px;
-  margin-left: 180px;
-  padding: 44px 0 0;
+  width: 100%;
+  margin-top: 5px;
   transition: border-color .2s ease-in-out 0s;
 
 }
