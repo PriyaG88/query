@@ -61,6 +61,11 @@ class QuestionView extends React.Component {
                   <span onClick={this.toggleEditor} className="answer-button-text">Answer</span>
                 </a>
               </div>
+              {this.state.editorIsOpen && <AnswerEditor
+              question={question}
+              createAnswer={this.props.createAnswer}
+              currentUser={this.props.currentUser}
+              toggleEditor={this.toggleEditor.bind(this)}/>}
             </div>
 
             {this.state.modalIsOpen && <EditQuestionForm
@@ -70,11 +75,7 @@ class QuestionView extends React.Component {
             toggleModal={this.toggleModal.bind(this)} />}
 
             <AnswerIndexContainer question={question}/>
-            {this.state.editorIsOpen && <AnswerEditor
-            question={question}
-            createAnswer={this.props.createAnswer}
-            currentUser={this.props.currentUser}
-            toggleEditor={this.toggleEditor.bind(this)}/>}
+
         </div>
       );
     }
