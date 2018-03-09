@@ -16,10 +16,14 @@ const AnswerIndexItem = props =>  {
       <div className="asker-name">{author}</div>
       {answer.body}
       <div className="comment-section">
-        <div className="comment-form"><CommentFormContainer id={answer.id}/></div>
+        <div className="comment-form">
+          <CommentFormContainer id={answer.id}/>
+        </div>
       </div>
       <div>
-        <div className="comment-index"><CommentIndexContainer answer={answer}/></div>
+        <div className="comment-index">
+          <CommentIndexContainer answer={answer}/>
+        </div>
       </div>
     </div>
   );
