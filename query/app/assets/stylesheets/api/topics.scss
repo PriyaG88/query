@@ -1,14 +1,12 @@
 // Place all the styles related to the api/topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.feed-table {
-  width: 100px;
-  height: 100px
-}
-
-.topic-view {
-  background: transparent;
+.feeds-container {
+  width: 142px;
+  height: 328px;
+  margin: 100px 0 0 30px;
+  font-size: 13px;
+  position: fixed;
 }
 
 .topic {
@@ -20,7 +18,7 @@
 }
 
 .topic-list-item {
-  margin: 10px;
+  margin: 10px 0;
   color: #666;
 }
 
@@ -28,9 +26,23 @@
   color: #2b6dad;
 }
 
-.topic-list-item:active {
-  background: #ececec;
-  color: #666;
-  border-radius: 3px;
-  padding: 4px 5px;
+// .selected-topic  {
+//   background: #ececec;
+//   color: #666;
+//   border-radius: 3px;
+//   padding: 4px 5px;
+// }
+
+.feeds-title {
+  color: #333;
+  font-weight: 500;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.feed {
+  margin-bottom: 4px;
 }
