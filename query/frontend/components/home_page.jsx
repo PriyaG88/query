@@ -9,11 +9,9 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className='home-page-container'>
-        <div className='wrapper'>
-          <TopicIndexContainer />
-          <QuestionIndexContainer />
-        </div>
+      <div className='homepage-container'>
+        <TopicIndexContainer />
+        <QuestionIndexContainer />
       </div>
     );
   }
