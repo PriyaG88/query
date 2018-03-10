@@ -34,8 +34,9 @@ class TopicView extends React.Component {
 
     return (
       <div>
+        <TopicIndexContainer />
         <div className="question-index-container">
-            <ul className="question-index topic-view">
+            <ul className="question-index">
               <div className="question-item-box topic">
                 <h1>{this.topics[this.props.topicId]}</h1>
               </div>
