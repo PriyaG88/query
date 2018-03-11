@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import QuestionIndexContainer from './question/question_index_container';
 import TopicIndexContainer from './topic/topic_index_container';
 
-class HomePage extends React.Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
   }

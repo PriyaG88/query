@@ -48214,8 +48214,6 @@ var _UserDropDown2 = _interopRequireDefault(_UserDropDown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -48268,7 +48266,7 @@ var NavBar = function (_React$Component) {
         { className: 'header' },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/', className: 'header-logo' },
+          { to: '/', className: 'logo-link' },
           'Query'
         ),
         _react2.default.createElement(
@@ -48276,10 +48274,15 @@ var NavBar = function (_React$Component) {
           { className: 'header-nav-item' },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
-            { to: '/', className: 'nav-item-link' },
+            {
+              exact: true,
+              to: '/',
+              className: 'nav-item-link',
+              activeClassName: 'active-nav'
+            },
             _react2.default.createElement(
               'span',
-              _defineProperty({ className: 'home-icon' }, 'className', 'header-icon'),
+              { className: 'header-icon' },
               _react2.default.createElement(
                 'svg',
                 { width: '25px', height: '25px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
@@ -48302,10 +48305,15 @@ var NavBar = function (_React$Component) {
           { className: 'header-nav-item' },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
-            { to: '/answer', className: 'nav-item-link' },
+            {
+              exact: true,
+              to: '/answer',
+              className: 'nav-item-link',
+              activeClassName: 'active-nav'
+            },
             _react2.default.createElement(
               'span',
-              _defineProperty({ className: 'answer-icon' }, 'className', 'header-icon'),
+              { className: 'header-icon' },
               _react2.default.createElement(
                 'svg',
                 { width: '25px', height: '25px', viewBox: '0 0 50 50', version: '1.1', xmlns: 'http://www.w3.org/2000/svg' },
@@ -58474,12 +58482,13 @@ var TopicView = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_topic_index_container2.default, null),
         _react2.default.createElement(
           'div',
           { className: 'question-index-container' },
           _react2.default.createElement(
             'ul',
-            { className: 'question-index topic-view' },
+            { className: 'question-index' },
             _react2.default.createElement(
               'div',
               { className: 'question-item-box topic' },
@@ -58580,8 +58589,8 @@ var TopicIndex = function (_Component) {
   }
 
   _createClass(TopicIndex, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       this.props.fetchTopics();
     }
   }, {
@@ -58592,7 +58601,7 @@ var TopicIndex = function (_Component) {
           'li',
           { key: topic.id, className: 'topic-list-item' },
           _react2.default.createElement(
-            _reactRouterDom.Link,
+            _reactRouterDom.NavLink,
             { to: '/topics/' + topic.id },
             topic.name
           )
@@ -58661,8 +58670,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HomePage = function (_React$Component) {
-  _inherits(HomePage, _React$Component);
+var HomePage = function (_Component) {
+  _inherits(HomePage, _Component);
 
   function HomePage(props) {
     _classCallCheck(this, HomePage);
@@ -58675,19 +58684,15 @@ var HomePage = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'home-page-container' },
-        _react2.default.createElement(
-          'div',
-          { className: 'wrapper' },
-          _react2.default.createElement(_topic_index_container2.default, null),
-          _react2.default.createElement(_question_index_container2.default, null)
-        )
+        { className: 'homepage-container' },
+        _react2.default.createElement(_topic_index_container2.default, null),
+        _react2.default.createElement(_question_index_container2.default, null)
       );
     }
   }]);
 
   return HomePage;
-}(_react2.default.Component);
+}(_react.Component);
 
 exports.default = HomePage;
 
@@ -59006,6 +59011,10 @@ var _question_form_container = __webpack_require__(143);
 
 var _question_form_container2 = _interopRequireDefault(_question_form_container);
 
+var _topic_index_container = __webpack_require__(159);
+
+var _topic_index_container2 = _interopRequireDefault(_topic_index_container);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59056,6 +59065,7 @@ var QuestionsToAnswer = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_topic_index_container2.default, null),
         _react2.default.createElement(
           'div',
           { className: 'questions-to-answer-container' },
@@ -59066,7 +59076,7 @@ var QuestionsToAnswer = function (_Component) {
               'div',
               { className: 'question-to-answer-item-box questions-for-you' },
               _react2.default.createElement('span', { className: 'star-image' }),
-              '   Questions for You'
+              ' Questions for You'
             ),
             this.state.modalIsOpen && _react2.default.createElement(_question_form_container2.default, { toggleModal: this.toggleModal.bind(this) }),
             questions
