@@ -25,6 +25,8 @@ class TopicView extends React.Component {
       this.props.fetchTopic(nextProps.topicId)
       .then(topic => this.setState({ topic: topic.topic
       }));
+    } else if (this.props.answers.length !== nextProps.answers.length ) {
+      this.props.fetchAnswers();
     }
   }
 

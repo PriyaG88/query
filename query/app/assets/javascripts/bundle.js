@@ -58481,6 +58481,8 @@ var TopicView = function (_React$Component) {
           return _this3.setState({ topic: topic.topic
           });
         });
+      } else if (this.props.answers.length !== nextProps.answers.length) {
+        this.props.fetchAnswers();
       }
     }
   }, {
