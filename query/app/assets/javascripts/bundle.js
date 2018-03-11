@@ -3056,6 +3056,10 @@ var topics = exports.topics = function topics(state) {
   return Object.values(state.entities.topics);
 };
 
+var singleTopic = exports.singleTopic = function singleTopic(state, id) {
+  return state.entities.topics[id];
+};
+
 /***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -58374,14 +58378,12 @@ var _topic_actions = __webpack_require__(93);
 
 var _answer_actions = __webpack_require__(53);
 
-var _reactRouterDom = __webpack_require__(16);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     questions: (0, _selectors.questions)(state),
-    topics: (0, _selectors.topics)(state),
+    topic: (0, _selectors.singleTopic)(state, ownProps.match.params.id),
     answers: (0, _selectors.answers)(state),
     topicId: parseInt(ownProps.match.params.id),
     currentUser: state.session.currentUser
@@ -58392,6 +58394,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchQuestions: function fetchQuestions() {
       return dispatch((0, _question_actions.fetchQuestions)());
+    },
+    fetchTopic: function fetchTopic(id) {
+      return dispatch((0, _topic_actions.fetchTopic)(id));
     },
     fetchTopics: function fetchTopics() {
       return dispatch((0, _topic_actions.fetchTopics)());
@@ -58405,7 +58410,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_topic_view2.default));
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_topic_view2.default);
 
 /***/ }),
 /* 617 */
@@ -58450,71 +58455,89 @@ var TopicView = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (TopicView.__proto__ || Object.getPrototypeOf(TopicView)).call(this, props));
 
-    _this.topics = {
-      1: "Behavior",
-      2: "Harry Potter",
-      3: "Computer Science",
-      4: "Game of Thrones",
-      5: "General"
+    _this.state = {
+      topic: ''
     };
+
     return _this;
   }
 
   _createClass(TopicView, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       this.props.fetchQuestions();
-      this.props.fetchTopics();
+      this.props.fetchTopic(this.props.topicId).then(function (topic) {
+        return _this2.setState({ topic: topic.topic
+        });
+      });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this3 = this;
+
+      if (this.props.topicId !== nextProps.topicId) {
+        this.props.fetchTopic(nextProps.topicId).then(function (topic) {
+          return _this3.setState({ topic: topic.topic
+          });
+        });
+      }
     }
   }, {
     key: 'topicQuestions',
-    value: function topicQuestions(id) {
-      var topic = this.topics[id];
-      var questions = this.props.questions.filter(function (question) {
-        return question.topic === topic;
+    value: function topicQuestions() {
+      var _this4 = this;
+
+      return this.props.questions.filter(function (question) {
+        return question.topic === _this4.props.topic.name;
       });
-      return questions;
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this5 = this;
 
-      var questions = this.topicQuestions(this.props.topicId);
+      var questions = this.topicQuestions();
 
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_topic_index_container2.default, null),
-        _react2.default.createElement(
+      if (this.state.topic) {
+        return _react2.default.createElement(
           'div',
-          { className: 'question-index-container' },
+          null,
+          _react2.default.createElement(_topic_index_container2.default, null),
           _react2.default.createElement(
-            'ul',
-            { className: 'question-index' },
+            'div',
+            { className: 'question-index-container' },
             _react2.default.createElement(
-              'div',
-              { className: 'question-item-box topic' },
+              'ul',
+              { className: 'question-index' },
               _react2.default.createElement(
-                'h1',
-                null,
-                this.topics[this.props.topicId]
-              )
-            ),
-            questions.reverse().map(function (question) {
-              return _react2.default.createElement(_question_index_item2.default, {
-                key: question.id,
-                question: question,
-                answers: _this2.props.answers,
-                comments: _this2.props.comments,
-                currentUser: _this2.props.currentUser,
-                updateQuestion: _this2.props.updateQuestion,
-                deleteQuestion: _this2.props.deleteQuestion,
-                createAnswer: _this2.props.createAnswer });
-            })
+                'div',
+                { className: 'question-item-box topic' },
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  this.props.topic.name
+                )
+              ),
+              questions.reverse().map(function (question) {
+                return _react2.default.createElement(_question_index_item2.default, {
+                  key: question.id,
+                  question: question,
+                  answers: _this5.props.answers,
+                  comments: _this5.props.comments,
+                  currentUser: _this5.props.currentUser,
+                  updateQuestion: _this5.props.updateQuestion,
+                  deleteQuestion: _this5.props.deleteQuestion,
+                  createAnswer: _this5.props.createAnswer });
+              })
+            )
           )
-        )
-      );
+        );
+      } else {
+        return null;
+      }
     }
   }]);
 
