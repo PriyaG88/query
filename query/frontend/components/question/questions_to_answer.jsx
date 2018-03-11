@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuestionToAnswerItem from './question_to_answer_item';
 import QuestionFormContainer from './question_form_container';
+import TopicIndexContainer from '../topic/topic_index_container';
 
 class QuestionsToAnswer extends Component {
   constructor(props) {
@@ -31,10 +32,11 @@ class QuestionsToAnswer extends Component {
 
     return (
       <div>
+        <TopicIndexContainer />
         <div className="questions-to-answer-container">
           <ul className="questions-to-answer-index">
             <div className="question-to-answer-item-box questions-for-you">
-              <span className="star-image"></span>   Questions for You
+              <span className="star-image"></span> Questions for You
             </div>
             {this.state.modalIsOpen && <QuestionFormContainer toggleModal={this.toggleModal.bind(this)}/>}
             {questions}
