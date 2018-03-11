@@ -17,3 +17,7 @@ export const comments = state => {
 export const topics = state => {
   return Object.values(state.entities.topics);
 };
+
+export const singleTopic = (state, id) => {
+  return state.entities.topics[id];
+};

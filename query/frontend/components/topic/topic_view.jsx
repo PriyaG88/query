@@ -6,55 +6,63 @@ import QuestionIndexItem from '../question/question_index_item';
 class TopicView extends React.Component {
   constructor(props) {
     super(props);
-
-    this.topics = {
-      1: "Behavior",
-      2: "Harry Potter",
-      3: "Computer Science",
-      4: "Game of Thrones",
-      5: "General"
+    this.state = {
+      topic: ''
     };
+
   }
 
   componentDidMount() {
     this.props.fetchQuestions();
-    this.props.fetchTopics();
+    this.props.fetchTopic(this.props.topicId)
+    .then(topic => this.setState({ topic: topic.topic
+    }));
   }
 
-  topicQuestions(id) {
-    const topic = this.topics[id];
-    let questions = this.props.questions.filter(question => (
-      question.topic === topic
+  componentWillReceiveProps(nextProps) {
+    if (this.props.topicId !== nextProps.topicId ) {
+      this.props.fetchTopic(nextProps.topicId)
+      .then(topic => this.setState({ topic: topic.topic
+      }));
+    }
+  }
+
+  topicQuestions() {
+    return this.props.questions.filter(question => (
+      question.topic === this.props.topic.name
     ));
-    return questions;
   }
 
   render() {
-    const questions = this.topicQuestions(this.props.topicId);
+    const questions = this.topicQuestions();
 
-    return (
-      <div>
-        <TopicIndexContainer />
-        <div className="question-index-container">
-            <ul className="question-index">
-              <div className="question-item-box topic">
-                <h1>{this.topics[this.props.topicId]}</h1>
-              </div>
-              {questions.reverse().map(question => (
-                <QuestionIndexItem
-                  key={question.id}
-                  question={question}
-                  answers={this.props.answers}
-                  comments={this.props.comments}
-                  currentUser={this.props.currentUser}
-                  updateQuestion={this.props.updateQuestion}
-                  deleteQuestion={this.props.deleteQuestion}
-                  createAnswer={this.props.createAnswer} />
-              ))}
-            </ul>
+    if (this.state.topic) {
+      return (
+        <div>
+          <TopicIndexContainer />
+          <div className="question-index-container">
+              <ul className="question-index">
+                <div className="question-item-box topic">
+                  <h1>{this.props.topic.name}</h1>
+                </div>
+                {questions.reverse().map(question => (
+                  <QuestionIndexItem
+                    key={question.id}
+                    question={question}
+                    answers={this.props.answers}
+                    comments={this.props.comments}
+                    currentUser={this.props.currentUser}
+                    updateQuestion={this.props.updateQuestion}
+                    deleteQuestion={this.props.deleteQuestion}
+                    createAnswer={this.props.createAnswer} />
+                ))}
+              </ul>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return null;
+    }
   }
 }
 
