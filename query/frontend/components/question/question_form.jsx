@@ -6,6 +6,7 @@ class QuestionForm extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.select = this.select.bind(this);
     this.state = {
       body: "",
       user_id: this.props.currentUser.id,
