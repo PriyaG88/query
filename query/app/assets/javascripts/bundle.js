@@ -10335,7 +10335,6 @@ var AnswerEditor = function (_React$Component) {
     key: 'handleSubmit',
     value: function handleSubmit(e) {
       e.preventDefault();
-      console.log(this.props);
       var edited = this.state.editorHtml.replace(/<p>/, "").replace(/<\/p>/, "");
       var answer = {
         body: edited,
@@ -50530,6 +50529,7 @@ var QuestionForm = function (_Component) {
 
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.select = _this.select.bind(_this);
     _this.state = {
       body: "",
       user_id: _this.props.currentUser.id,
@@ -58398,6 +58398,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchAnswers: function fetchAnswers() {
       return dispatch((0, _answer_actions.fetchAnswers)());
+    },
+    createAnswer: function createAnswer(answer) {
+      return dispatch((0, _answer_actions.createAnswer)(answer));
     }
   };
 };
@@ -58498,7 +58501,7 @@ var TopicView = function (_React$Component) {
                 this.topics[this.props.topicId]
               )
             ),
-            questions.map(function (question) {
+            questions.reverse().map(function (question) {
               return _react2.default.createElement(_question_index_item2.default, {
                 key: question.id,
                 question: question,
