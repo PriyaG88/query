@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class TopicIndex extends Component {
   constructor(props){
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTopics();
   }
 
   renderTopics() {
     return this.props.topics.map(topic => (
       <li key={topic.id} className="topic-list-item">
-        <Link  to={`/topics/${topic.id}`}>{topic.name}</Link>
+        <NavLink  to={`/topics/${topic.id}`}>{topic.name}</NavLink>
       </li>
     ));
   }
