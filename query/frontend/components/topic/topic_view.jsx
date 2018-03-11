@@ -40,7 +40,7 @@ class TopicView extends React.Component {
               <div className="question-item-box topic">
                 <h1>{this.topics[this.props.topicId]}</h1>
               </div>
-              {questions.map(question => (
+              {questions.reverse().map(question => (
                 <QuestionIndexItem
                   key={question.id}
                   question={question}
