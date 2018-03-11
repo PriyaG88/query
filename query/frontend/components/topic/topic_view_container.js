@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchQuestions: () => dispatch(fetchQuestions()),
   fetchTopic: id => dispatch(fetchTopic(id)),
-  fetchTopics: () => dispatch(fetchTopics()),
   fetchAnswers: () => dispatch(fetchAnswers()),
   createAnswer: answer => dispatch(createAnswer(answer))
 });
