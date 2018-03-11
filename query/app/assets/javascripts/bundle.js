@@ -58398,9 +58398,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchTopic: function fetchTopic(id) {
       return dispatch((0, _topic_actions.fetchTopic)(id));
     },
-    fetchTopics: function fetchTopics() {
-      return dispatch((0, _topic_actions.fetchTopics)());
-    },
     fetchAnswers: function fetchAnswers() {
       return dispatch((0, _answer_actions.fetchAnswers)());
     },
@@ -58468,6 +58465,7 @@ var TopicView = function (_React$Component) {
       var _this2 = this;
 
       this.props.fetchQuestions();
+      this.props.fetchAnswers();
       this.props.fetchTopic(this.props.topicId).then(function (topic) {
         return _this2.setState({ topic: topic.topic
         });

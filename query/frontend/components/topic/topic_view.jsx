@@ -14,6 +14,7 @@ class TopicView extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuestions();
+    this.props.fetchAnswers();
     this.props.fetchTopic(this.props.topicId)
     .then(topic => this.setState({ topic: topic.topic
     }));
