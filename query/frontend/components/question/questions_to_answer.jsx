@@ -31,7 +31,7 @@ class QuestionsToAnswer extends Component {
     ));
 
     return (
-      <div>
+      <div className="content-wrapper">
         <TopicIndexContainer />
         <div className="questions-to-answer-container">
           <ul className="questions-to-answer-index">

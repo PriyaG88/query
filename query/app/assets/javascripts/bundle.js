@@ -59067,7 +59067,7 @@ var QuestionsToAnswer = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'content-wrapper' },
         _react2.default.createElement(_topic_index_container2.default, null),
         _react2.default.createElement(
           'div',
