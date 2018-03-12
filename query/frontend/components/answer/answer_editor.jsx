@@ -33,9 +33,8 @@ class AnswerEditor extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const edited = this.state.editorHtml.replace(/<p>/, "").replace(/<\/p>/, "");
     const answer = {
-      body: edited,
+      body: this.state.editorHtml,
       question_id: this.props.question.id,
       user_id: this.props.currentUser.id
     };
@@ -61,10 +60,6 @@ class AnswerEditor extends React.Component {
     );
   }
 }
-
-AnswerEditor.propTypes = {
-  placeholder: React.PropTypes.string,
-};
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
