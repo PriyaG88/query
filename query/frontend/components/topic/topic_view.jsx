@@ -41,7 +41,7 @@ class TopicView extends React.Component {
 
     if (this.state.topic) {
       return (
-        <div>
+        <div className="topic-view-container">
           <TopicIndexContainer />
           <div className="question-index-container">
               <ul className="question-index">
