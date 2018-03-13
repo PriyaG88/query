@@ -58635,17 +58635,21 @@ var TopicIndex = function (_Component) {
         'div',
         { className: 'feeds-container' },
         _react2.default.createElement(
-          'h4',
-          { className: 'feeds-title' },
-          'Feeds'
-        ),
-        _react2.default.createElement(
           'div',
-          { className: 'feed-list' },
+          { className: 'feed-content-fixed' },
           _react2.default.createElement(
-            'ul',
-            { className: 'topics-list' },
-            this.renderTopics()
+            'h4',
+            { className: 'feeds-title' },
+            'Feeds'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'feed-list' },
+            _react2.default.createElement(
+              'ul',
+              { className: 'topics-list' },
+              this.renderTopics()
+            )
           )
         )
       );

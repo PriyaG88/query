@@ -21,11 +21,13 @@ class TopicIndex extends Component {
   render() {
     return (
       <div className="feeds-container">
-        <h4 className="feeds-title">Feeds</h4>
-        <div className="feed-list">
-          <ul className="topics-list">
-            {this.renderTopics()}
-          </ul>
+        <div className="feed-content-fixed">
+          <h4 className="feeds-title">Feeds</h4>
+          <div className="feed-list">
+            <ul className="topics-list">
+              {this.renderTopics()}
+            </ul>
+          </div>
         </div>
       </div>
     );

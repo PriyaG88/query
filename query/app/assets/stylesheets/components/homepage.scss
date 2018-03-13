@@ -2,4 +2,7 @@
   overflow: auto;
   background: #fafafa;
   min-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
