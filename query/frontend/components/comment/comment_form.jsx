@@ -27,16 +27,15 @@ class CommentForm extends React.Component {
   render() {
     return (
       <div>
-        <span>
-          <div className="avatar">
-            <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
-          </div>
+        <span className="comment-avatar">
+          <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
+        </span>
           <input type="text"
             className="comment-input"
             placeholder="Add a comment..."
             onChange={this.update('body')}
             value={this.state.body}></input>
-        </span>
+
         <button
           className="comment-btn"
           onClick={this.handleSubmit}>Comment
