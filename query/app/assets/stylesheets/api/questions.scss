@@ -114,7 +114,7 @@
 }
 
 .user-prompt {
-  min-height: 110px;
+  min-height: 70px;
   margin-top: 0;
   background-color: #fff;
   border-radius: 4px;
@@ -126,7 +126,6 @@
   padding-top: 16px;
   transition: border-color .5s ease;
   line-height: 1.4;
-  position: relative;
 }
 
 .question-item {
@@ -233,10 +232,6 @@
   font-weight: bold;
   line-height: 29.9px;
   word-wrap: break-word;
-}
-
-.user-prompt {
-  min-height: 70px;
 }
 
 .user-prompt-text {
