@@ -28430,6 +28430,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
+var _reactHtmlParser = __webpack_require__(690);
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
 var _answer_editor = __webpack_require__(144);
 
 var _answer_editor2 = _interopRequireDefault(_answer_editor);
@@ -28602,7 +28606,7 @@ var QuestionIndexItem = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'question-answer-item' },
-              answer.body
+              (0, _reactHtmlParser2.default)(answer.body)
             )
           ),
           _react2.default.createElement(
@@ -58498,7 +58502,7 @@ var TopicView = function (_React$Component) {
       if (this.state.topic) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'topic-view-container' },
           _react2.default.createElement(_topic_index_container2.default, null),
           _react2.default.createElement(
             'div',
