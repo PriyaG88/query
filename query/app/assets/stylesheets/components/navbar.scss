@@ -1,8 +1,5 @@
 .header {
-  display: flex;
   background: #fff;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   min-width: 1000px;
   min-height: 50px;
@@ -14,6 +11,13 @@
   z-index: 1;
   top: 0;
   left: 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-link {
@@ -33,7 +37,7 @@
 
 .nav-item-link.active-nav {
   color:  #b92b27;
-  border-color: #b92b27;
+  border-bottom: 2px solid #b92b27;
 }
 
 .icon-name {
