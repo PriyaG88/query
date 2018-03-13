@@ -58236,18 +58236,14 @@ var CommentForm = function (_React$Component) {
         null,
         _react2.default.createElement(
           'span',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'avatar' },
-            _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 20, round: true, textSizeRatio: 2 })
-          ),
-          _react2.default.createElement('input', { type: 'text',
-            className: 'comment-input',
-            placeholder: 'Add a comment...',
-            onChange: this.update('body'),
-            value: this.state.body })
+          { className: 'comment-avatar' },
+          _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 20, round: true, textSizeRatio: 2 })
         ),
+        _react2.default.createElement('input', { type: 'text',
+          className: 'comment-input',
+          placeholder: 'Add a comment...',
+          onChange: this.update('body'),
+          value: this.state.body }),
         _react2.default.createElement(
           'button',
           {
