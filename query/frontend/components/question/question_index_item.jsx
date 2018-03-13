@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
 import AnswerEditor from '../answer/answer_editor';
 import Avatar from 'react-avatar';
 import CommentFormContainer from '../comment/comment_form_container';
@@ -86,7 +87,7 @@ class QuestionIndexItem extends React.Component {
               </div>
             </div>
             <div className="question-answer-item">
-              {answer.body}
+              {ReactHtmlParser(answer.body)}
             </div>
           </div>
           <div className="comment-section">
