@@ -54012,9 +54012,9 @@ var _reactRouterDom = __webpack_require__(25);
 
 var _route_util = __webpack_require__(451);
 
-var _session_form_container = __webpack_require__(452);
+var _session_form = __webpack_require__(454);
 
-var _session_form_container2 = _interopRequireDefault(_session_form_container);
+var _session_form2 = _interopRequireDefault(_session_form);
 
 var _navbar_container = __webpack_require__(459);
 
@@ -54042,7 +54042,7 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_route_util.AuthRoute, { path: '/enter', component: _session_form_container2.default }),
+    _react2.default.createElement(_route_util.AuthRoute, { path: '/enter', component: _session_form2.default }),
     _react2.default.createElement(_route_util.ProtectedRoute, { path: '/', component: _navbar_container2.default }),
     _react2.default.createElement(
       _reactRouterDom.Switch,
@@ -54106,47 +54106,7 @@ var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRe
 var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Protected));
 
 /***/ }),
-/* 452 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _reactRedux = __webpack_require__(8);
-
-var _session_actions = __webpack_require__(49);
-
-var _session_form = __webpack_require__(454);
-
-var _session_form2 = _interopRequireDefault(_session_form);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    loggedIn: Boolean(state.session.currentUser),
-    errors: state.errors
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    login: function login(user) {
-      return dispatch((0, _session_actions.login)(user));
-    },
-    signup: function signup(user) {
-      return dispatch((0, _session_actions.signup)(user));
-    }
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_session_form2.default);
-
-/***/ }),
+/* 452 */,
 /* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -54304,8 +54264,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var LoginForm = function (_React$Component) {
-  _inherits(LoginForm, _React$Component);
+var LoginForm = function (_Component) {
+  _inherits(LoginForm, _Component);
 
   function LoginForm(props) {
     _classCallCheck(this, LoginForm);
@@ -54415,7 +54375,7 @@ var LoginForm = function (_React$Component) {
   }]);
 
   return LoginForm;
-}(_react2.default.Component);
+}(_react.Component);
 
 exports.default = LoginForm;
 
