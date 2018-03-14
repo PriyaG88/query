@@ -28,7 +28,7 @@
 }
 
 .topic-list-item {
-  margin: 10px 0;
+  margin: 15px 0;
   color: #666;
 }
 
@@ -36,12 +36,14 @@
   color: #2b6dad;
 }
 
-// .selected-topic  {
-//   background: #ececec;
-//   color: #666;
-//   border-radius: 3px;
-//   padding: 4px 5px;
-// }
+.selected-topic  {
+  background: #ececec;
+  color: #666;
+  border-radius: 3px;
+  padding: 4px 5px;
+  display: inline-block;
+  width: 100%;
+}
 
 .feeds-title {
   color: #333;
