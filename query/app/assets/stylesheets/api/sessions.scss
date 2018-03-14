@@ -4,8 +4,10 @@
 
 .background-container {
   background-image: url('quora.png');
-  height: 966px;
+  background-size: cover;
   width: 100%;
+  height: 100%;
+  position: fixed;
 }
 
 .session-form-container {
@@ -41,6 +43,7 @@
   font-family: 'Libre Baskerville', serif;
   font-weight: 700;
   font-size: 70px;
+  margin: auto;
 }
 
 #login-header, #signup-header {
@@ -104,7 +107,4 @@
   border-radius: 4px;
   padding: 8px;
   margin-right: 7px;
-}
-
-.login-form-box, .signup-form-box {
 }
