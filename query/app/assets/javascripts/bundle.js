@@ -54404,7 +54404,11 @@ var LoginForm = function (_React$Component) {
           _react2.default.createElement('input', {
             onClick: this.handleDemoLogin,
             className: 'login-button demo-button', type: 'submit', value: 'Demo' }),
-          this.displayErrors()
+          _react2.default.createElement(
+            'div',
+            null,
+            this.displayErrors()
+          )
         )
       );
     }
@@ -62732,21 +62736,48 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var AnswerIndexItem = function AnswerIndexItem(props) {
   var answer = props.answer;
   var author = answer.author.name;
+  var date = new Date(Date.parse(props.question.created_at));
 
   return _react2.default.createElement(
     'div',
     { className: 'answer-item-index' },
     _react2.default.createElement(
       'div',
-      { className: 'avatar' },
-      _react2.default.createElement(_reactAvatar2.default, { name: author, size: 40, round: true, textSizeRatio: 2 })
+      { className: 'answer-section' },
+      _react2.default.createElement(
+        'div',
+        { className: 'answer-user-info' },
+        _react2.default.createElement(
+          'div',
+          { className: 'avatar' },
+          _react2.default.createElement(_reactAvatar2.default, { className: 'answer-avatar',
+            name: author,
+            size: 40,
+            round: true,
+            textSizeRatio: 2 }),
+          _react2.default.createElement(
+            'div',
+            { className: 'answer-details' },
+            _react2.default.createElement(
+              'div',
+              { className: 'name' },
+              answer.author.name
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'date-answered' },
+              'Answered on ',
+              date.toDateString()
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'question-answer-item' },
+        (0, _reactHtmlParser2.default)(answer.body)
+      )
     ),
-    _react2.default.createElement(
-      'div',
-      { className: 'asker-name' },
-      author
-    ),
-    (0, _reactHtmlParser2.default)(answer.body),
     _react2.default.createElement(
       'div',
       { className: 'comment-section' },
@@ -65899,7 +65930,10 @@ var TopicIndex = function (_Component) {
           { key: topic.id, className: 'topic-list-item' },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
-            { to: '/topics/' + topic.id },
+            {
+              exact: true,
+              activeClassName: 'selected-topic',
+              to: '/topics/' + topic.id },
             topic.name
           )
         );
@@ -65925,6 +65959,18 @@ var TopicIndex = function (_Component) {
             _react2.default.createElement(
               'ul',
               { className: 'topics-list' },
+              _react2.default.createElement(
+                'li',
+                { key: 'top-stories', className: 'topic-list-item' },
+                _react2.default.createElement(
+                  _reactRouterDom.NavLink,
+                  {
+                    exact: true,
+                    activeClassName: 'selected-topic',
+                    to: '/' },
+                  'Top Stories'
+                )
+              ),
               this.renderTopics()
             )
           )
