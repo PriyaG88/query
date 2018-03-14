@@ -35004,7 +35004,7 @@ var QuestionIndexItem = function (_React$Component) {
         );
       }
 
-      var date = new Date(Date.parse(this.props.question.created_at));
+      var date = new Date(Date.parse(answer.created_at));
       return _react2.default.createElement(
         'div',
         { className: 'question-item-box' },
@@ -62736,7 +62736,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var AnswerIndexItem = function AnswerIndexItem(props) {
   var answer = props.answer;
   var author = answer.author.name;
-  var date = new Date(Date.parse(props.question.created_at));
+  var date = new Date(Date.parse(answer.created_at));
 
   return _react2.default.createElement(
     'div',

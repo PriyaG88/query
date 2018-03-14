@@ -60,7 +60,7 @@ class QuestionIndexItem extends React.Component {
       );
     }
 
-    let date = new Date(Date.parse(this.props.question.created_at));
+    let date = new Date(Date.parse(answer.created_at));
     return (
       <div className="question-item-box">
         <div className="question-item">

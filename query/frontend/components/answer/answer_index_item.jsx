@@ -7,7 +7,7 @@ import Avatar from 'react-avatar';
 const AnswerIndexItem = props =>  {
   const answer = props.answer;
   const author = answer.author.name;
-  const date = new Date(Date.parse(props.question.created_at));
+  const date = new Date(Date.parse(answer.created_at));
 
   return (
     <div className="answer-item-index">
