@@ -46,13 +46,12 @@
   margin: auto;
 }
 
-#login-header, #signup-header {
+.login-header, .signup-header {
   font-size: 13px;
   margin-bottom: 8px;
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica;
-  display: flex;
-
+  text-align: left;
 }
 
 .tagline {
