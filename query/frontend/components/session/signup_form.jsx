@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-box">
         <form onSubmit={this.handleSubmit}>
-          <h6 id="signup-header">Sign Up</h6>
+          <h6 className="signup-header">Sign Up</h6>
           <label>
             <input
               className="signup-input-field"
