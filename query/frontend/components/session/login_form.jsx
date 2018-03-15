@@ -18,12 +18,10 @@ class LoginForm extends Component {
     this.props.login(user);
   }
 
-  handleDemoLogin() {
-    this.setState({
-      email: 'demo@example.com',
-      password: 'password'
-    });
-    this.handleSubmit();
+  handleDemoLogin(e) {
+    e.preventDefault();
+    const user = { email: 'demo@example.com', password: 'password'};
+    this.props.login(user);
   }
 
 
@@ -49,7 +47,7 @@ class LoginForm extends Component {
     return (
       <div className="login-form-box">
        <form onSubmit={this.handleSubmit}>
-         <h6 id="login-header">Log In</h6>
+         <h6 className="login-header">Log In</h6>
            <label>
              <input
                className="login-input-field"
