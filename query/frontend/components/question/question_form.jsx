@@ -38,19 +38,23 @@ class QuestionForm extends Component {
 
   render() {
     return (
-      <div className="question-form-modal">
-        <div className="modal-content">
-          <span onClick={this.handleClick} className="close">&times;</span>
-            <form onSubmit={this.handleSubmit}>
-              <Avatar name={this.props.currentUser.name} size={20} round={true} textSizeRatio={2} />
+      <div className="question-form-overlay">
+        <div className="modal-container">
+          <div className="ask-question-modal">
+            <div className="modal-close">
+              <span onClick={this.handleClick} className="close">&times;</span>
+            </div>
+            <div className="modal-content">
+              <Avatar name={this.props.currentUser.name} size={25} round={true} textSizeRatio={2} />
               <span className="user-name">{this.props.currentUser.name} added</span>
-              <br />
               <textarea className="modal-text"
                 value={this.state.body}
                 onChange={this.update('body')}
                 placeholder="What is your question?"
                 required>
               </textarea>
+            </div>
+            <div className="modal-footer">
               <select value={this.state.topic} onChange={this.select}>
                 <option value="General">General</option>
                 <option value="Behavior">Behavior</option>
@@ -58,10 +62,14 @@ class QuestionForm extends Component {
                 <option value="Harry Potter">Harry Potter</option>
                 <option value="Game of Thrones">Game of Thrones</option>
               </select>
-              <input className="blue-btn ask-btn" type="submit" value="Ask Question"></input>
+              <input className="blue-btn ask-btn"
+                type="submit"
+                value="Ask Question"
+                onClick={this.handleSubmit}></input>
               <a className="cancel-modal-btn" onClick={this.handleClick}>Cancel</a>
-            </form>
+            </div>
           </div>
+        </div>
       </div>
     );
   }
