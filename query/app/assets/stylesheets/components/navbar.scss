@@ -62,16 +62,6 @@
   cursor: pointer;
 }
 
-.header-nav-item {
-  line-height: 50px;
-  text-decoration: none;
-
-}
-
-.header-nav-item:hover {
-  background-color: #f5f5f5;
-}
-
 .ask-question-btn {
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
@@ -96,7 +86,7 @@
 
 .user-dropdown {
   position: absolute;
-  top: 56px;
+  top: 40px;
   left: -10px;
   background: #f6f6f6;
   border: 1px solid #ccc;

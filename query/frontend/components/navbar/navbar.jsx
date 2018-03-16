@@ -84,7 +84,7 @@ class NavBar extends React.Component {
             <SearchBarContainer />
 
 
-          <div className="header-nav-item nav-avatar">
+          <div className="nav-avatar">
             <a onClick={this.toggleDropDown}>
               <Avatar
                 className="avatar navbar-avatar"

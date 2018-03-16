@@ -54756,7 +54756,7 @@ var NavBar = function (_React$Component) {
           _react2.default.createElement(_searchbar_container2.default, null),
           _react2.default.createElement(
             'div',
-            { className: 'header-nav-item nav-avatar' },
+            { className: 'nav-avatar' },
             _react2.default.createElement(
               'a',
               { onClick: this.toggleDropDown },
@@ -56985,65 +56985,79 @@ var QuestionForm = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'question-form-modal' },
+        { className: 'question-form-overlay' },
         _react2.default.createElement(
           'div',
-          { className: 'modal-content' },
+          { className: 'modal-container' },
           _react2.default.createElement(
-            'span',
-            { onClick: this.handleClick, className: 'close' },
-            '\xD7'
-          ),
-          _react2.default.createElement(
-            'form',
-            { onSubmit: this.handleSubmit },
-            _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 20, round: true, textSizeRatio: 2 }),
+            'div',
+            { className: 'ask-question-modal' },
             _react2.default.createElement(
-              'span',
-              { className: 'user-name' },
-              this.props.currentUser.name,
-              ' added'
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement('textarea', { className: 'modal-text',
-              value: this.state.body,
-              onChange: this.update('body'),
-              placeholder: 'What is your question?',
-              required: true }),
-            _react2.default.createElement(
-              'select',
-              { value: this.state.topic, onChange: this.select },
+              'div',
+              { className: 'modal-close' },
               _react2.default.createElement(
-                'option',
-                { value: 'General' },
-                'General'
-              ),
-              _react2.default.createElement(
-                'option',
-                { value: 'Behavior' },
-                'Behavior'
-              ),
-              _react2.default.createElement(
-                'option',
-                { value: 'Computer Science' },
-                'Computer Science'
-              ),
-              _react2.default.createElement(
-                'option',
-                { value: 'Harry Potter' },
-                'Harry Potter'
-              ),
-              _react2.default.createElement(
-                'option',
-                { value: 'Game of Thrones' },
-                'Game of Thrones'
+                'span',
+                { onClick: this.handleClick, className: 'close' },
+                '\xD7'
               )
             ),
-            _react2.default.createElement('input', { className: 'blue-btn ask-btn', type: 'submit', value: 'Ask Question' }),
             _react2.default.createElement(
-              'a',
-              { className: 'cancel-modal-btn', onClick: this.handleClick },
-              'Cancel'
+              'div',
+              { className: 'modal-content' },
+              _react2.default.createElement(_reactAvatar2.default, { name: this.props.currentUser.name, size: 25, round: true, textSizeRatio: 2 }),
+              _react2.default.createElement(
+                'span',
+                { className: 'user-name' },
+                this.props.currentUser.name,
+                ' added'
+              ),
+              _react2.default.createElement('textarea', { className: 'modal-text',
+                value: this.state.body,
+                onChange: this.update('body'),
+                placeholder: 'What is your question?',
+                required: true })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-footer' },
+              _react2.default.createElement(
+                'select',
+                { value: this.state.topic, onChange: this.select },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'General' },
+                  'General'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Behavior' },
+                  'Behavior'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Computer Science' },
+                  'Computer Science'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Harry Potter' },
+                  'Harry Potter'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Game of Thrones' },
+                  'Game of Thrones'
+                )
+              ),
+              _react2.default.createElement('input', { className: 'blue-btn ask-btn',
+                type: 'submit',
+                value: 'Ask Question',
+                onClick: this.handleSubmit }),
+              _react2.default.createElement(
+                'a',
+                { className: 'cancel-modal-btn', onClick: this.handleClick },
+                'Cancel'
+              )
             )
           )
         )
