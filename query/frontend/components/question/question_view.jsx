@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AnswerEditor from '../answer/answer_editor';
 import EditQuestionForm from './edit_question_form';
 import AnswerIndexContainer from '../answer/answer_index_container';
+import Loader from '../ui/Loader';
 
-class QuestionView extends React.Component {
+class QuestionView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +14,16 @@ class QuestionView extends React.Component {
     };
 
     this.toggleEditor = this.toggleEditor.bind(this);
+  }
+
+  componentDidMount() {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('question-show-background');
+
+    this.props.fetchQuestion(this.props.questionId)
+    .then(question => this.setState({
+      question: this.props.questions[this.props.questionId]
+    }));
   }
 
   //if user searches for a question while on the question view page,
@@ -27,6 +38,11 @@ class QuestionView extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove('question-show-background');
+  }
+
   openEditor() {
     this.setState({editorIsOpen: true});
   }
@@ -39,19 +55,12 @@ class QuestionView extends React.Component {
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 
-  componentDidMount() {
-    this.props.fetchQuestion(this.props.questionId)
-    .then(question => this.setState({
-      question: this.props.questions[this.props.questionId]
-    }));
-  }
-
   render() {
     const question = this.state.question;
 
     if (question) {
       return (
-        <div>
+        <div className="question-show-container">
             <div className="question-show-box">
               <div className="question-text-container">
                 <h1 className="question-text">{question.body}</h1>
@@ -80,9 +89,7 @@ class QuestionView extends React.Component {
       );
     }
     return (
-      <div>
-        loading...
-      </div>
+      <Loader />
     );
   }
 }
