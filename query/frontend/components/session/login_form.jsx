@@ -46,26 +46,20 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="login-form-box">
-       <form onSubmit={this.handleSubmit}>
-         <h6 className="login-header">Log In</h6>
-           <label>
-             <input
-               className="login-input-field"
-               type="text"
-               value={this.state.email}
-               placeholder="Email"
-               onChange={this.update('email')}/>
-           </label>
-           <br/>
-           <label>
-             <input
-               className="login-input-field"
-               type="password"
-               value={this.state.password}
-               placeholder="Password"
-               onChange={this.update('password')} />
-           </label>
-           <br/>
+        <h6 className="login-header">Log In</h6>
+        <form onSubmit={this.handleSubmit}>
+          <input
+             className="login-input-field"
+             type="text"
+             value={this.state.email}
+             placeholder="Email"
+             onChange={this.update('email')}/>
+          <input
+             className="login-input-field"
+             type="password"
+             value={this.state.password}
+             placeholder="Password"
+             onChange={this.update('password')} />
            <input className="login-button" type="submit" value="Log In" />
            <input
              onClick={this.handleDemoLogin}
@@ -73,7 +67,7 @@ class LoginForm extends Component {
            <div>
              {this.displayErrors()}
            </div>
-       </form>
+         </form>
      </div>
     );
   }
