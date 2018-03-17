@@ -54152,6 +54152,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -54166,37 +54168,76 @@ var _signup_form_container2 = _interopRequireDefault(_signup_form_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SessionForm = function SessionForm(props) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return _react2.default.createElement(
-    'div',
-    { className: 'background-container' },
-    _react2.default.createElement(
-      'div',
-      { className: 'session-form-container' },
-      _react2.default.createElement(
-        'h1',
-        { className: 'main-logo' },
-        'Query'
-      ),
-      _react2.default.createElement(
-        'h5',
-        { className: 'tagline' },
-        'A place to find answers for those burning questions'
-      ),
-      _react2.default.createElement(
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SessionForm = function (_Component) {
+  _inherits(SessionForm, _Component);
+
+  function SessionForm(props) {
+    _classCallCheck(this, SessionForm);
+
+    var _this = _possibleConstructorReturn(this, (SessionForm.__proto__ || Object.getPrototypeOf(SessionForm)).call(this, props));
+
+    _this.state = {
+      showSignup: false
+    };
+    _this.toggleSignup = _this.toggleSignup.bind(_this);
+    return _this;
+  }
+
+  _createClass(SessionForm, [{
+    key: 'toggleSignup',
+    value: function toggleSignup() {
+      this.setState(function (prevState) {
+        return { showSignup: !prevState.showSignup };
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
         'div',
-        { className: 'login-form-container' },
-        _react2.default.createElement(_login_form_container2.default, null)
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'signup-form-container' },
-        _react2.default.createElement(_signup_form_container2.default, null)
-      )
-    )
-  );
-};
+        { className: 'background-container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'session-form-container' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'main-logo' },
+            'Query'
+          ),
+          _react2.default.createElement(
+            'h5',
+            { className: 'tagline' },
+            'A place to find answers for those burning questions'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-wrapper' },
+            _react2.default.createElement(
+              'div',
+              { className: 'signup-form-container' },
+              _react2.default.createElement(_signup_form_container2.default, {
+                toggleSignup: this.toggleSignup,
+                showSignup: this.state.showSignup })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'login-form-container' },
+              _react2.default.createElement(_login_form_container2.default, null)
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return SessionForm;
+}(_react.Component);
 
 exports.default = SessionForm;
 
@@ -54331,35 +54372,25 @@ var LoginForm = function (_Component) {
         'div',
         { className: 'login-form-box' },
         _react2.default.createElement(
+          'h6',
+          { className: 'login-header' },
+          'Log In'
+        ),
+        _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit },
-          _react2.default.createElement(
-            'h6',
-            { className: 'login-header' },
-            'Log In'
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            _react2.default.createElement('input', {
-              className: 'login-input-field',
-              type: 'text',
-              value: this.state.email,
-              placeholder: 'Email',
-              onChange: this.update('email') })
-          ),
-          _react2.default.createElement('br', null),
-          _react2.default.createElement(
-            'label',
-            null,
-            _react2.default.createElement('input', {
-              className: 'login-input-field',
-              type: 'password',
-              value: this.state.password,
-              placeholder: 'Password',
-              onChange: this.update('password') })
-          ),
-          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', {
+            className: 'login-input-field',
+            type: 'text',
+            value: this.state.email,
+            placeholder: 'Email',
+            onChange: this.update('email') }),
+          _react2.default.createElement('input', {
+            className: 'login-input-field',
+            type: 'password',
+            value: this.state.password,
+            placeholder: 'Password',
+            onChange: this.update('password') }),
           _react2.default.createElement('input', { className: 'login-button', type: 'submit', value: 'Log In' }),
           _react2.default.createElement('input', {
             onClick: this.handleDemoLogin,
@@ -54433,11 +54464,13 @@ var _session_actions = __webpack_require__(64);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     loggedIn: Boolean(state.session.currentUser),
     errors: state.errors,
-    formType: "signup"
+    formType: "signup",
+    toggleSignup: ownProps.toggleSignup,
+    showSignup: ownProps.showSignup
   };
 };
 
@@ -54478,8 +54511,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SignupForm = function (_React$Component) {
-  _inherits(SignupForm, _React$Component);
+var SignupForm = function (_Component) {
+  _inherits(SignupForm, _Component);
 
   function SignupForm(props) {
     _classCallCheck(this, SignupForm);
@@ -54488,7 +54521,8 @@ var SignupForm = function (_React$Component) {
 
     _this.state = {
       email: "",
-      name: "",
+      firstName: "",
+      lastName: "",
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
@@ -54499,7 +54533,12 @@ var SignupForm = function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var user = this.state;
+      var fullName = this.state.firstName + " " + this.state.lastName;
+      var user = {
+        name: fullName,
+        email: this.state.email,
+        password: this.state.password
+      };
       this.props.signup(user);
     }
   }, {
@@ -54532,59 +54571,113 @@ var SignupForm = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "signup-form-box" },
-        _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit },
+
+      if (this.props.showSignup) {
+        return _react2.default.createElement(
+          "div",
+          { className: "signup-form-box" },
           _react2.default.createElement(
             "h6",
             { className: "signup-header" },
             "Sign Up"
           ),
           _react2.default.createElement(
-            "label",
-            null,
-            _react2.default.createElement("input", {
-              className: "signup-input-field",
-              type: "email",
-              value: this.state.email,
-              placeholder: "Email",
-              onChange: this.update('email') })
+            "form",
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "div",
+              null,
+              _react2.default.createElement(
+                "label",
+                { className: "form-label" },
+                "First Name",
+                _react2.default.createElement("input", {
+                  className: "signup-input-field",
+                  type: "text",
+                  value: this.state.firstName,
+                  onChange: this.update('firstName') })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              _react2.default.createElement(
+                "label",
+                { className: "form-label" },
+                "Last Name",
+                _react2.default.createElement("input", {
+                  className: "signup-input-field",
+                  type: "text",
+                  value: this.state.lastName,
+                  onChange: this.update('lastName') })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "input-full-width" },
+              _react2.default.createElement(
+                "label",
+                { className: "form-label" },
+                "Email",
+                _react2.default.createElement("input", {
+                  className: "signup-input-field full-width",
+                  type: "email",
+                  value: this.state.email,
+                  onChange: this.update('email') })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "input-full-width" },
+              _react2.default.createElement(
+                "label",
+                { className: "form-label" },
+                "Password",
+                _react2.default.createElement("input", {
+                  className: "signup-input-field full-width",
+                  type: "password",
+                  value: this.state.password,
+                  onChange: this.update('password') })
+              )
+            ),
+            _react2.default.createElement(
+              "p",
+              { className: "signup-prompt" },
+              "By clicking \"Sign Up\" you indicate that you have read and agree to the Terms of Service and Privacy Policy."
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-actions" },
+              _react2.default.createElement(
+                "a",
+                { className: "signup-cancel", onClick: this.props.toggleSignup },
+                "Cancel"
+              ),
+              _react2.default.createElement("input", { className: "signup-button", type: "submit", value: "Sign Up" })
+            )
           ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "label",
-            null,
-            _react2.default.createElement("input", {
-              className: "signup-input-field",
-              type: "text",
-              value: this.state.name,
-              placeholder: "Name",
-              onChange: this.update('name') })
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "label",
-            null,
-            _react2.default.createElement("input", {
-              className: "signup-input-field",
-              type: "password",
-              value: this.state.password,
-              placeholder: "Password",
-              onChange: this.update('password') })
-          ),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement("input", { className: "signup-button", type: "submit", value: "Sign Up" }),
           this.displayErrors()
+        );
+      }
+      return _react2.default.createElement(
+        "div",
+        { className: "signup-prompt" },
+        _react2.default.createElement(
+          "p",
+          null,
+          _react2.default.createElement(
+            "a",
+            { className: "open-signup", onClick: this.props.toggleSignup },
+            "Continue With Email"
+          ),
+          ". By signing up you indicate that you have read and agree to the Terms of Service and Privacy Policy."
         )
       );
     }
   }]);
 
   return SignupForm;
-}(_react2.default.Component);
+}(_react.Component);
 
 exports.default = SignupForm;
 
