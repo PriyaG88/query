@@ -39,9 +39,8 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="header">
-        <div className="header-content">
+        <div className="header-all">
           <Link to="/" className="logo-link">Query</Link>
-
             <NavLink
               exact={true}
               to="/"
@@ -56,9 +55,7 @@ class NavBar extends React.Component {
                 </svg>
                 <span className="icon-name">Home</span>
               </span>
-
             </NavLink>
-
 
             <NavLink
               exact={true}
@@ -79,34 +76,33 @@ class NavBar extends React.Component {
                 </svg>
                 <span className="icon-name">Answer</span>
               </span>
-
             </NavLink>
             <SearchBarContainer />
 
 
-          <div className="nav-avatar">
-            <a onClick={this.toggleDropDown}>
-              <Avatar
-                className="avatar navbar-avatar"
-                name={this.props.currentUser.name}
-                size={30}
-                round={true}
-                textSizeRatio={2} />
-            </a>
-            { this.state.dropDownIsOpen &&
-              <UserDropDown
-                toggleDropDown={this.toggleDropDown}
-                logout={this.handleLogout} />
+            <div className="nav-avatar">
+              <a onClick={this.toggleDropDown}>
+                <Avatar
+                  className="avatar navbar-avatar"
+                  name={this.props.currentUser.name}
+                  size={30}
+                  round={true}
+                  textSizeRatio={2} />
+              </a>
+              { this.state.dropDownIsOpen &&
+                <UserDropDown
+                  toggleDropDown={this.toggleDropDown}
+                  logout={this.handleLogout} />
+                }
+            </div>
+            <button
+              className="ask-question-btn"
+              onClick={this.toggleModal}>Add Question</button>
+              {this.state.modalIsOpen &&
+                <QuestionFormContainer
+                  className="question-modal"
+                  toggleModal={this.toggleModal}/>
               }
-          </div>
-          <button
-            className="ask-question-btn"
-            onClick={this.toggleModal}>Add Question</button>
-            {this.state.modalIsOpen &&
-              <QuestionFormContainer
-                className="question-modal"
-                toggleModal={this.toggleModal}/>
-            }
         </div>
       </div>
     );
