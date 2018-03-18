@@ -13,9 +13,11 @@
   left: 0;
 }
 
-.header-content {
+.header-all {
+  width: 1000px;
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
 }
