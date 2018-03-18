@@ -66177,7 +66177,7 @@ var _question_index2 = _interopRequireDefault(_question_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state, ownProps) {
+var mapStateToProps = function mapStateToProps(state) {
   return {
     questions: (0, _selectors.questions)(state),
     answers: (0, _selectors.answers)(state),
@@ -66196,12 +66196,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchComments: function fetchComments() {
       return dispatch((0, _comment_actions.fetchComments)());
-    },
-    updateQuestion: function updateQuestion(question) {
-      return dispatch((0, _question_actions.updateQuestion)(question));
-    },
-    deleteQuestion: function deleteQuestion(question) {
-      return dispatch((0, _question_actions.deleteQuestion)(question));
     },
     createAnswer: function createAnswer(answer) {
       return dispatch((0, _answer_actions.createAnswer)(answer));
@@ -66258,54 +66252,39 @@ var QuestionIndex = function (_Component) {
   function QuestionIndex(props) {
     _classCallCheck(this, QuestionIndex);
 
-    var _this = _possibleConstructorReturn(this, (QuestionIndex.__proto__ || Object.getPrototypeOf(QuestionIndex)).call(this, props));
-
-    _this.state = {
-      answers: []
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (QuestionIndex.__proto__ || Object.getPrototypeOf(QuestionIndex)).call(this, props));
   }
 
   _createClass(QuestionIndex, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
       this.props.fetchQuestions();
-      this.props.fetchAnswers().then(function (answers) {
-        return _this2.setState({ answers: Object.values(answers.answers) });
-      });
+      this.props.fetchAnswers();
       this.props.fetchComments();
     }
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      var _this3 = this;
-
       if (this.props.questions.length !== nextProps.questions.length) {
         this.props.fetchQuestions();
       } else if (this.props.answers.length !== nextProps.answers.length) {
-        this.props.fetchAnswers().then(function (answers) {
-          return _this3.setState({ answers: Object.values(answers.answers) });
-        });
+        this.props.fetchAnswers();
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
-      if (this.state.answers.length > 0) {
+      if (this.props.answers.length > 0) {
         var questions = this.props.questions.reverse().map(function (question) {
           return _react2.default.createElement(_question_index_item2.default, {
             key: question.id,
             question: question,
-            answers: _this4.state.answers,
-            comments: _this4.props.comments,
-            currentUser: _this4.props.currentUser,
-            updateQuestion: _this4.props.updateQuestion,
-            deleteQuestion: _this4.props.deleteQuestion,
-            createAnswer: _this4.props.createAnswer });
+            answers: _this2.props.answers,
+            comments: _this2.props.comments,
+            currentUser: _this2.props.currentUser,
+            createAnswer: _this2.props.createAnswer });
         });
 
         return _react2.default.createElement(

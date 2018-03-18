@@ -7,38 +7,33 @@ import Loader from '../ui/Loader';
 class QuestionIndex extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      answers: []
-    };
+
   }
 
   componentDidMount() {
     this.props.fetchQuestions();
-    this.props.fetchAnswers()
-    .then(answers => this.setState({ answers: Object.values(answers.answers) }));
+    this.props.fetchAnswers();
     this.props.fetchComments();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.questions.length !== nextProps.questions.length ) {
+    if (this.props.questions.length !== nextProps.questions.length) {
       this.props.fetchQuestions();
-    } else if (this.props.answers.length !== nextProps.answers.length ) {
-      this.props.fetchAnswers()
-      .then(answers => this.setState({ answers: Object.values(answers.answers) }));
+    }
+    else if (this.props.answers.length !== nextProps.answers.length) {
+      this.props.fetchAnswers();
     }
   }
 
   render() {
-    if (this.state.answers.length > 0) {
+    if (this.props.answers.length > 0) {
       const questions = this.props.questions.reverse().map(question => (
         <QuestionIndexItem
           key={question.id}
           question={question}
-          answers={this.state.answers}
+          answers={this.props.answers}
           comments={this.props.comments}
           currentUser={this.props.currentUser}
-          updateQuestion={this.props.updateQuestion}
-          deleteQuestion={this.props.deleteQuestion}
           createAnswer={this.props.createAnswer} />
       ));
 
