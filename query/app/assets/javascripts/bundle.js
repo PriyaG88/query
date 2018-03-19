@@ -54816,7 +54816,7 @@ var NavBar = function (_React$Component) {
         { className: 'header' },
         _react2.default.createElement(
           'div',
-          { className: 'header-content' },
+          { className: 'header-all' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/', className: 'logo-link' },
