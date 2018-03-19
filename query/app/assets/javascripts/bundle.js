@@ -12846,6 +12846,10 @@ var _reactQuill2 = _interopRequireDefault(_reactQuill);
 
 var _reactRedux = __webpack_require__(8);
 
+var _reactAvatar = __webpack_require__(31);
+
+var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12867,10 +12871,10 @@ var AnswerEditor = function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_this);
 
     _this.modules = {
-      toolbar: [['bold', 'italic', 'underline', 'strike', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], ['link', 'image', 'video'], ['clean']]
+      toolbar: [['bold', 'italic', 'underline', 'strike', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }]]
     };
 
-    _this.formats = ['bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', 'video'];
+    _this.formats = ['bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent'];
     return _this;
   }
 
@@ -12898,19 +12902,24 @@ var AnswerEditor = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'editor question-editor' },
+        _react2.default.createElement('div', { className: 'editor-header' }),
         _react2.default.createElement(_reactQuill2.default, {
           theme: this.state.theme,
           onChange: this.handleChange,
           value: this.state.editorHtml,
-          modules: AnswerEditor.modules,
-          formats: AnswerEditor.formats,
           bounds: '.app',
+          modules: this.modules,
+          formats: this.formats,
           placeholder: 'Write your answer'
         }),
         _react2.default.createElement(
-          'button',
-          { className: 'blue-btn', onClick: this.handleSubmit },
-          'Submit'
+          'div',
+          { className: 'editor-actions' },
+          _react2.default.createElement(
+            'button',
+            { className: 'blue-btn', onClick: this.handleSubmit },
+            'Submit'
+          )
         )
       );
     }

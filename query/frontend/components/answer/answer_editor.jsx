@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import { connect } from 'react-redux';
+import Avatar from 'react-avatar';
+
 
 class AnswerEditor extends React.Component {
   constructor(props) {
@@ -14,16 +16,13 @@ class AnswerEditor extends React.Component {
       toolbar: [
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [{'list': 'ordered'}, {'list': 'bullet'},
-         {'indent': '-1'}, {'indent': '+1'}],
-        ['link', 'image', 'video'],
-        ['clean']
+         {'indent': '-1'}, {'indent': '+1'}]
       ]
     };
 
     this.formats = [
       'bold', 'italic', 'underline', 'strike', 'blockquote',
-      'list', 'bullet', 'indent',
-      'link', 'image', 'video'
+      'list', 'bullet', 'indent'
     ];
   }
 
@@ -46,16 +45,20 @@ class AnswerEditor extends React.Component {
 
     return (
       <div className="editor question-editor">
+        <div className="editor-header">
+        </div>
         <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
           value={this.state.editorHtml}
-          modules={AnswerEditor.modules}
-          formats={AnswerEditor.formats}
           bounds={'.app'}
+          modules={this.modules}
+          formats={this.formats}
           placeholder="Write your answer"
          />
-       <button className="blue-btn" onClick={this.handleSubmit}>Submit</button>
+        <div className="editor-actions">
+          <button className="blue-btn" onClick={this.handleSubmit}>Submit</button>
+        </div>
       </div>
     );
   }

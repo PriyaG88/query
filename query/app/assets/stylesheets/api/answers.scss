@@ -68,3 +68,26 @@
   font-size: 13px;
   color: #999;
 }
+
+.editor-header {
+  height: 24px;
+  background: #f6f6f6;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.ql-container {
+  height: 100px;
+}
+
+.editor-actions {
+  background: #f6f6f6;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
