@@ -21,7 +21,8 @@ class Search extends React.Component {
 
   matchResults() {
     this.resultsArr = [];
-    if (this.state.searchTerm) {
+
+    if (this.state.searchTerm.length >= 2) {
       this.resultsArr = this.props.questions.filter(question => question.body.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
     }
   }

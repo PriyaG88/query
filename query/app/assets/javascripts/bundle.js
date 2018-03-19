@@ -57303,7 +57303,8 @@ var Search = function (_React$Component) {
       var _this3 = this;
 
       this.resultsArr = [];
-      if (this.state.searchTerm) {
+
+      if (this.state.searchTerm.length >= 2) {
         this.resultsArr = this.props.questions.filter(function (question) {
           return question.body.toLowerCase().includes(_this3.state.searchTerm.toLowerCase());
         });
