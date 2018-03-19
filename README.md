@@ -11,7 +11,7 @@ Query is a full-stack application, inspired by Quora, which allows users to ask 
 
 Questions are the foundation of Query as they stimulate conversation and user engagement.  The `QuestionIndexContainer` component is loaded upon successful user login (or signup) via an AJAX get request and all questions are also loaded into the application state via redux.  
 
-![](https://github.com/PriyaG88/query/blob/master/docs/screen-clippings/QuestionIndexContainer.png)
+![](https://github.com/PriyaG88/query/blob/master/docs/screen-clippings/QuestionIndex.png)
 
 Users are able to ask questions via the Ask Question button on the navigation or through the prompt right above the `QuestionIndexContainer`.  Clicking either will open up a question modal where users can type in their question and choose a topic.
 
